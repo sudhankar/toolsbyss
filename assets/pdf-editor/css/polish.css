@@ -1,0 +1,175 @@
+
+.tool-panel,.fin-card,.maker-form,.maker-preview,.converter-pane,.wm-preview,.photo-preview{box-shadow:0 10px 28px rgba(15,23,42,.07);border-radius:18px}
+.tool-panel,.fin-card,.maker-form{padding:22px}
+.tool-panel h2,.fin-card h2{letter-spacing:-.01em}
+.form-grid,.fin-grid{align-items:start}.form-grid>div,.fin-field{min-width:0}.form-grid label,.fin-field label{font-weight:700;color:var(--text-primary)}
+.form-grid input,.form-grid select,.form-grid textarea,.fin-field input,.fin-field select,.fin-field textarea{min-height:44px;border:1px solid var(--border);border-radius:11px;padding:10px 12px;background:var(--bg-card);color:var(--text-primary);box-sizing:border-box}
+.form-grid input[type=range],.fin-field input[type=range]{min-height:0;padding:0}.btn{border-radius:10px}.maker-shell{max-width:1180px}.maker-form{gap:16px}.maker-form input,.maker-form textarea,.maker-form select{min-height:44px}.maker-preview{background:#fff!important}.article,.article-body{max-width:760px;margin-left:auto;margin-right:auto}.blog-hero .container{max-width:1180px}.footer-intro{font-size:.9rem;max-width:38ch;color:var(--text-secondary)}
+.fin-mode{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding:12px 14px;border:1px solid var(--border-soft);border-radius:12px;background:var(--bg-subtle)}.fin-mode-label{font-weight:800}.fin-mode label{display:inline-flex;align-items:center;gap:7px;font-weight:650}
+@media(max-width:700px){.tool-panel,.fin-card,.maker-form{padding:16px}.form-grid,.fin-grid{grid-template-columns:1fr!important}.maker-preview{padding:18px}.article,.article-body{max-width:760px}}
+@media print{body.print-maker *{visibility:hidden!important}body.print-maker .maker-preview,body.print-maker .maker-preview *{visibility:visible!important}body.print-maker .maker-preview{position:absolute;left:0;top:0;width:100%;padding:10mm!important;margin:0!important;border:0!important;box-shadow:none!important}body.print-maker{background:#fff!important}}
+
+.biodata-preview{position:relative;min-height:900px}.biodata-emblem{display:block;width:74px;height:74px;object-fit:contain;margin:0 auto 10px}.biodata-preview.border-classic{border:10px solid #f7f2e8!important;outline:1px solid #8b6f47}.biodata-preview.border-double{border:7px double #8b6f47!important}.biodata-preview.border-ornate{border:3px solid #8b6f47!important;box-shadow:inset 0 0 0 7px #fff,inset 0 0 0 10px #d6b98c!important}.biodata-preview.border-minimal{border-left:5px solid #8b6f47!important}.biodata-preview .biodata-head{border-bottom:1px solid #ddd;padding-bottom:14px;margin-bottom:14px}.biodata-preview .biodata-table th{font-weight:700}.site-share{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.site-share__icon{width:34px;height:34px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border-soft);background:var(--bg-card);color:var(--text-primary)}.site-share__icon svg{width:17px;height:17px;fill:currentColor}.site-share__label{font-size:.8rem;color:var(--text-muted);margin-right:2px}@media(max-width:700px){.site-share__label{display:none}}
+
+/* ToolsBySS v61 — targeted visual polish */
+[data-tool] .tool-panel,
+[data-tool] .fin-card{
+  box-shadow:0 14px 40px rgba(15,23,42,.08);
+  border:1px solid var(--border-soft);
+}
+[data-tool="image-resize-compress"] .tool-panel,
+[data-tool="passport-photo"] .tool-panel,
+[data-tool="image-to-text"] .tool-panel,
+[data-tool="photo-enhancer"] .tool-panel,
+[data-tool="image-watermark-signature"] .tool-panel,
+[data-tool="background-remover"] .tool-panel,
+[data-tool="collage-maker"] .tool-panel,
+[data-tool="resume-maker"] .maker-form,
+[data-tool="resume-maker"] .maker-preview,
+[data-tool="marriage-biodata-maker"] .maker-form,
+[data-tool="marriage-biodata-maker"] .maker-preview{
+  border-radius:20px;
+  background:linear-gradient(180deg,var(--bg-card),var(--bg-elevated));
+}
+[data-tool="image-resize-compress"] .tool-panel,
+[data-tool="passport-photo"] .tool-panel,
+[data-tool="image-to-text"] .tool-panel,
+[data-tool="photo-enhancer"] .tool-panel,
+[data-tool="image-watermark-signature"] .tool-panel,
+[data-tool="background-remover"] .tool-panel,
+[data-tool="collage-maker"] .tool-panel{
+  padding:clamp(18px,3vw,30px);
+}
+[data-tool="image-resize-compress"] canvas,
+[data-tool="passport-photo"] canvas,
+[data-tool="image-to-text"] canvas,
+[data-tool="photo-enhancer"] canvas,
+[data-tool="image-watermark-signature"] canvas,
+[data-tool="background-remover"] canvas,
+[data-tool="collage-maker"] canvas{
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(15,23,42,.10);
+}
+.biodata-theme-gallery{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+  margin-top:10px;
+}
+.biodata-theme-choice{
+  min-height:76px;
+  border:1px solid var(--border-soft);
+  border-radius:12px;
+  background:var(--bg-card);
+  color:var(--text-primary);
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  cursor:pointer;
+  font:inherit;
+}
+.biodata-theme-choice img{width:36px;height:36px;object-fit:contain}
+.biodata-theme-choice.is-selected{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.biodata-emblem{
+  display:block!important;
+  width:78px!important;height:78px!important;
+  object-fit:contain!important;
+  margin:0 auto 16px!important;
+  border:0!important;
+  border-radius:0!important;
+}
+.biodata-preview{
+  position:relative;
+  overflow:hidden;
+}
+.biodata-preview.border-classic{border:8px double #b88a44!important}
+.biodata-preview.border-double{border:5px double #7c5c2e!important}
+.biodata-preview.border-ornate{border:3px solid #b88a44!important;outline:8px solid rgba(184,138,68,.16);outline-offset:-14px}
+.biodata-preview.border-minimal{border:1px solid #c9c9c9!important}
+.biodata-preview .biodata-head{border-bottom:1px solid #ddd;padding-bottom:12px;margin-bottom:8px}
+.biodata-preview .biodata-table th{background:#faf7f1}
+@media(max-width:700px){
+  .biodata-theme-gallery{grid-template-columns:repeat(4,1fr)}
+}
+@media print{
+  body.print-maker{background:#fff!important}
+  body.print-maker>*:not(main){display:none!important}
+  body.print-maker main{display:block!important;margin:0!important;padding:0!important}
+  body.print-maker main>.container{display:block!important;margin:0!important;padding:0!important;max-width:none!important}
+  body.print-maker main>.container>*:not(.maker-grid){display:none!important}
+  body.print-maker .maker-grid{display:block!important;margin:0!important;max-width:none!important}
+  body.print-maker .maker-form{display:none!important}
+  body.print-maker .print-target{display:block!important;width:100%!important;max-width:none!important;min-height:0!important;margin:0!important;padding:12mm!important;box-shadow:none!important}
+  body.print-maker .print-target *{color:#111!important}
+  @page{size:A4;margin:0}
+}
+
+/* Calculator and OCR/image tool visual system */
+[data-tool$="calculator"] .calc-grid,
+[data-tool="nps-calculator"] .calc-grid,
+[data-tool="leave-encashment-calculator"] .calc-grid{
+  gap:16px;
+}
+[data-tool$="calculator"] .calc-card,
+[data-tool="nps-calculator"] .calc-card,
+[data-tool="leave-encashment-calculator"] .calc-card{
+  border-radius:16px;
+  border:1px solid var(--border-soft);
+  background:linear-gradient(180deg,var(--bg-card),var(--bg-elevated));
+  padding:16px;
+  box-shadow:var(--shadow-sm);
+}
+[data-tool="da-arrears-calculator"] .da-calculator,
+[data-tool="gpf-calculator"] .gpf-calculator{
+  border-radius:20px;
+  box-shadow:0 14px 40px rgba(15,23,42,.08);
+}
+[data-tool="image-to-text"] .tool-panel{
+  border-radius:20px;
+  background:linear-gradient(135deg,var(--bg-card),var(--bg-elevated));
+}
+[data-tool="image-to-text"] textarea,
+[data-tool="image-to-text"] .ocr-output{
+  border-radius:14px;
+}
+[data-tool="photo-enhancer"] .form-grid>div,
+[data-tool="image-resize-compress"] .form-grid>div,
+[data-tool="passport-photo"] .form-grid>div,
+[data-tool="collage-maker"] .form-grid>div{
+  background:var(--bg-elevated);
+  border:1px solid var(--border-soft);
+  border-radius:14px;
+  padding:12px;
+}
+/* v68 maker PDF layout: preserve the preview, colours and photo position on A4. */
+.resume-head{display:flex;align-items:flex-start;gap:18px;min-height:90px}.resume-head-copy{flex:1;min-width:0}.resume-photo{width:90px;height:90px;object-fit:cover;border-radius:8px;border:1px solid #ddd;order:2;flex:0 0 90px}.biodata-head-copy{flex:1;min-width:0}.biodata-photo{width:120px!important;height:150px!important;object-fit:cover;border:1px solid #ddd;border-radius:8px;flex:0 0 120px;order:2}.biodata-custom-emblem{margin-top:10px;padding:10px;border:1px dashed var(--border-soft);border-radius:10px;background:var(--bg-subtle)}.biodata-custom-emblem small{display:block;color:var(--text-muted);font-size:.75rem;margin-top:4px}.biodata-custom-emblem label{margin-top:8px}.biodata-custom-emblem output{font-weight:700}.biodata-custom-emblem input[type=range]{min-height:0;padding:0}
+@media print{
+  @page{size:A4 portrait;margin:10mm}
+  body.print-maker{background:#fff!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body.print-maker>*:not(main){display:none!important}
+  body.print-maker main{display:block!important;margin:0!important;padding:0!important}
+  body.print-maker main>.container{display:block!important;margin:0 auto!important;padding:0!important;max-width:190mm!important;width:190mm!important}
+  body.print-maker main>.container>*:not(.maker-grid){display:none!important}
+  body.print-maker .maker-grid{display:block!important;margin:0!important;max-width:none!important}
+  body.print-maker .maker-form{display:none!important}
+  body.print-maker .print-target{display:block!important;box-sizing:border-box!important;width:190mm!important;min-height:277mm!important;max-width:none!important;margin:0 auto!important;padding:7mm!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body.print-maker .print-target *{ -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body.print-maker .biodata-head{display:flex!important;flex-direction:row!important;align-items:flex-start!important;justify-content:space-between!important;gap:12mm!important}
+  body.print-maker .biodata-photo{display:block!important;order:2!important;flex:0 0 120px!important;width:120px!important;height:150px!important}
+  body.print-maker .resume-head{display:flex!important;flex-direction:row!important;align-items:flex-start!important;justify-content:space-between!important}
+  body.print-maker .resume-photo{display:block!important;order:2!important;flex:0 0 90px!important;width:90px!important;height:90px!important}
+}
+@media print{body.print-maker .print-target *{color:inherit!important}}
+/* Share controls: fixed access without occupying page flow. PDF Editor is intentionally excluded. */
+.site-share{position:fixed;right:12px;top:50%;transform:translateY(-50%);z-index:1000;display:flex;flex-direction:column;gap:8px;margin:0;padding:7px;border:1px solid var(--border-soft);border-radius:16px;background:var(--bg-card);box-shadow:var(--shadow-md)}
+body[data-tool="pdf-editor"] .site-share{display:none!important}
+@media(max-width:640px){.site-share{left:0;right:0;bottom:0;top:auto;transform:none;width:100%;box-sizing:border-box;flex-direction:row;justify-content:center;gap:8px;margin:0;padding:7px calc(8px + env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) calc(8px + env(safe-area-inset-left));border-radius:14px 14px 0 0;border-bottom:0}.site-share__label{display:none}.site-share__icon{width:36px;height:36px}}
+@media print{.site-share{display:none!important}}
+
+/* Site-wide heading alignment normalization (content headings follow reading flow). */
+body:not([data-tool="pdf-editor"]) .article h1,body:not([data-tool="pdf-editor"]) .article-body h1,body:not([data-tool="pdf-editor"]) .blog-article h1,body:not([data-tool="pdf-editor"]) main .container>h1,body:not([data-tool="pdf-editor"]) main .container>section>h1{text-align:left!important;margin-left:0;margin-right:0}
+body:not([data-tool="pdf-editor"]) .article h2,body:not([data-tool="pdf-editor"]) .article h3,body:not([data-tool="pdf-editor"]) .article-body h2,body:not([data-tool="pdf-editor"]) .article-body h3,body:not([data-tool="pdf-editor"]) .blog-article h2,body:not([data-tool="pdf-editor"]) .blog-article h3{text-align:left}
+body:not([data-tool="pdf-editor"]) .breadcrumb,body:not([data-tool="pdf-editor"]) .breadcrumbs{text-align:left}

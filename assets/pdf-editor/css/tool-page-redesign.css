@@ -1,0 +1,148 @@
+/* ToolsBySS tool-page structural redesign v111. Scoped to tool pages; PDF Editor is intentionally excluded. */
+.ds-tool-hero{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.65fr);gap:clamp(20px,4vw,54px);align-items:center;overflow:hidden;margin:18px 0 24px;padding:clamp(24px,4vw,46px);border:1px solid #d9e5f6;border-radius:26px;background:radial-gradient(circle at 82% 18%,rgba(105,153,255,.23),transparent 30%),linear-gradient(125deg,#f8fbff 0%,#eef4ff 56%,#e8f0ff 100%);box-shadow:0 14px 38px rgba(31,65,120,.08)}
+.ds-tool-hero:before{content:"";position:absolute;z-index:-1;width:250px;height:250px;border-radius:50%;right:-95px;top:-120px;background:rgba(87,130,224,.11)}
+.ds-tool-hero-copy{min-width:0}.ds-tool-hero h1{margin:0 0 13px;font-size:clamp(1.8rem,3.3vw,2.75rem);line-height:1.12;letter-spacing:-.035em;color:#142b4c}.ds-tool-hero .lead{max-width:65ch;margin:0;color:#465a76;font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.75}.ds-tool-hero .privacy-badge{margin-top:16px}
+.ds-tool-hero-art{position:relative;display:grid;place-items:center;min-height:210px}.ds-hero-document{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;width:min(100%,250px);min-height:190px;padding:24px 22px;border:1px solid rgba(255,255,255,.9);border-radius:18px;background:rgba(255,255,255,.88);box-shadow:0 18px 42px rgba(41,71,124,.16);transform:rotate(3deg)}.ds-hero-category{align-self:flex-start;padding:6px 9px;border-radius:7px;background:#e8efff;color:#2854a1;font-size:.66rem;font-weight:800;letter-spacing:.1em}.ds-hero-art-title{font-size:1rem;font-weight:750;line-height:1.25;color:#18345c}.ds-hero-art-line{height:7px;width:88%;border-radius:9px;background:#dce6f6}.ds-hero-art-line.short{width:58%}.ds-hero-art-stamp{position:absolute;right:17px;bottom:17px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#d9f7e9;color:#14794f;font-size:1.25rem;font-weight:800}.ds-hero-orbit{position:absolute;border:1px solid rgba(64,104,180,.22);border-radius:50%;width:220px;height:150px;transform:rotate(-25deg)}.ds-hero-orbit.two{width:260px;height:185px;transform:rotate(28deg)}
+.ds-tool-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 28px}.ds-tool-feature-card{min-width:0;padding:21px 22px;border:1px solid var(--border-color,#e0e6ef);border-radius:18px;background:var(--card-bg,#fff);box-shadow:0 7px 22px rgba(23,42,74,.045)}.ds-feature-kicker{display:block;margin-bottom:12px;color:#5275b8;font-size:.68rem;font-weight:800;letter-spacing:.12em}.ds-tool-feature-card h2{margin:0 0 9px;font-size:1.05rem;line-height:1.35;color:var(--text-color,#20314b)}.ds-tool-feature-card p{margin:0;color:var(--muted-color,#5e6c80);font-size:.94rem;line-height:1.7;overflow-wrap:anywhere}
+/* Existing explanatory and related-content sections get consistent cards without changing calculator internals. */
+.tool-panel{border-radius:18px}.faq-accordion,.related-grid,.pc-related-grid,.pff-related-grid{gap:14px}.related-grid>*{border-radius:14px}.ds-tool-hero+*{scroll-margin-top:18px}
+.da-page-head,.gpf-page-head{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:28px;margin:18px 0 24px;padding:clamp(24px,4vw,42px);border:1px solid #d9e5f6;border-radius:24px;background:radial-gradient(circle at 85% 15%,rgba(105,153,255,.2),transparent 30%),linear-gradient(125deg,#f8fbff,#eaf1ff);box-shadow:0 12px 32px rgba(31,65,120,.07)}.da-page-head h1,.gpf-page-head h1{margin-top:7px;color:#142b4c;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.14;letter-spacing:-.03em}.da-page-head .lead,.gpf-page-head .lead{max-width:68ch;color:#465a76;line-height:1.75}.da-page-head .privacy-badge,.gpf-page-head .privacy-badge{flex-shrink:0}
+@media(max-width:760px){.ds-tool-hero{grid-template-columns:minmax(0,1fr);padding:24px;border-radius:20px}.ds-tool-hero-art{min-height:175px}.ds-hero-document{min-height:165px;width:min(78%,250px)}.ds-tool-feature-grid{grid-template-columns:minmax(0,1fr);gap:12px}.ds-tool-feature-card{padding:18px}.da-page-head,.gpf-page-head{align-items:flex-start;flex-direction:column;padding:24px;border-radius:20px}.da-page-head .privacy-badge,.gpf-page-head .privacy-badge{white-space:normal}}
+@media(prefers-color-scheme:dark){.ds-tool-hero,.da-page-head,.gpf-page-head{border-color:#293b57;background:radial-gradient(circle at 82% 18%,rgba(105,153,255,.13),transparent 30%),linear-gradient(125deg,#151f30,#1a2940)}.ds-tool-hero h1,.da-page-head h1,.gpf-page-head h1{color:#edf4ff}.ds-tool-hero .lead,.da-page-head .lead,.gpf-page-head .lead{color:#c0cce0}.ds-hero-document{border-color:#34435b;background:#202d41}.ds-hero-art-title{color:#edf4ff}.ds-hero-art-line{background:#3a4a63}.ds-tool-feature-card{background:var(--card-bg,#182232);border-color:#344156}.ds-tool-feature-card h2{color:var(--text-color,#e7edf8)}.ds-tool-feature-card p{color:var(--muted-color,#b8c4d6)}}
+
+/* Tool-specific hero visual language: distinguish document, image, calculator and code workflows. */
+.ds-tool-hero-art:after{content:"";position:absolute;inset:14% 8%;border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(83,127,220,.08));pointer-events:none}
+.ds-tool-hero-art[class*="image"],.ds-tool-hero-art[class*="photo"],.ds-tool-hero-art[class*="signature"],.ds-tool-hero-art[class*="background"]{background:radial-gradient(circle at 25% 30%,rgba(22,163,145,.16),transparent 28%),radial-gradient(circle at 75% 72%,rgba(87,130,224,.17),transparent 34%);border-radius:24px}
+.ds-tool-hero-art[class*="calculator"],.ds-tool-hero-art[class*="gpf"],.ds-tool-hero-art[class*="arrears"],.ds-tool-hero-art[class*="-calculator"] .ds-hero-document{border-color:#c9e9d8}
+.ds-tool-hero-art[class*="qr-code"] .ds-hero-document{background:repeating-conic-gradient(#1b2b44 0 25%,#fff 0 50%) 50%/16px 16px;border:12px solid #fff;min-height:170px;width:170px;justify-content:flex-end}
+.ds-tool-hero-art[class*="qr-code"] .ds-hero-category,.ds-tool-hero-art[class*="qr-code"] .ds-hero-art-title{background:#fff;color:#18345c;padding:5px;border-radius:4px}
+.ds-tool-hero-art[class*="resume"],.ds-tool-hero-art[class*="biodata"] .ds-hero-document{border-top:7px solid #8b6fc5}
+.ds-tool-hero-art[class*="pdf"] .ds-hero-document{border-top:7px solid #e36f63}
+.ds-tool-hero-art[class*="image"] .ds-hero-document{border-top:7px solid #24a58a}
+.ds-tool-hero-art[class*="calculator"] .ds-hero-document{border-top:7px solid #2f9b71}
+.ds-tool-hero h1,.ds-tool-hero .lead{text-align:left!important}
+@media(max-width:860px){.navbar__nav{position:absolute;top:var(--header-h);left:0;right:0}}
+
+/* Distinctive hero motifs for common tool families. */
+.ds-tool-hero-art[class*="job-application"] .ds-hero-document:before,.ds-tool-hero-art[class*="passport"] .ds-hero-document:before{content:"";display:block;width:54px;height:64px;border-radius:9px;background:radial-gradient(circle at 50% 28%,#f2c9a6 0 12px,transparent 13px),linear-gradient(#6c94cb,#6c94cb) center 48px/38px 22px no-repeat,#e9f0fb;margin:0 auto 2px;border:1px solid #d6e2f4}
+.ds-tool-hero-art[class*="signature"] .ds-hero-document:before{content:"〰";font-size:3.4rem;line-height:1.2;text-align:center;color:#243e70;transform:rotate(-9deg);border-bottom:2px solid #b9c8e0}
+.ds-tool-hero-art[class*="collage"] .ds-hero-document:before{content:"";display:block;height:72px;border-radius:8px;background:linear-gradient(90deg,#74a4df 0 32%,transparent 32% 36%,#e9b8a0 36% 66%,transparent 66% 70%,#8ccbb5 70%) top/100% 48% no-repeat,linear-gradient(90deg,#e7c96f 0 48%,transparent 48% 52%,#9f9bd6 52%) bottom/100% 48% no-repeat}
+.ds-tool-hero-art[class*="resume"] .ds-hero-document:before{content:"PROFILE  •  EXPERIENCE  •  SKILLS";font-size:.58rem;font-weight:800;letter-spacing:.04em;color:#6a5aa2;border-bottom:2px solid #ded8f3;padding-bottom:8px}
+.ds-tool-hero-art[class*="biodata"] .ds-hero-document:before{content:"✦  PERSONAL DETAILS  ✦";font-size:.68rem;font-weight:800;text-align:center;color:#8b6f47;border-bottom:1px solid #e7d7bd;padding-bottom:10px}
+.ds-tool-hero-art[class*="age-calculator"] .ds-hero-document:before{content:"YEARS  /  MONTHS  /  DAYS";font-size:.62rem;font-weight:850;color:#27745a;border:1px solid #bde2d0;border-radius:8px;padding:14px 8px;text-align:center;background:#effbf5}
+.ds-tool-hero-art[class*="gpf"] .ds-hero-document:before,.ds-tool-hero-art[class*="arrears"] .ds-hero-document:before{content:"MONTH  |  CREDIT  |  BALANCE";font-size:.58rem;font-weight:800;color:#287450;border-bottom:1px solid #cde9d8;padding:10px 0}
+
+
+/* Tool-specific hero art motifs: vary by actual utility instead of repeating a generic document. */
+.ds-tool-hero-art[class*="ds-art-age"],.ds-tool-hero-art[class*="ds-art-date"]{background:radial-gradient(circle,#dbeafe 0 48%,transparent 49%);border-radius:50%}
+.ds-tool-hero-art[class*="ds-art-age"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-date"] .ds-hero-document{transform:rotate(-3deg);border-top:8px solid #3b82f6}
+.ds-tool-hero-art[class*="ds-art-qr"] .ds-hero-document{transform:rotate(0);border:8px solid #fff;background:repeating-conic-gradient(#172033 0 25%,#fff 0 50%) 0/18px 18px;min-height:200px;justify-content:flex-end}
+.ds-tool-hero-art[class*="ds-art-qr"] .ds-hero-category,.ds-tool-hero-art[class*="ds-art-qr"] .ds-hero-art-title{background:rgba(255,255,255,.94);color:#142b4c;padding:5px;border-radius:4px}
+.ds-tool-hero-art[class*="ds-art-background"],.ds-tool-hero-art[class*="ds-art-photo"],.ds-tool-hero-art[class*="ds-art-image"],.ds-tool-hero-art[class*="ds-art-signature"],.ds-tool-hero-art[class*="ds-art-passport"]{background:linear-gradient(135deg,#d1fae5 0 25%,#dbeafe 25% 50%,#fef3c7 50% 75%,#fce7f3 75%);border-radius:24px}
+.ds-tool-hero-art[class*="ds-art-background"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-photo"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-image"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-signature"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-passport"] .ds-hero-document{border-radius:45% 45% 18px 18px;transform:rotate(-5deg);border:5px solid #fff}
+.ds-tool-hero-art[class*="ds-art-calculator"],.ds-tool-hero-art[class*="ds-art-ppf"],.ds-tool-hero-art[class*="ds-art-gpf"],.ds-tool-hero-art[class*="ds-art-nps"],.ds-tool-hero-art[class*="ds-art-sip"],.ds-tool-hero-art[class*="ds-art-da-"]{background:linear-gradient(135deg,#dcfce7,#dbeafe);border-radius:24px}
+.ds-tool-hero-art[class*="ds-art-calculator"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-ppf"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-gpf"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-nps"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-sip"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-da-"] .ds-hero-document{transform:rotate(0);border-top:10px solid #16a34a;box-shadow:0 16px 32px rgba(22,163,74,.16)}
+.ds-tool-hero-art[class*="ds-art-resume"],.ds-tool-hero-art[class*="ds-art-marriage"],.ds-tool-hero-art[class*="ds-art-biodata"]{background:linear-gradient(135deg,#fce7f3,#fef3c7);border-radius:24px}
+.ds-tool-hero-art[class*="ds-art-resume"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-marriage"] .ds-hero-document,.ds-tool-hero-art[class*="ds-art-biodata"] .ds-hero-document{transform:rotate(2deg);border-left:8px solid #db2777}
+.ds-tool-hero-art[class*="ds-art-pdf"],.ds-tool-hero-art[class*="ds-art-merge"],.ds-tool-hero-art[class*="ds-art-split"],.ds-tool-hero-art[class*="ds-art-rotate"],.ds-tool-hero-art[class*="ds-art-ocr"]{background:linear-gradient(135deg,#dbeafe,#ede9fe);border-radius:24px}
+.ds-tool-hero-art[class*="ds-art-merge"] .ds-hero-document{transform:rotate(-7deg);box-shadow:16px 10px 0 -5px #b8c8e5,0 18px 36px rgba(31,65,120,.16)}
+.ds-tool-hero-art[class*="ds-art-split"] .ds-hero-document{transform:rotate(0);clip-path:polygon(0 0,100% 0,100% 48%,54% 48%,54% 100%,0 100%)}
+.ds-tool-hero-art[class*="ds-art-ocr"] .ds-hero-document{border:2px dashed #7c3aed;transform:rotate(0)}
+.ds-tool-hero-art[class*="ds-art-collage"] .ds-hero-document{background:linear-gradient(90deg,#dbeafe 0 48%,#fce7f3 48% 100%);transform:rotate(-2deg);border:5px solid white}
+.ds-tool-hero-art[class*="ds-art-watermark"] .ds-hero-document{transform:rotate(0);border:2px dashed #0d9488}
+.ds-tool-hero-art[class*="ds-art-compress"] .ds-hero-document{transform:scale(.88) rotate(-4deg);border:4px solid #0d9488}
+.ds-tool-hero-art[class*="ds-art-text"] .ds-hero-document{transform:rotate(0);border-left:8px solid #7c3aed}
+.ds-tool-hero-art[class*="ds-art-converter"] .ds-hero-document{transform:rotate(0);border-top:8px solid #0891b2}
+.ds-tool-hero-art .ds-hero-art-symbol{position:absolute;z-index:3;right:8%;bottom:8%;display:grid;place-items:center;width:64px;height:64px;border-radius:18px;background:#fff;color:#1d4ed8;font-size:1.8rem;font-weight:900;box-shadow:0 12px 28px rgba(15,35,65,.16)}
+
+/* v117: Compare-PDF-inspired consistency for standard tool pages only; PDF Editor intentionally excluded. */
+body:not([data-tool="pdf-editor"]) .ds-tool-feature-grid, body:not([data-tool="pdf-editor"]) .pc-detail-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:24px 0 30px; align-items:stretch; }
+body:not([data-tool="pdf-editor"]) .ds-tool-feature-card, body:not([data-tool="pdf-editor"]) .pc-detail-card { min-width:0; padding:22px; border:1px solid var(--border-color,#e0e6ef); border-radius:18px; background:var(--card-bg,#fff); box-shadow:0 7px 22px rgba(23,42,74,.045); }
+body:not([data-tool="pdf-editor"]) .related-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:stretch; }
+body:not([data-tool="pdf-editor"]) .related-grid .tool-card { display:block; min-width:0; height:100%; padding:20px; border:1px solid var(--border-color,#e0e6ef); border-radius:16px; background:var(--card-bg,#fff); text-decoration:none; transition:transform .16s ease,box-shadow .16s ease; }
+body:not([data-tool="pdf-editor"]) .related-grid .tool-card:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(23,42,74,.09); }
+body:not([data-tool="pdf-editor"]) .related-grid .tool-card__title { margin:0 0 9px; font-size:1.02rem; line-height:1.35; }
+body:not([data-tool="pdf-editor"]) .related-grid .tool-card__desc { margin:0; line-height:1.65; color:var(--muted-color,#64748b); }
+body:not([data-tool="pdf-editor"]) .related-reading, body:not([data-tool="pdf-editor"]) .related-tools-bottom { max-width:100%; margin-top:30px; }
+@media(max-width:850px){body:not([data-tool="pdf-editor"]) .ds-tool-feature-grid,body:not([data-tool="pdf-editor"]) .pc-detail-grid,body:not([data-tool="pdf-editor"]) .related-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:560px){body:not([data-tool="pdf-editor"]) .ds-tool-feature-grid,body:not([data-tool="pdf-editor"]) .pc-detail-grid,body:not([data-tool="pdf-editor"]) .related-grid{grid-template-columns:minmax(0,1fr);}}
+
+/* v118: individual tool banners and content consistency */
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-hero-art{--tool-accent:#4779d8;--tool-wash:#e8f0ff;background:radial-gradient(circle at 22% 20%,color-mix(in srgb,var(--tool-accent) 22%,transparent),transparent 35%),linear-gradient(135deg,var(--tool-wash),#f8fbff);border-radius:24px;transition:background .2s ease}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-hero-art .ds-hero-document{border-top:7px solid var(--tool-accent)}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-feature-card{height:100%;display:flex;flex-direction:column;align-items:flex-start}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-feature-card p{max-width:68ch}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-privacy{display:flex;gap:16px;align-items:flex-start;margin:28px 0;padding:22px 24px;border:1px solid #dce6f3;border-radius:18px;background:linear-gradient(120deg,#f7faff,#eef5ff)}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-privacy h2{margin:0 0 8px;font-size:1.1rem}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-privacy p{margin:0;line-height:1.75;color:#52637b}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-privacy .pc-privacy-icon{font-size:1.5rem}
+body[data-tool="pdf-form-filler"] .pff-hero{position:relative;overflow:hidden}
+body[data-tool="pdf-form-filler"] .pff-hero:after{content:"PDF  ✓  ☑";position:absolute;right:clamp(18px,5vw,64px);bottom:20px;padding:14px 18px;border:1px solid #d9e5f6;border-radius:14px;background:linear-gradient(135deg,#fff,#e8f0ff);color:#315a9b;font-size:1rem;font-weight:850;letter-spacing:.08em;box-shadow:0 10px 24px rgba(31,65,120,.12)}
+@media(max-width:700px){body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-privacy{padding:18px;gap:12px}body[data-tool="pdf-form-filler"] .pff-hero:after{position:relative;display:inline-block;right:auto;bottom:auto;margin-top:16px}}
+body[data-tool="add-image-to-pdf"] .ds-tool-hero-art{--tool-accent:hsl(137 58% 31%);--tool-wash:hsl(137 66% 94%)}
+body[data-tool="add-text-to-pdf"] .ds-tool-hero-art{--tool-accent:hsl(249 58% 31%);--tool-wash:hsl(249 66% 94%)}
+body[data-tool="age-calculator"] .ds-tool-hero-art{--tool-accent:hsl(124 58% 28%);--tool-wash:hsl(124 66% 94%)}
+body[data-tool="annotate-pdf"] .ds-tool-hero-art{--tool-accent:hsl(196 65% 40%);--tool-wash:hsl(196 73% 94%)}
+body[data-tool="background-remover"] .ds-tool-hero-art{--tool-accent:hsl(154 58% 34%);--tool-wash:hsl(154 66% 94%)}
+body[data-tool="collage-maker"] .ds-tool-hero-art{--tool-accent:hsl(171 58% 37%);--tool-wash:hsl(171 66% 94%)}
+body[data-tool="compress-pdf"] .ds-tool-hero-art{--tool-accent:hsl(213 65% 43%);--tool-wash:hsl(213 73% 94%)}
+body[data-tool="crop-pdf"] .ds-tool-hero-art{--tool-accent:hsl(230 65% 46%);--tool-wash:hsl(230 73% 94%)}
+body[data-tool="da-arrears-calculator"] .ds-tool-hero-art{--tool-accent:hsl(141 58% 31%);--tool-wash:hsl(141 66% 94%)}
+body[data-tool="delete-pages"] .ds-tool-hero-art{--tool-accent:hsl(204 72% 41%);--tool-wash:hsl(204 75% 94%)}
+body[data-tool="duplicate-pages"] .ds-tool-hero-art{--tool-accent:hsl(221 72% 44%);--tool-wash:hsl(221 75% 94%)}
+body[data-tool="enhance-pdf"] .ds-tool-hero-art{--tool-accent:hsl(238 65% 46%);--tool-wash:hsl(238 73% 94%)}
+body[data-tool="extract-pages"] .ds-tool-hero-art{--tool-accent:hsl(212 72% 41%);--tool-wash:hsl(212 75% 94%)}
+body[data-tool="fd-calculator"] .ds-tool-hero-art{--tool-accent:hsl(158 58% 34%);--tool-wash:hsl(158 66% 94%)}
+body[data-tool="gpf-calculator"] .ds-tool-hero-art{--tool-accent:hsl(132 58% 28%);--tool-wash:hsl(132 66% 94%)}
+body[data-tool="gratuity-calculator"] .ds-tool-hero-art{--tool-accent:hsl(149 58% 31%);--tool-wash:hsl(149 66% 94%)}
+body[data-tool="header-footer-pdf"] .ds-tool-hero-art{--tool-accent:hsl(229 65% 43%);--tool-wash:hsl(229 73% 94%)}
+body[data-tool="highlight-pdf"] .ds-tool-hero-art{--tool-accent:hsl(203 65% 46%);--tool-wash:hsl(203 73% 94%)}
+body[data-tool="html-to-pdf"] .ds-tool-hero-art{--tool-accent:hsl(220 65% 40%);--tool-wash:hsl(220 73% 94%)}
+body[data-tool="image-requirement-checker"] .ds-tool-hero-art{--tool-accent:hsl(145 58% 31%);--tool-wash:hsl(145 66% 94%)}
+body[data-tool="image-resize-compress"] .ds-tool-hero-art{--tool-accent:hsl(162 58% 34%);--tool-wash:hsl(162 66% 94%)}
+body[data-tool="image-to-text"] .ds-tool-hero-art{--tool-accent:hsl(179 58% 37%);--tool-wash:hsl(179 66% 94%)}
+body[data-tool="image-watermark-signature"] .ds-tool-hero-art{--tool-accent:hsl(153 58% 28%);--tool-wash:hsl(153 66% 94%)}
+body[data-tool="insert-blank-page"] .ds-tool-hero-art{--tool-accent:hsl(237 72% 44%);--tool-wash:hsl(237 75% 94%)}
+body[data-tool="insert-pdf"] .ds-tool-hero-art{--tool-accent:hsl(211 65% 46%);--tool-wash:hsl(211 73% 94%)}
+body[data-tool="job-application-photo-maker"] .ds-tool-hero-art{--tool-accent:hsl(153 58% 31%);--tool-wash:hsl(153 66% 94%)}
+body[data-tool="jpg-to-pdf"] .ds-tool-hero-art{--tool-accent:hsl(228 65% 40%);--tool-wash:hsl(228 73% 94%)}
+body[data-tool="krutidev-unicode-converter"] .ds-tool-hero-art{--tool-accent:hsl(266 58% 34%);--tool-wash:hsl(266 66% 94%)}
+body[data-tool="leave-encashment-calculator"] .ds-tool-hero-art{--tool-accent:hsl(166 58% 34%);--tool-wash:hsl(166 66% 94%)}
+body[data-tool="marriage-biodata-maker"] .ds-tool-hero-art{--tool-accent:hsl(308 60% 33%);--tool-wash:hsl(308 68% 94%)}
+body[data-tool="merge-pdf"] .ds-tool-hero-art{--tool-accent:hsl(202 65% 43%);--tool-wash:hsl(202 73% 94%)}
+body[data-tool="metadata-editor"] .ds-tool-hero-art{--tool-accent:hsl(169 55% 33%);--tool-wash:hsl(169 63% 94%)}
+body[data-tool="n-up-pdf"] .ds-tool-hero-art{--tool-accent:hsl(219 65% 46%);--tool-wash:hsl(219 73% 94%)}
+body[data-tool="nps-calculator"] .ds-tool-hero-art{--tool-accent:hsl(140 58% 28%);--tool-wash:hsl(140 66% 94%)}
+body[data-tool="nsc-calculator"] .ds-tool-hero-art{--tool-accent:hsl(157 58% 31%);--tool-wash:hsl(157 66% 94%)}
+body[data-tool="ocr-pdf"] .ds-tool-hero-art{--tool-accent:hsl(242 65% 39%);--tool-wash:hsl(242 73% 94%)}
+body[data-tool="online-form-photo-signature-maker"] .ds-tool-hero-art{--tool-accent:hsl(170 58% 31%);--tool-wash:hsl(170 66% 94%)}
+body[data-tool="page-numbers-pdf"] .ds-tool-hero-art{--tool-accent:hsl(236 72% 41%);--tool-wash:hsl(236 75% 94%)}
+body[data-tool="passport-photo"] .ds-tool-hero-art{--tool-accent:hsl(170 58% 34%);--tool-wash:hsl(170 66% 94%)}
+body[data-tool="pdf-form-filler"] .ds-tool-hero-art{--tool-accent:hsl(210 65% 43%);--tool-wash:hsl(210 73% 94%)}
+body[data-tool="pdf-page-size-checker"] .ds-tool-hero-art{--tool-accent:hsl(227 72% 47%);--tool-wash:hsl(227 75% 94%)}
+body[data-tool="pdf-to-jpg"] .ds-tool-hero-art{--tool-accent:hsl(201 65% 40%);--tool-wash:hsl(201 73% 94%)}
+body[data-tool="pdf-to-markdown"] .ds-tool-hero-art{--tool-accent:hsl(283 58% 37%);--tool-wash:hsl(283 66% 94%)}
+body[data-tool="pdf-to-png"] .ds-tool-hero-art{--tool-accent:hsl(218 65% 43%);--tool-wash:hsl(218 73% 94%)}
+body[data-tool="pdf-to-text"] .ds-tool-hero-art{--tool-accent:hsl(257 58% 31%);--tool-wash:hsl(257 66% 94%)}
+body[data-tool="pdf-to-webp"] .ds-tool-hero-art{--tool-accent:hsl(235 65% 46%);--tool-wash:hsl(235 73% 94%)}
+body[data-tool="pdf-version-checker"] .ds-tool-hero-art{--tool-accent:hsl(209 65% 40%);--tool-wash:hsl(209 73% 94%)}
+body[data-tool="photo-enhancer"] .ds-tool-hero-art{--tool-accent:hsl(144 58% 37%);--tool-wash:hsl(144 66% 94%)}
+body[data-tool="ppf-calculator"] .ds-tool-hero-art{--tool-accent:hsl(131 58% 34%);--tool-wash:hsl(131 66% 94%)}
+body[data-tool="protect-pdf"] .ds-tool-hero-art{--tool-accent:hsl(226 65% 43%);--tool-wash:hsl(226 73% 94%)}
+body[data-tool="qr-code-generator"] .ds-tool-hero-art{--tool-accent:hsl(197 16% 15%);--tool-wash:hsl(197 24% 94%)}
+body[data-tool="rd-calculator"] .ds-tool-hero-art{--tool-accent:hsl(148 58% 28%);--tool-wash:hsl(148 66% 94%)}
+body[data-tool="redact-pdf"] .ds-tool-hero-art{--tool-accent:hsl(200 65% 46%);--tool-wash:hsl(200 73% 94%)}
+body[data-tool="reorder-pages"] .ds-tool-hero-art{--tool-accent:hsl(217 72% 41%);--tool-wash:hsl(217 75% 94%)}
+body[data-tool="resume-maker"] .ds-tool-hero-art{--tool-accent:hsl(325 60% 36%);--tool-wash:hsl(325 68% 94%)}
+body[data-tool="reverse-pages"] .ds-tool-hero-art{--tool-accent:hsl(234 72% 44%);--tool-wash:hsl(234 75% 94%)}
+body[data-tool="rotate-pdf"] .ds-tool-hero-art{--tool-accent:hsl(208 65% 46%);--tool-wash:hsl(208 73% 94%)}
+body[data-tool="sign-pdf"] .ds-tool-hero-art{--tool-accent:hsl(225 65% 40%);--tool-wash:hsl(225 73% 94%)}
+body[data-tool="signature-resize-compress"] .ds-tool-hero-art{--tool-accent:hsl(187 58% 34%);--tool-wash:hsl(187 66% 94%)}
+body[data-tool="sip-calculator"] .ds-tool-hero-art{--tool-accent:hsl(165 58% 31%);--tool-wash:hsl(165 66% 94%)}
+body[data-tool="smart-image-compressor"] .ds-tool-hero-art{--tool-accent:hsl(161 58% 31%);--tool-wash:hsl(161 66% 94%)}
+body[data-tool="split-pdf"] .ds-tool-hero-art{--tool-accent:hsl(199 65% 43%);--tool-wash:hsl(199 73% 94%)}
+body[data-tool="swp-calculator"] .ds-tool-hero-art{--tool-accent:hsl(139 58% 34%);--tool-wash:hsl(139 66% 94%)}
+body[data-tool="text-to-pdf"] .ds-tool-hero-art{--tool-accent:hsl(274 58% 34%);--tool-wash:hsl(274 66% 94%)}
+body[data-tool="unlock-pdf"] .ds-tool-hero-art{--tool-accent:hsl(216 65% 46%);--tool-wash:hsl(216 73% 94%)}
+body[data-tool="upi-qr-code-generator"] .ds-tool-hero-art{--tool-accent:hsl(214 16% 18%);--tool-wash:hsl(214 24% 94%)}
+body[data-tool="watermark-pdf"] .ds-tool-hero-art{--tool-accent:hsl(233 65% 40%);--tool-wash:hsl(233 73% 94%)}

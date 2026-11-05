@@ -1,0 +1,43 @@
+/* ToolsBySS v114 consistency pass: scoped to normal tool/blog pages; PDF Editor intentionally excluded. */
+html{scroll-behavior:smooth}
+main.section>.container, main>.container, main .container.article, .blog-hero>.container, .blog-directory, .tool-directory{width:min(100% - 32px,1200px);margin-left:auto;margin-right:auto;box-sizing:border-box}
+main .container.article{max-width:1120px}
+main.section>.container>* , main>.container>*{min-width:0}
+/* Related tool/guide links should always be visual cards, never bare inline links. */
+.related-grid,.pc-related-grid,.pff-related-grid,.related-tools-grid,.related-reading-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;align-items:stretch}
+.related-grid>a,.related-grid>.tool-card,.pc-related-grid>a,.pff-related-grid>a,.related-tools-grid>a,.related-reading-grid>a,main section.mt-6>.tool-card{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:8px!important;min-width:0;min-height:150px;padding:20px!important;border:1px solid var(--border-soft,#d9e2ee)!important;border-radius:16px!important;background:var(--bg-card,#fff)!important;color:var(--text-primary,#172b46)!important;text-decoration:none!important;box-shadow:0 5px 18px rgba(25,55,95,.06);overflow-wrap:anywhere;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+.related-grid>a:hover,.pc-related-grid>a:hover,.pff-related-grid>a:hover,.related-tools-grid>a:hover,.related-reading-grid>a:hover,main section.mt-6>.tool-card:hover{transform:translateY(-2px);border-color:var(--accent,#2563eb)!important;box-shadow:0 10px 26px rgba(25,55,95,.12)}
+.related-grid .tool-card__title,.related-grid h3,.pc-related-card h3,.pff-related-card h3{font-size:1.02rem;line-height:1.35;margin:0;font-weight:750}
+.related-grid .tool-card__desc,.related-grid p,.pc-related-card p,.pff-related-card p{font-size:.9rem;line-height:1.6;margin:0;color:var(--text-secondary,#64748b)}
+/* Normalize tool detail sections to a three-column card system while preserving workspaces/calculator tables. */
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-feature-grid,body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 28px}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-feature-card,body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-detail-card{min-width:0;padding:20px;border:1px solid var(--border-soft,#d9e2ee);border-radius:16px;background:var(--bg-card,#fff);box-shadow:0 5px 18px rgba(25,55,95,.05)}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-feature-card h2,body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-feature-card h3,body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-detail-card h2,body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-detail-card h3{margin-top:0;line-height:1.35}
+.ds-tool-hero{max-width:100%;text-align:left}
+.ds-tool-hero-copy{text-align:left;min-width:0}
+.ds-tool-hero h1{text-align:left}
+/* Tool page content width is consistent, but wide calculators remain wide inside the page container. */
+body[data-tool]:not([data-tool="pdf-editor"]) main>.container,body[data-tool]:not([data-tool="pdf-editor"]) main.section>.container{max-width:1200px}
+/* Blog/article alignment: consistent margins, no accidental right-aligned headings. */
+.article,.blog-article,.post-content,.blog-content{margin-left:auto;margin-right:auto;text-align:left}
+.article h1,.article h2,.article h3,.post-content h1,.post-content h2,.post-content h3,.blog-content h1,.blog-content h2,.blog-content h3{text-align:left}
+/* Keep home and All Tools cards aligned within their existing grids. */
+.grid--3>.tool-card,.tool-card-grid>.tool-card{min-width:0;width:100%;box-sizing:border-box}
+@media(max-width:900px){.related-grid,.pc-related-grid,.pff-related-grid,.related-tools-grid,.related-reading-grid,.ds-tool-feature-grid,.ds-tool-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){main.section>.container,main>.container,main .container.article,.blog-hero>.container{width:min(100% - 24px,1200px)}.related-grid,.pc-related-grid,.pff-related-grid,.related-tools-grid,.related-reading-grid,.ds-tool-feature-grid,.ds-tool-detail-grid{grid-template-columns:minmax(0,1fr)!important}.related-grid>a,.pc-related-grid>a,.pff-related-grid>a{min-height:0;padding:16px!important}}
+@media print{.navbar,.footer,.skip-link{display:none!important}}
+
+/* v115: keep All Tools sections, including the privacy note, within the shared page container. */
+main .tools-privacy-note, main .privacy-note, main .local-processing-note{width:100%;max-width:100%;box-sizing:border-box;margin-left:0;margin-right:0}
+#everyday-utilities{margin-top:0}
+#everyday-utilities .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:760px){#everyday-utilities .grid{grid-template-columns:repeat(1,minmax(0,1fr))}}
+
+/* v116: explicit All Tools privacy notice alignment; keep it in the same reading column as the tool directory. */
+body:has(#toolDirectorySearch) main#main > .container{width:min(100% - 32px,1200px);max-width:1200px;margin-inline:auto;box-sizing:border-box}
+body:has(#toolDirectorySearch) .tools-privacy-note{display:flex;align-items:flex-start;gap:12px;width:100%;max-width:100%;margin:24px 0 0;padding:16px 18px;box-sizing:border-box;border-radius:14px;overflow-wrap:anywhere}
+body:has(#toolDirectorySearch) .tools-privacy-note>div{min-width:0}
+/* Shared three-card details rhythm across standard tool pages; workspace and PDF Editor remain untouched. */
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-feature-grid,body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-detail-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body[data-tool]:not([data-tool="pdf-editor"]) .ds-tool-hero-art{min-width:0;max-width:100%;overflow:hidden}
+@media(max-width:760px){body:has(#toolDirectorySearch) main#main > .container{width:min(100% - 24px,1200px)}body:has(#toolDirectorySearch) .tools-privacy-note{padding:14px;gap:9px}}
