@@ -1,0 +1,3 @@
+/* Tool-specific extension; shared finance styles are scoped to .sf-finance-tool */
+.sf-finance-retirement-fire-planner{max-width:100%;min-width:0}
+.sf-finance-retirement-fire-planner header p{color:#475569;margin:0 0 14px}

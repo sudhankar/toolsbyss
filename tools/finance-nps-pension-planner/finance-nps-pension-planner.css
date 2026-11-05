@@ -1,0 +1,5 @@
+.sf-tool[data-sf-tool="finance-nps-pension-planner"] .sf-fin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.sf-tool[data-sf-tool="finance-nps-pension-planner"] .sf-fin-grid label{display:flex;flex-direction:column;gap:6px;font-weight:600}
+.sf-tool[data-sf-tool="finance-nps-pension-planner"] .sf-fin-grid input{width:100%;box-sizing:border-box;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}
+.sf-tool[data-sf-tool="finance-nps-pension-planner"] .sf-fin-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.sf-tool[data-sf-tool="finance-nps-pension-planner"] .sf-fin-actions button{padding:10px 14px;border-radius:8px;cursor:pointer}

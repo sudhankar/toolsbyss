@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageCropper=function(root){window.ToolsBySSTools.imageTools.init(root,"image-cropper")};})();

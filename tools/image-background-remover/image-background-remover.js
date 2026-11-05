@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageBackgroundRemover=function(root){window.ToolsBySSTools.imageTools.init(root,"image-background-remover")};})();

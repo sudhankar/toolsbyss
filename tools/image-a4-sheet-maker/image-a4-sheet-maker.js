@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageA4SheetMaker=function(root){window.ToolsBySSTools.advancedImageTools.init(root,"image-a4-sheet-maker")};})();
