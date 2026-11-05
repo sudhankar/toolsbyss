@@ -1,1 +1,429 @@
-(()=>{'use strict';const C=window.TOOLSBySS_MASTER||{},cfg=C.firebase||{},$=(s,r=document)=>r.querySelector(s);let auth=null,user=null,idle=null,warn=null,lastTool=null,lastActivity=Date.now(),modal=null;const pageTool=document.body.dataset.tool||'';const firebaseReady=()=>cfg.enabled&&cfg.apiKey&&cfg.authDomain&&cfg.projectId&&window.firebase;function status(t){const el=$('[data-auth-status]')||$('#auth-status');if(el)el.textContent=t}async function audit(event,extra={}){if(!user)return;try{const token=await user.getIdToken();await fetch('/api/log',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({event,tool:extra.tool||lastTool||pageTool||'',reason:extra.reason||''}),keepalive:true})}catch(e){console.warn('Activity log not delivered',e)}}function updateUI(){document.querySelectorAll('[data-user-email]').forEach(x=>x.textContent=user?.email||'');document.querySelectorAll('[data-auth-cta]').forEach(x=>x.classList.toggle('hidden',!!user));document.querySelectorAll('[data-logout]').forEach(x=>x.classList.toggle('hidden',!user));document.querySelectorAll('[data-tool-locked]').forEach(x=>x.classList.toggle('hidden',!!user&&user.emailVerified));document.querySelectorAll('[data-tool-ready]').forEach(x=>x.classList.toggle('hidden',!(user&&user.emailVerified)));document.querySelectorAll('[data-resend-verification]').forEach(x=>x.classList.toggle('hidden',!(user&&!user.emailVerified)));const admins=(C.admins||[]).map(x=>String(x).toLowerCase());const isAdmin=!!(user&&user.emailVerified&&admins.includes(String(user.email||'').toLowerCase()));document.querySelectorAll('[data-admin-only]').forEach(x=>x.classList.toggle('hidden',!isAdmin));document.querySelectorAll('[data-admin-lock]').forEach(x=>x.classList.toggle('hidden',isAdmin));}function clearTimer(){clearTimeout(idle);clearTimeout(warn)}async function logout(reason='manual'){clearTimer();if(user){await audit(reason==='manual'?'LOGOUT':'SESSION_EXPIRED',{reason});}try{sessionStorage.removeItem('toolsbyss_logged_session')}catch(e){}if(auth){try{await auth.signOut()}catch(e){console.error(e)}}user=null;updateUI();const frame=$('[data-tool-frame]');if(frame){frame.removeAttribute('src');frame.classList.add('hidden')}if(pageTool)location.replace('/login/?next='+encodeURIComponent(location.pathname));}function arm(){clearTimer();if(!user)return;const mins=Math.max(1,Number(C.idleMinutes)||15),seconds=Math.max(15,Number(C.warningSeconds)||60);warn=setTimeout(()=>{const box=$('[data-session-warning]');if(box){box.classList.remove('hidden');const left=$('[data-warning-countdown]');if(left)left.textContent=String(seconds)}},Math.max(0,mins*60000-seconds*1000));idle=setTimeout(()=>logout('idle_timeout'),mins*60000)}function activity(){if(!user)return;if(Date.now()-lastActivity>2000)lastActivity=Date.now();arm()}async function recordTool(slug){if(!user||!user.emailVerified||!slug||slug===lastTool)return;lastTool=slug;await audit('TOOL_USED',{tool:slug})}function initForms(){const login=$('[data-login-form]'),signup=$('[data-signup-form]'),reset=$('[data-reset-form]');const setMode=mode=>{login?.classList.toggle('hidden',mode!=='login');signup?.classList.toggle('hidden',mode!=='signup');reset?.classList.toggle('hidden',mode!=='reset')};document.querySelectorAll('[data-auth-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.authMode)));login?.addEventListener('submit',async e=>{e.preventDefault();try{status('Signing in…');await auth.signInWithEmailAndPassword(login.email.value.trim(),login.password.value);status('Signed in. Checking email verification…')}catch(err){status(err.message)}});signup?.addEventListener('submit',async e=>{e.preventDefault();try{status('Creating account…');const cred=await auth.createUserWithEmailAndPassword(signup.email.value.trim(),signup.password.value);await cred.user.sendEmailVerification({url:location.origin+'/login/?verified=1',handleCodeInApp:false});status('Verification link sent. Open your inbox, verify your email, then sign in again.');await auth.signOut()}catch(err){status(err.message)}});reset?.addEventListener('submit',async e=>{e.preventDefault();try{await auth.sendPasswordResetEmail(reset.email.value.trim());status('Password reset email sent. Check your inbox.')}catch(err){status(err.message)}});$('[data-resend-verification]')?.addEventListener('click',async()=>{try{if(auth.currentUser){await auth.currentUser.sendEmailVerification();status('Verification email sent again.')}}catch(e){status(e.message)}});document.querySelectorAll('[data-logout]').forEach(b=>b.addEventListener('click',()=>logout('manual')));const google=$('[data-google-login]');if(google){google.classList.toggle('hidden',!cfg.googleProvider);google.addEventListener('click',async()=>{try{await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())}catch(e){status(e.message)}})}$('[data-warning-continue]')?.addEventListener('click',()=>{$('[data-session-warning]')?.classList.add('hidden');lastActivity=Date.now();arm()});$('[data-warning-logout]')?.addEventListener('click',()=>logout('manual'));}function initFirebase(){if(!firebaseReady()){document.querySelectorAll('[data-auth-config-warning]').forEach(e=>e.classList.remove('hidden'));return}try{firebase.initializeApp({apiKey:cfg.apiKey,authDomain:cfg.authDomain,projectId:cfg.projectId,appId:cfg.appId});auth=firebase.auth();auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>{auth.onAuthStateChanged(async u=>{user=u||null;updateUI();if(user){if(!user.emailVerified){status('Email is not verified yet. Use the resend button, open the email link, then sign out and sign in again.');return}let logged=false;try{logged=sessionStorage.getItem('toolsbyss_logged_session')==='1'}catch(e){}if(!logged){await audit('LOGIN');try{sessionStorage.setItem('toolsbyss_logged_session','1')}catch(e){}}arm();if(pageTool)recordTool(pageTool);if(location.pathname==='/login/'){const n=new URLSearchParams(location.search).get('next');if(n&&n.startsWith('/')&&!n.startsWith('//'))location.replace(n);else location.replace('/')}}else{clearTimer();try{sessionStorage.removeItem('toolsbyss_logged_session')}catch(e){}if(pageTool){const lock=$('[data-tool-locked]');if(lock)lock.classList.remove('hidden');const frame=$('[data-tool-frame]');if(frame){frame.removeAttribute('src');frame.classList.add('hidden')}}}})})}catch(e){console.error(e);status('Firebase setup error: '+e.message)}}['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,activity,{passive:true}));window.addEventListener('message',e=>{if(e.origin===location.origin&&e.data&&e.data.type==='toolsbyss-activity')activity()});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&user)arm()});window.addEventListener('pageshow',()=>{if(auth&&auth.currentUser===null&&pageTool){const frame=$('[data-tool-frame]');if(frame){frame.removeAttribute('src');frame.classList.add('hidden')}}});window.TOOLSBySS_AUTH={recordTool,logout,get user(){return user},initFirebase};document.addEventListener('DOMContentLoaded',()=>{initForms();initFirebase();const frame=$('[data-tool-frame]');if(frame){const start=()=>{if(user&&user.emailVerified){frame.src=frame.dataset.src;frame.classList.remove('hidden')}};const obs=new MutationObserver(()=>{if(user&&user.emailVerified)start()});obs.observe(document.body,{attributes:true,subtree:true,attributeFilter:['class']});} });})();
+(() => {
+  'use strict';
+
+  const CONFIG = window.TOOLSBySS_MASTER || {};
+  const FIREBASE_CONFIG = CONFIG.firebase || {};
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+  let auth = null;
+  let user = null;
+  let idleTimer = null;
+  let warningTimer = null;
+  let lastTool = '';
+  let lastArmAt = 0;
+  let redirectStarted = false;
+  let frameLoadBound = false;
+
+  const pageTool = document.body?.dataset?.tool || '';
+  const frame = $('[data-tool-frame]');
+  const isVerified = () => !!(user && user.emailVerified);
+
+  function setStatus(message) {
+    const element = $('[data-auth-status]') || $('#auth-status');
+    if (element) element.textContent = message || '';
+  }
+
+  function firebaseIsReady() {
+    return !!(
+      FIREBASE_CONFIG.enabled &&
+      FIREBASE_CONFIG.apiKey &&
+      FIREBASE_CONFIG.authDomain &&
+      FIREBASE_CONFIG.projectId &&
+      window.firebase
+    );
+  }
+
+  async function sendAudit(eventName, details = {}) {
+    if (!user) return;
+    try {
+      const token = await user.getIdToken();
+      await fetch('/api/log', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          event: eventName,
+          tool: details.tool || lastTool || pageTool || '',
+          reason: details.reason || ''
+        }),
+        keepalive: true
+      });
+    } catch (error) {
+      // Activity logging is optional and must not block tool usage.
+      console.warn('ToolsBySS activity log was not delivered:', error);
+    }
+  }
+
+  function clearSessionTimers() {
+    window.clearTimeout(idleTimer);
+    window.clearTimeout(warningTimer);
+    idleTimer = null;
+    warningTimer = null;
+  }
+
+  function sendFrameAuthState() {
+    if (!frame || !frame.contentWindow) return;
+    try {
+      frame.contentWindow.postMessage({
+        type: 'toolsbyss-auth-state',
+        verified: isVerified()
+      }, location.origin);
+    } catch (error) {
+      console.warn('Could not update embedded tool session:', error);
+    }
+  }
+
+  function syncToolAccess() {
+    if (!pageTool) return;
+
+    const lockedPanel = $('[data-tool-locked]');
+    const readyPanel = $('[data-tool-ready]');
+    const verified = isVerified();
+
+    lockedPanel?.classList.toggle('hidden', verified);
+    readyPanel?.classList.toggle('hidden', !verified);
+
+    if (!frame) return;
+
+    if (!verified) {
+      frame.classList.add('hidden');
+      if (frame.dataset.frameLoaded === '1') {
+        frame.removeAttribute('src');
+        delete frame.dataset.frameLoaded;
+      }
+      return;
+    }
+
+    frame.classList.remove('hidden');
+    if (frame.dataset.frameLoaded !== '1') {
+      const source = frame.dataset.src;
+      if (!source) {
+        setStatus('Tool could not be loaded: iframe source is missing.');
+        return;
+      }
+      if (!frameLoadBound) {
+        frame.addEventListener('load', sendFrameAuthState);
+        frameLoadBound = true;
+      }
+      frame.dataset.frameLoaded = '1';
+      frame.src = source;
+    } else {
+      sendFrameAuthState();
+    }
+  }
+
+  function updateUserInterface() {
+    const verified = isVerified();
+
+    $$('[data-user-email]').forEach(element => {
+      element.textContent = verified ? (user.email || '') : '';
+    });
+    $$('[data-auth-cta]').forEach(element => {
+      element.classList.toggle('hidden', verified);
+    });
+    $$('[data-logout]').forEach(element => {
+      element.classList.toggle('hidden', !verified);
+    });
+    $$('[data-tool-locked]').forEach(element => {
+      element.classList.toggle('hidden', verified);
+    });
+    $$('[data-tool-ready]').forEach(element => {
+      element.classList.toggle('hidden', !verified);
+    });
+    $$('[data-resend-verification]').forEach(element => {
+      element.classList.toggle('hidden', !(user && !user.emailVerified));
+    });
+
+    const adminEmails = (CONFIG.admins || []).map(value => String(value).trim().toLowerCase());
+    const isAdmin = !!(verified && adminEmails.includes(String(user.email || '').trim().toLowerCase()));
+    $$('[data-admin-only]').forEach(element => element.classList.toggle('hidden', !isAdmin));
+    $$('[data-admin-lock]').forEach(element => element.classList.toggle('hidden', isAdmin));
+
+    syncToolAccess();
+  }
+
+  function armSessionTimers() {
+    clearSessionTimers();
+    if (!isVerified()) return;
+
+    const idleMinutes = Math.max(1, Number(CONFIG.idleMinutes) || 15);
+    const warningSeconds = Math.max(15, Number(CONFIG.warningSeconds) || 60);
+    const warningBox = $('[data-session-warning]');
+    warningBox?.classList.add('hidden');
+
+    warningTimer = window.setTimeout(() => {
+      warningBox?.classList.remove('hidden');
+      const countdown = $('[data-warning-countdown]');
+      if (countdown) countdown.textContent = String(warningSeconds);
+    }, Math.max(0, idleMinutes * 60000 - warningSeconds * 1000));
+
+    idleTimer = window.setTimeout(() => {
+      logout('idle_timeout');
+    }, idleMinutes * 60000);
+
+    lastArmAt = Date.now();
+  }
+
+  function registerActivity() {
+    if (!isVerified()) return;
+    const now = Date.now();
+    // Iframe mousemove can fire frequently. Re-arm timers at most once per second.
+    if (now - lastArmAt >= 1000) armSessionTimers();
+  }
+
+  async function logout(reason = 'manual') {
+    clearSessionTimers();
+    if (user) {
+      await sendAudit(reason === 'manual' ? 'LOGOUT' : 'SESSION_EXPIRED', { reason });
+    }
+
+    try {
+      sessionStorage.removeItem('toolsbyss_logged_session');
+    } catch (_) {}
+
+    if (auth) {
+      try {
+        await auth.signOut();
+      } catch (error) {
+        console.error('Sign out failed:', error);
+      }
+    }
+
+    user = null;
+    updateUserInterface();
+
+    if (pageTool) {
+      const next = encodeURIComponent(location.pathname);
+      location.replace(`/login/?next=${next}`);
+    }
+  }
+
+  async function recordTool(slug) {
+    if (!isVerified() || !slug || slug === lastTool) return;
+    lastTool = slug;
+    await sendAudit('TOOL_USED', { tool: slug });
+  }
+
+  function setAuthFormMode(mode) {
+    const login = $('[data-login-form]');
+    const signup = $('[data-signup-form]');
+    const reset = $('[data-reset-form]');
+    login?.classList.toggle('hidden', mode !== 'login');
+    signup?.classList.toggle('hidden', mode !== 'signup');
+    reset?.classList.toggle('hidden', mode !== 'reset');
+    setStatus('');
+  }
+
+  function initForms() {
+    const loginForm = $('[data-login-form]');
+    const signupForm = $('[data-signup-form]');
+    const resetForm = $('[data-reset-form]');
+
+    $$('[data-auth-mode]').forEach(button => {
+      button.addEventListener('click', () => setAuthFormMode(button.dataset.authMode));
+    });
+
+    loginForm?.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!auth) return setStatus('Authentication is not ready. Refresh this page and try again.');
+      const button = $('button[type="submit"]', loginForm);
+      if (button) button.disabled = true;
+      try {
+        setStatus('Signing in…');
+        await auth.signInWithEmailAndPassword(loginForm.email.value.trim(), loginForm.password.value);
+        setStatus('Signed in. Opening your requested page…');
+      } catch (error) {
+        setStatus(error.message || 'Sign in failed. Please check your email and password.');
+      } finally {
+        if (button) button.disabled = false;
+      }
+    });
+
+    signupForm?.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!auth) return setStatus('Authentication is not ready. Refresh this page and try again.');
+      const button = $('button[type="submit"]', signupForm);
+      if (button) button.disabled = true;
+      try {
+        setStatus('Creating your account…');
+        const credential = await auth.createUserWithEmailAndPassword(
+          signupForm.email.value.trim(),
+          signupForm.password.value
+        );
+        await credential.user.sendEmailVerification({
+          url: `${location.origin}/login/?verified=1`,
+          handleCodeInApp: false
+        });
+        setStatus('Verification link sent. Open your email, verify the address, then sign in.');
+        await auth.signOut();
+      } catch (error) {
+        setStatus(error.message || 'Account creation failed. Please try again.');
+      } finally {
+        if (button) button.disabled = false;
+      }
+    });
+
+    resetForm?.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!auth) return setStatus('Authentication is not ready. Refresh this page and try again.');
+      const button = $('button[type="submit"]', resetForm);
+      if (button) button.disabled = true;
+      try {
+        await auth.sendPasswordResetEmail(resetForm.email.value.trim());
+        setStatus('Password reset email sent. Please check your inbox.');
+      } catch (error) {
+        setStatus(error.message || 'Could not send the password reset email.');
+      } finally {
+        if (button) button.disabled = false;
+      }
+    });
+
+    $('[data-resend-verification]')?.addEventListener('click', async () => {
+      try {
+        if (auth?.currentUser) {
+          await auth.currentUser.sendEmailVerification();
+          setStatus('Verification email sent again. Please check your inbox.');
+        }
+      } catch (error) {
+        setStatus(error.message || 'Could not resend verification email.');
+      }
+    });
+
+    $$('[data-logout]').forEach(button => button.addEventListener('click', () => logout('manual')));
+
+    const googleButton = $('[data-google-login]');
+    if (googleButton) {
+      googleButton.classList.toggle('hidden', !FIREBASE_CONFIG.googleProvider);
+      googleButton.addEventListener('click', async () => {
+        try {
+          await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        } catch (error) {
+          setStatus(error.message || 'Google sign in failed.');
+        }
+      });
+    }
+
+    $('[data-warning-continue]')?.addEventListener('click', () => {
+      $('[data-session-warning]')?.classList.add('hidden');
+      armSessionTimers();
+    });
+    $('[data-warning-logout]')?.addEventListener('click', () => logout('manual'));
+  }
+
+  function handleAuthState(nextUser) {
+    user = nextUser || null;
+    updateUserInterface();
+
+    if (!user) {
+      clearSessionTimers();
+      try {
+        sessionStorage.removeItem('toolsbyss_logged_session');
+      } catch (_) {}
+      return;
+    }
+
+    if (!user.emailVerified) {
+      clearSessionTimers();
+      setStatus('Your email is not verified yet. Open the verification link in your email, then sign in again.');
+      return;
+    }
+
+    let hasSessionMarker = false;
+    try {
+      hasSessionMarker = sessionStorage.getItem('toolsbyss_logged_session') === '1';
+    } catch (_) {}
+
+    if (!hasSessionMarker) {
+      sendAudit('LOGIN');
+      try {
+        sessionStorage.setItem('toolsbyss_logged_session', '1');
+      } catch (_) {}
+    }
+
+    armSessionTimers();
+    if (pageTool) recordTool(pageTool);
+
+    if (location.pathname === '/login/' && !redirectStarted) {
+      redirectStarted = true;
+      const requested = new URLSearchParams(location.search).get('next');
+      const safeNext = requested && requested.startsWith('/') && !requested.startsWith('//')
+        ? requested
+        : '/';
+      location.replace(safeNext);
+    }
+  }
+
+  function initFirebase() {
+    if (!firebaseIsReady()) {
+      $$('[data-auth-config-warning]').forEach(element => element.classList.remove('hidden'));
+      setStatus('Firebase settings are missing. Please check master-config.js.');
+      return;
+    }
+
+    try {
+      if (!firebase.apps || firebase.apps.length === 0) {
+        firebase.initializeApp({
+          apiKey: FIREBASE_CONFIG.apiKey,
+          authDomain: FIREBASE_CONFIG.authDomain,
+          projectId: FIREBASE_CONFIG.projectId,
+          appId: FIREBASE_CONFIG.appId
+        });
+      }
+
+      auth = firebase.auth();
+      auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then(() => auth.onAuthStateChanged(handleAuthState))
+        .catch(error => {
+          console.error('Firebase persistence setup failed:', error);
+          setStatus('Could not restore this tab session. Please refresh and sign in again.');
+        });
+    } catch (error) {
+      console.error('Firebase initialization failed:', error);
+      setStatus(`Firebase setup error: ${error.message || error}`);
+    }
+  }
+
+  function initFrameMessaging() {
+    window.addEventListener('message', event => {
+      if (event.origin !== location.origin || !frame || event.source !== frame.contentWindow) return;
+
+      if (event.data?.type === 'toolsbyss-activity') {
+        registerActivity();
+      } else if (event.data?.type === 'toolsbyss-embed-ready') {
+        sendFrameAuthState();
+      } else if (event.data?.type === 'toolsbyss-resize' && Number.isFinite(event.data.height)) {
+        frame.style.height = `${Math.max(220, Math.min(12000, event.data.height))}px`;
+      }
+    });
+  }
+
+  function init() {
+    initForms();
+    initFrameMessaging();
+    initFirebase();
+
+    ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'].forEach(eventName => {
+      document.addEventListener(eventName, registerActivity, { passive: true });
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && isVerified()) armSessionTimers();
+    });
+  }
+
+  window.TOOLSBySS_AUTH = {
+    recordTool,
+    logout,
+    get user() { return user; },
+    get isVerified() { return isVerified(); },
+    initFirebase
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
+})();
