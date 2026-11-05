@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImagePhotoCollageMaker=function(root){window.ToolsBySSTools.advancedImageTools.init(root,"image-photo-collage-maker")};})();

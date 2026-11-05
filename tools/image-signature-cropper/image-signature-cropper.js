@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageSignatureCropper=function(root){window.ToolsBySSTools.advancedImageTools.init(root,"image-signature-cropper")};})();

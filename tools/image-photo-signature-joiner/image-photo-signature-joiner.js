@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImagePhotoSignatureJoiner=function(root){window.ToolsBySSTools.advancedImageTools.init(root,"image-photo-signature-joiner")};})();

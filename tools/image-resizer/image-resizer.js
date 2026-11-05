@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageResizer=function(root){window.ToolsBySSTools.imageTools.init(root,"image-resizer")};})();

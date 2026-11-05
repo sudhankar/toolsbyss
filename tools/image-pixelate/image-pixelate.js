@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImagePixelate=function(root){window.ToolsBySSTools.imageTools.init(root,"image-pixelate")};})();

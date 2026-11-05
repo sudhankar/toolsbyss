@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageRotateFlip=function(root){window.ToolsBySSTools.imageTools.init(root,"image-rotate-flip")};})();

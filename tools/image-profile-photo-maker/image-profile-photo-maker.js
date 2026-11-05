@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageProfilePhotoMaker=function(root){window.ToolsBySSTools.advancedImageTools.init(root,"image-profile-photo-maker")};})();

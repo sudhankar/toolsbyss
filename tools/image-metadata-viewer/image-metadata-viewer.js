@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageMetadataViewer=function(root){window.ToolsBySSTools.advancedImageTools.init(root,"image-metadata-viewer")};})();

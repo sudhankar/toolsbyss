@@ -1,0 +1,1 @@
+(function(){"use strict";window.ToolsBySSTools=window.ToolsBySSTools||{};window.ToolsBySSTools.initImageFaviconGenerator=function(root){window.ToolsBySSTools.advancedImageTools.init(root,"image-favicon-generator")};})();
