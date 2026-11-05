@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /login/
+Disallow: /master/
+Disallow: /embed-tools/
+Sitemap: https://toolsbyss.pages.dev/sitemap.xml
