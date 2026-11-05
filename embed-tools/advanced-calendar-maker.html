@@ -46,15 +46,98 @@
   <div class="sf-cm-note"><strong>छुट्टियों की सूची और डेटा सीमा:</strong> भारत के लिए 2026–2027 की राष्ट्रीय/सार्वजनिक छुट्टियों की सूची <a href="https://timedatelive.com/data/" target="_blank" rel="noopener noreferrer">TimeDateLive holiday dataset</a> से ली गई है (CC BY 4.0; attribution)। यह राज्य-विशिष्ट/सभी वैकल्पिक छुट्टियों की संपूर्ण सरकारी सूची नहीं है। 2027 में चाँद दिखने पर निर्भर कुछ तारीखें अनुमानित हैं; स्थानीय/राज्य छुट्टियाँ स्वयं जोड़ें और सरकारी अधिसूचना से पुष्टि करें। भारत के अन्य वर्षों और चुने गए दूसरे देशों के लिए Auto Holiday provider उपलब्धता के अनुसार डेटा देता है; पुराने या बहुत आगे के वर्षों में सूची अधूरी हो सकती है। PDF बटन ब्राउज़र का Print dialog खोलता है—वहाँ “Save as PDF” चुनें। Excel export के लिए spreadsheet engine केवल बटन दबाने पर लोड होता है।</div>
 </div>
 <script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
-document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
- const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
- if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
- try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
- const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
-  if(!u||!u.emailVerified){wall.style.display='grid';return;}
-  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
-  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
-  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
- }));}catch(e){wall.style.display='grid';console.error(e);}
+document.addEventListener('DOMContentLoaded', () => {
+  const activityEvents = ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'];
+  activityEvents.forEach(eventName => {
+    document.addEventListener(eventName, () => {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'toolsbyss-activity' }, location.origin);
+      }
+    }, { passive: true });
+  });
+
+  const config = window.TOOLSBySS_MASTER || {};
+  const wall = document.querySelector('#embed-auth-wall, #pdf-editor-auth-wall');
+  const isPdfEditor = !!document.getElementById('pdf-editor-auth-wall');
+  let started = false;
+
+  const showWall = () => {
+    if (wall && wall.isConnected) wall.style.display = 'grid';
+  };
+
+  const loadScript = src => new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Could not load ${src}`));
+    document.body.appendChild(script);
+  });
+
+  const startTool = async () => {
+    if (started) return;
+    started = true;
+    wall?.remove();
+
+    try {
+      if (isPdfEditor) {
+        for (const placeholder of Array.from(document.querySelectorAll('script[data-late-src]'))) {
+          await loadScript(placeholder.dataset.lateSrc);
+          placeholder.remove();
+        }
+        await loadScript('/assets/js/download-branding.js');
+      } else {
+        await loadScript('/assets/js/download-branding.js');
+        await loadScript('/core/loader.js');
+      }
+    } catch (error) {
+      console.error('ToolsBySS tool startup failed:', error);
+      if (wall && !wall.isConnected) document.body.appendChild(wall);
+      showWall();
+      const message = wall?.querySelector('p');
+      if (message) message.textContent = 'The tool could not load. Please refresh the page and try again.';
+      started = false;
+    }
+  };
+
+  if (window.parent !== window) {
+    // The parent tool page has already verified the Firebase user. Use its
+    // same-origin auth state rather than creating a second competing session.
+    window.addEventListener('message', event => {
+      if (event.origin !== location.origin || event.source !== window.parent) return;
+      if (event.data?.type !== 'toolsbyss-auth-state') return;
+      if (event.data.verified === true) startTool();
+      else showWall();
+    });
+    window.parent.postMessage({ type: 'toolsbyss-embed-ready' }, location.origin);
+  } else {
+    // Keep direct access to an embed page gated as well.
+    if (!config.firebase?.enabled || !config.firebase.apiKey || !window.firebase) {
+      showWall();
+      return;
+    }
+    try {
+      if (!firebase.apps || firebase.apps.length === 0) {
+        firebase.initializeApp({
+          apiKey: config.firebase.apiKey,
+          authDomain: config.firebase.authDomain,
+          projectId: config.firebase.projectId,
+          appId: config.firebase.appId
+        });
+      }
+      const firebaseAuth = firebase.auth();
+      firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+        firebaseAuth.onAuthStateChanged(currentUser => {
+          if (currentUser && currentUser.emailVerified) startTool();
+          else showWall();
+        });
+      }).catch(error => {
+        console.error('Embed authentication could not be restored:', error);
+        showWall();
+      });
+    } catch (error) {
+      console.error('Embed authentication error:', error);
+      showWall();
+    }
+  }
 });
 </script></body></html>

@@ -709,15 +709,85 @@
   <script data-late-src="/assets/pdf-editor/js/editor/export.js"></script>
   <script data-late-src="/assets/pdf-editor/js/editor/main.js"></script>
  <script>
-document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
- const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('pdf-editor-auth-wall');
- if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
- try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
- const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(async u=>{
-  if(!u||!u.emailVerified){wall.style.display='grid';return;}
-  if(window.__toolsBySSPdfLoaded)return;window.__toolsBySSPdfLoaded=true;wall.remove();
-  for(const old of document.querySelectorAll('script[data-late-src]')){const s=document.createElement('script');s.src=old.dataset.lateSrc;await new Promise((ok,no)=>{s.onload=ok;s.onerror=no;document.body.appendChild(s)});old.remove();}const brand=document.createElement('script');brand.src='/assets/js/download-branding.js';document.body.appendChild(brand);
- }));}catch(e){wall.style.display='grid';console.error(e);}
+document.addEventListener('DOMContentLoaded', () => {
+  ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'].forEach(eventName => {
+    document.addEventListener(eventName, () => {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'toolsbyss-activity' }, location.origin);
+      }
+    }, { passive: true });
+  });
+
+  const config = window.TOOLSBySS_MASTER || {};
+  const wall = document.getElementById('pdf-editor-auth-wall');
+  let started = false;
+
+  const showWall = () => { if (wall && wall.isConnected) wall.style.display = 'grid'; };
+  const loadScript = src => new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Could not load ${src}`));
+    document.body.appendChild(script);
+  });
+
+  const startEditor = async () => {
+    if (started) return;
+    started = true;
+    wall?.remove();
+    try {
+      for (const placeholder of Array.from(document.querySelectorAll('script[data-late-src]'))) {
+        await loadScript(placeholder.dataset.lateSrc);
+        placeholder.remove();
+      }
+      await loadScript('/assets/js/download-branding.js');
+    } catch (error) {
+      console.error('PDF Editor startup failed:', error);
+      if (wall && !wall.isConnected) document.body.appendChild(wall);
+      showWall();
+      const message = wall?.querySelector('p');
+      if (message) message.textContent = 'The PDF Editor could not load. Please refresh the page and try again.';
+      started = false;
+    }
+  };
+
+  if (window.parent !== window) {
+    window.addEventListener('message', event => {
+      if (event.origin !== location.origin || event.source !== window.parent) return;
+      if (event.data?.type !== 'toolsbyss-auth-state') return;
+      if (event.data.verified === true) startEditor();
+      else showWall();
+    });
+    window.parent.postMessage({ type: 'toolsbyss-embed-ready' }, location.origin);
+  } else {
+    if (!config.firebase?.enabled || !config.firebase.apiKey || !window.firebase) {
+      showWall();
+      return;
+    }
+    try {
+      if (!firebase.apps || firebase.apps.length === 0) {
+        firebase.initializeApp({
+          apiKey: config.firebase.apiKey,
+          authDomain: config.firebase.authDomain,
+          projectId: config.firebase.projectId,
+          appId: config.firebase.appId
+        });
+      }
+      const firebaseAuth = firebase.auth();
+      firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+        firebaseAuth.onAuthStateChanged(currentUser => {
+          if (currentUser && currentUser.emailVerified) startEditor();
+          else showWall();
+        });
+      }).catch(error => {
+        console.error('PDF Editor authentication could not be restored:', error);
+        showWall();
+      });
+    } catch (error) {
+      console.error('PDF Editor authentication error:', error);
+      showWall();
+    }
+  }
 });
 </script></body>
 </html>
