@@ -3,15 +3,98 @@
 
 <div class="sfps-card"><h2 class="sfps-title">Split PDF</h2><p class="sfps-help">पेज के किसी भी हिस्से पर क्लिक/टच करके चयन करें, या रेंज लिखें। पेजों का live thumbnail preview देखकर पेज रेंज को अलग-अलग PDF में बाँटें। उदाहरण: 1-2, 3, 4-6 से तीन PDF बनेंगी।</p><div class="sf-file-drop" data-sf-file-dropzone><input class="sfps-file" id="sfps-file-1" data-sfps-file type="file" accept="application/pdf,.pdf"><div class="sf-file-drop__content"><strong>PDF चुनें या यहाँ खींचकर छोड़ें</strong><span>क्लिक या टच करके फ़ाइल चुनें</span></div></div><p class="sfps-status" data-sfps-selected>अभी कोई PDF चुनी नहीं गई है।</p><div class="sf-preview-wrap"><strong>PDF पेज प्रीव्यू — किसी भी पेज पर क्लिक/टच करके चुनें</strong><div class="sfps-actions"><button class="sfps-btn sfps-secondary" data-sfps-all type="button" disabled>सभी पेज चुनें</button><button class="sfps-btn sfps-secondary" data-sfps-none type="button" disabled>चयन हटाएँ</button></div><div class="sf-preview-grid" data-sfps-preview></div></div><label class="sfps-label" for="sfps-ranges-1">Split page ranges</label><input class="sfps-input" id="sfps-ranges-1" data-sfps-ranges placeholder="उदाहरण: 1-2, 3, 4-6"><p class="sf-preview-note">हर comma-separated range एक अलग PDF बनाएगी। खाली छोड़ने पर पूरी PDF एक ही भाग बनेगी।</p><div class="sfps-actions"><button class="sfps-btn" data-sfps-split type="button" disabled>Split PDF</button><button class="sfps-btn sfps-secondary" data-sfps-clear type="button" disabled>Clear</button></div><div class="sfps-results" data-sfps-results></div><p class="sfps-status" data-sf-status role="status" aria-live="polite"></p></div></div>
 <script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
-document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
- const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
- if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
- try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
- const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
-  if(!u||!u.emailVerified){wall.style.display='grid';return;}
-  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
-  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
-  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
- }));}catch(e){wall.style.display='grid';console.error(e);}
+document.addEventListener('DOMContentLoaded', () => {
+  const activityEvents = ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'];
+  activityEvents.forEach(eventName => {
+    document.addEventListener(eventName, () => {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'toolsbyss-activity' }, location.origin);
+      }
+    }, { passive: true });
+  });
+
+  const config = window.TOOLSBySS_MASTER || {};
+  const wall = document.querySelector('#embed-auth-wall, #pdf-editor-auth-wall');
+  const isPdfEditor = !!document.getElementById('pdf-editor-auth-wall');
+  let started = false;
+
+  const showWall = () => {
+    if (wall && wall.isConnected) wall.style.display = 'grid';
+  };
+
+  const loadScript = src => new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Could not load ${src}`));
+    document.body.appendChild(script);
+  });
+
+  const startTool = async () => {
+    if (started) return;
+    started = true;
+    wall?.remove();
+
+    try {
+      if (isPdfEditor) {
+        for (const placeholder of Array.from(document.querySelectorAll('script[data-late-src]'))) {
+          await loadScript(placeholder.dataset.lateSrc);
+          placeholder.remove();
+        }
+        await loadScript('/assets/js/download-branding.js');
+      } else {
+        await loadScript('/assets/js/download-branding.js');
+        await loadScript('/core/loader.js');
+      }
+    } catch (error) {
+      console.error('ToolsBySS tool startup failed:', error);
+      if (wall && !wall.isConnected) document.body.appendChild(wall);
+      showWall();
+      const message = wall?.querySelector('p');
+      if (message) message.textContent = 'The tool could not load. Please refresh the page and try again.';
+      started = false;
+    }
+  };
+
+  if (window.parent !== window) {
+    // The parent tool page has already verified the Firebase user. Use its
+    // same-origin auth state rather than creating a second competing session.
+    window.addEventListener('message', event => {
+      if (event.origin !== location.origin || event.source !== window.parent) return;
+      if (event.data?.type !== 'toolsbyss-auth-state') return;
+      if (event.data.verified === true) startTool();
+      else showWall();
+    });
+    window.parent.postMessage({ type: 'toolsbyss-embed-ready' }, location.origin);
+  } else {
+    // Keep direct access to an embed page gated as well.
+    if (!config.firebase?.enabled || !config.firebase.apiKey || !window.firebase) {
+      showWall();
+      return;
+    }
+    try {
+      if (!firebase.apps || firebase.apps.length === 0) {
+        firebase.initializeApp({
+          apiKey: config.firebase.apiKey,
+          authDomain: config.firebase.authDomain,
+          projectId: config.firebase.projectId,
+          appId: config.firebase.appId
+        });
+      }
+      const firebaseAuth = firebase.auth();
+      firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+        firebaseAuth.onAuthStateChanged(currentUser => {
+          if (currentUser && currentUser.emailVerified) startTool();
+          else showWall();
+        });
+      }).catch(error => {
+        console.error('Embed authentication could not be restored:', error);
+        showWall();
+      });
+    } catch (error) {
+      console.error('Embed authentication error:', error);
+      showWall();
+    }
+  }
 });
 </script></body></html>
