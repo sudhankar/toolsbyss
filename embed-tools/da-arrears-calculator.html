@@ -1,0 +1,200 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="da-arrears-calculator" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/da-arrears-calculator/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML: paste this fragment into the post. Keep the ToolsBySS brand link visible. -->
+<div class="sf-tool sf-da-arrears-calculator" data-sf-tool="da-arrears-calculator">
+
+<div class="sf-tool-intro"><h2>DA Arrears Calculator</h2><p>सरकारी कर्मचारियों के लिए महीनेवार DA बकाया, अलग-अलग DA दरों, कर्मचारी सूची, GPF/NPS/UPS deductions और Excel/print statement के साथ।</p><span class="sf-local-note">🔒 गणना/कन्वर्ज़न आपके ब्राउज़र में</span></div>
+<section aria-labelledby="calc-heading" class="tool-panel da-calculator">
+ <h2 class="sr-only" id="calc-heading">
+  DA arrears statement calculator
+ </h2>
+ <div class="da-settings">
+  <div class="da-setting">
+   <label>
+    From Month
+   </label>
+   <div aria-label="From month and year" class="month-year-picker">
+    <select aria-label="From month" id="fromMonth">
+    </select>
+    <select aria-label="From year" id="fromYear">
+    </select>
+   </div>
+  </div>
+  <div class="da-setting">
+   <label>
+    To Month
+   </label>
+   <div aria-label="To month and year" class="month-year-picker">
+    <select aria-label="To month" id="toMonth">
+    </select>
+    <select aria-label="To year" id="toYear">
+    </select>
+   </div>
+  </div>
+  <div class="da-setting">
+   <label for="dueDA">
+    Due DA %
+   </label>
+   <div class="input-suffix">
+    <input id="dueDA" max="200" min="0" step="0.01" type="number" value="60"/>
+    <span>
+     %
+    </span>
+   </div>
+  </div>
+  <div class="da-setting">
+   <label for="drawnDA">
+    Drawn DA %
+   </label>
+   <div class="input-suffix">
+    <input id="drawnDA" max="200" min="0" step="0.01" type="number" value="58"/>
+    <span>
+     %
+    </span>
+   </div>
+  </div>
+ </div>
+ <div class="da-monthly-toggle">
+  <label>
+   <input aria-controls="monthlyRateSettings" aria-expanded="false" id="monthlyRatesToggle" type="checkbox"/>
+   <strong>
+    Month-wise Due / Drawn / Difference columns
+   </strong>
+  </label>
+  <span>
+   Optional: enable this when different DA rates apply in different months.
+  </span>
+ </div>
+ <div class="monthly-rate-settings" hidden="" id="monthlyRateSettings">
+ </div>
+ <div class="da-rate-note" id="rateNote">
+  <span id="periodHelp">
+   Month picker allows older arrear periods as well.
+  </span>
+  · DA difference:
+  <strong>
+   2.00%
+  </strong>
+  · 7 months selected · Monthly amount = Basic Pay × DA difference.
+ </div>
+ <div class="statement-toolbar">
+  <div>
+   <strong>
+    Employee Arrear Statement
+   </strong>
+   <span class="toolbar-sub">
+    Add employees below. Deduction defaults are editable.
+   </span>
+  </div>
+  <button class="btn btn-secondary" id="addEmployee" type="button">
+   ＋ Add Employee
+  </button>
+ </div>
+ <div class="table-wrap sf-table-scroll" id="tableWrap">
+  <table class="da-table" id="daTable">
+   <thead>
+    <tr id="headRow">
+    </tr>
+   </thead>
+   <tbody id="employeeBody">
+   </tbody>
+   <tfoot>
+    <tr id="totalRow">
+    </tr>
+   </tfoot>
+  </table>
+ </div>
+ <div class="mobile-table-hint">
+  ↔ Swipe horizontally to view all month and amount columns.
+ </div>
+ <div class="calc-actions">
+  <button class="btn btn-primary btn-lg" id="calculateBtn" type="button">
+   Calculate Arrear
+  </button>
+  <button class="btn btn-secondary btn-lg" id="resetBtn" type="button">
+   Reset
+  </button>
+  <span aria-live="polite" class="calc-status" id="calcStatus" role="status">
+  </span>
+ </div>
+ <div class="export-actions" hidden="" id="exportActions">
+  <button class="btn btn-secondary" id="excelBtn" type="button">
+   ↓ Download Excel
+  </button>
+  <button class="btn btn-secondary" id="pdfBtn" type="button">
+   ▣ Print / Save as PDF
+  </button>
+  <button class="btn btn-secondary" id="printBtn" type="button">
+   🖨 Print Statement
+  </button>
+ </div>
+ <div class="summary-box" id="summaryBox">
+  <div class="summary-title">
+   Arrear Summary
+  </div>
+  <div class="summary-grid">
+   <div>
+    <span>
+     Total DA Arrear
+    </span>
+    <strong id="sumArrear">
+     ₹0.00
+    </strong>
+   </div>
+   <div>
+    <span>
+     Total GPF Deduction
+    </span>
+    <strong id="sumGPF">
+     ₹0.00
+    </strong>
+   </div>
+   <div>
+    <span>
+     Total NPS Deduction
+    </span>
+    <strong id="sumNPS">
+     ₹0.00
+    </strong>
+   </div>
+   <div>
+    <span>
+     Total UPS Deduction
+    </span>
+    <strong id="sumUPS">
+     ₹0.00
+    </strong>
+   </div>
+   <div class="summary-net">
+    <span>
+     Total Net Payable
+    </span>
+    <strong id="sumNet">
+     ₹0.00
+    </strong>
+   </div>
+  </div>
+ </div>
+ <div class="da-disclaimer">
+  <strong>
+   Important:
+  </strong>
+  This is an independent calculation aid, not an official government payment order. Default GPF/NPS/UPS deductions are editable. Verify the applicable government/department rules, contribution basis, effective dates, rounding and any other recoveries before using the result for an official statement.
+ </div>
+</section>
+
+
+</div>
+<!-- Required: load the shared tool loader. If loader-production.js is already included site-wide, remove this script to avoid loading it twice. -->
+
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>

@@ -1,0 +1,60 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="krutidev-unicode-converter" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/krutidev-unicode-converter/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML: paste this fragment into the post. Keep the ToolsBySS brand link visible. -->
+<div class="sf-tool sf-krutidev-unicode-converter" data-sf-tool="krutidev-unicode-converter">
+
+<div class="sf-tool-intro"><h2>KrutiDev ↔ Unicode Converter</h2><p>पुराने KrutiDev-encoded हिंदी पाठ और Unicode हिंदी के बीच दोनों दिशाओं में कन्वर्ज़न करें।</p><span class="sf-local-note">🔒 गणना/कन्वर्ज़न आपके ब्राउज़र में</span></div>
+<section class="tool-panel mt-6 converter-shell">
+ <div class="converter-grid">
+  <div class="converter-pane">
+   <label for="a">
+    <strong>
+     Krutidev text
+    </strong>
+   </label>
+   <textarea id="a" placeholder="Krutidev text यहाँ रखें…" spellcheck="false"></textarea>
+  </div>
+  <div class="converter-pane">
+   <label for="b">
+    <strong>
+     Unicode Hindi
+    </strong>
+   </label>
+   <textarea id="b" placeholder="Unicode Hindi यहाँ रखें…" spellcheck="false"></textarea>
+  </div>
+ </div>
+ <div class="converter-actions">
+  <button class="btn btn-primary" id="u" type="button">
+   Krutidev → Unicode
+  </button>
+  <button class="btn btn-secondary" id="k" type="button">
+   Unicode → Krutidev
+  </button>
+  <button class="btn btn-secondary" id="cp" type="button">
+   Copy
+  </button>
+  <button class="btn btn-secondary" id="cl" type="button">
+   Clear
+  </button>
+ </div>
+ <p class="text-muted" id="s">
+ </p>
+</section>
+<textarea aria-label="Legacy text processing buffer" hidden id="legacy_text"></textarea>
+<textarea aria-label="Unicode text processing buffer" hidden id="unicode_text"></textarea>
+
+<p class="sf-tool-security-note">नोट: यह encoding converter है, अनुवादक या grammar checker नहीं। अन्य legacy font encodings अथवा mixed text के परिणाम को जाँचें। टेक्स्ट browser में ही संसाधित होता है।</p>
+</div>
+<!-- Required: load the shared tool loader. If loader-production.js is already included site-wide, remove this script to avoid loading it twice. -->
+
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>

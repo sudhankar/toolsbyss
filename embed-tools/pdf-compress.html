@@ -1,0 +1,31 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="pdf-compress" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/pdf-compress/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger HTML view में paste करें; अपना लेख इस टूल के ऊपर/नीचे रखें. -->
+<div class="sf-tool sf-pdf-compress" data-sf-tool="pdf-compress">
+
+<div class="sfpc-card">
+    <h2 class="sfpc-title">PDF Compress — PDF का आकार कम करें</h2>
+    <p class="sfpc-help">PDF चुनें और गुणवत्ता चुनकर नई PDF बनाएँ। छोटे आकार के लिए गुणवत्ता कम रखें। ध्यान दें: इस तरीके में हर पेज इमेज बनता है, इसलिए टेक्स्ट select/search नहीं हो सकेगा और फ़ाइल हर बार छोटी हो यह ज़रूरी नहीं है।</p>
+    <div class="sf-file-drop" data-sf-file-dropzone><input data-sfpc-file type="file" accept="application/pdf,.pdf"><div class="sf-file-drop__content"><strong>PDF चुनें या यहाँ खींचकर छोड़ें</strong><span>क्लिक या टच करके फ़ाइल चुनें</span></div></div>
+    <p class="sfpc-status" data-sfpc-selected>अभी कोई PDF चुनी नहीं गई है।</p>
+    <div class="sfpc-settings">
+      <label>रिज़ॉल्यूशन<select data-sfpc-scale><option value="0.8">कम — छोटा आकार</option><option value="1.2" selected>सामान्य</option><option value="1.7">अच्छी गुणवत्ता — बड़ा आकार</option></select></label>
+      <label>JPEG गुणवत्ता <span data-sfpc-quality-value>65%</span><input data-sfpc-quality type="range" min="25" max="90" value="65"></label>
+    </div>
+    <div class="sfpc-preview-wrap"><strong>पेज प्रीव्यू</strong><div class="sf-preview-grid" data-sfpc-preview></div></div>
+    <div class="sfpc-actions"><button class="sfpc-btn" data-sfpc-download type="button" disabled>Compress करके PDF डाउनलोड करें</button><button class="sfpc-btn sfpc-secondary" data-sfpc-clear type="button" disabled>Clear</button></div>
+    <p class="sfpc-status" data-sf-status role="status" aria-live="polite"></p>
+  </div>
+</div>
+
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>

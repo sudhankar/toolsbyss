@@ -1,0 +1,49 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="advanced-date-difference-calculator" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/advanced-date-difference-calculator/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML. Keep the visible ToolsBySS brand link unchanged for loader authorization. -->
+<div class="sf-tool sf-advanced-date-difference-calculator" data-sf-tool="advanced-date-difference-calculator">
+  
+  <div class="sf-tool-intro">
+    <h2>Advanced Date Difference Calculator – तारीखों के बीच अंतर</h2>
+    <p>दो तारीखों के बीच कैलेंडर के अनुसार वर्ष–महीने–दिन, कुल दिन, सप्ताह, कुल महीने, दशमलव वर्ष/महीने और वास्तविक घंटे–मिनट–सेकंड निकालें।</p>
+    <span class="sf-local-note">🔒 सभी गणनाएँ आपके ब्राउज़र में होती हैं।</span>
+  </div>
+  <section class="sf-dd-panel" aria-label="Date difference calculator">
+    <div class="sf-dd-input-grid">
+      <div class="sf-dd-date-card"><div class="sf-dd-date-heading"><span>01</span><div><h3>शुरुआती तारीख</h3><p>From Date</p></div></div><label class="sf-dd-field"><span>तारीख</span><input type="date" data-dd-start required></label><label class="sf-dd-field"><span>समय</span><input type="time" data-dd-start-time step="1" value="00:00:00"></label></div>
+      <div class="sf-dd-date-card"><div class="sf-dd-date-heading"><span>02</span><div><h3>अंतिम तारीख</h3><p>To Date</p></div></div><label class="sf-dd-field"><span>तारीख</span><input type="date" data-dd-end required></label><label class="sf-dd-field"><span>समय</span><input type="time" data-dd-end-time step="1"></label></div>
+    </div>
+    <div class="sf-dd-options">
+      <label class="sf-dd-option-card"><input type="checkbox" data-dd-inclusive><span class="sf-dd-switch" aria-hidden="true"></span><span><strong>दोनों तारीखें शामिल करें</strong><small>Inclusive Days — कुल दिन की गिनती में शुरुआत और अंतिम तारीख दोनों जोड़ें।</small></span></label>
+      <label class="sf-dd-option-card sf-dd-weekday-option"><input type="checkbox" data-dd-weekdays><span class="sf-dd-switch" aria-hidden="true"></span><span><strong>कार्यदिवस गिनें (ON/OFF)</strong><small>ON करने पर शनिवार और रविवार हटेंगे; केवल सोमवार से शुक्रवार गिने जाएँगे।</small></span></label>
+    </div>
+    <div class="sf-dd-actions"><button type="button" class="sf-dd-btn sf-dd-primary" data-dd-calculate>अंतर कैलकुलेट करें</button><button type="button" class="sf-dd-btn sf-dd-secondary" data-dd-swap>तारीखें बदलें ⇄</button><button type="button" class="sf-dd-btn sf-dd-ghost" data-dd-today>आज तक</button><button type="button" class="sf-dd-btn sf-dd-ghost" data-dd-reset>रीसेट</button></div>
+    <p class="sf-dd-status" data-dd-status role="status" aria-live="polite"></p>
+    <div class="sf-dd-results" data-dd-results hidden>
+      <div class="sf-dd-hero"><span>कैलेंडर अंतर (Calendar Difference)</span><strong data-dd-ymd>—</strong><small data-dd-direction>—</small></div>
+      <div class="sf-dd-result-grid">
+        <div class="sf-dd-result-card"><span>कुल दिन</span><strong data-dd-days>—</strong><small data-dd-days-note>—</small></div>
+        <div class="sf-dd-result-card"><span>सप्ताह + दिन</span><strong data-dd-weeks>—</strong><small data-dd-total-weeks>—</small></div>
+        <div class="sf-dd-result-card"><span>कुल कैलेंडर महीने</span><strong data-dd-months>—</strong><small>वर्ष × 12 + अतिरिक्त महीने</small></div>
+        <div class="sf-dd-result-card"><span>दशमलव वर्ष</span><strong data-dd-decimal-years>—</strong><small>औसत Gregorian वर्ष: 365.2425 दिन</small></div>
+        <div class="sf-dd-result-card"><span>दशमलव महीने</span><strong data-dd-decimal-months>—</strong><small>औसत महीना: 30.436875 दिन</small></div>
+        <div class="sf-dd-result-card"><span>कार्यदिवस</span><strong data-dd-workdays>—</strong><small>शनिवार और रविवार छोड़कर</small></div>
+      </div>
+      <div class="sf-dd-precise"><h4>समय का सटीक अंतर</h4><div class="sf-dd-precise-grid"><div><strong data-dd-hours>—</strong><span>कुल घंटे</span></div><div><strong data-dd-minutes>—</strong><span>कुल मिनट</span></div><div><strong data-dd-seconds>—</strong><span>कुल सेकंड</span></div></div></div>
+      <div class="sf-dd-summary"><h4>गणना सारांश</h4><p data-dd-summary>—</p><p class="sf-dd-interpretation" data-dd-interpretation></p></div>
+      <div class="sf-dd-result-actions"><button type="button" class="sf-dd-btn sf-dd-secondary" data-dd-copy>परिणाम कॉपी करें</button><button type="button" class="sf-dd-btn sf-dd-secondary" data-dd-print>रिपोर्ट प्रिंट / PDF</button></div>
+    </div>
+  </section>
+  <div class="sf-dd-note"><strong>ध्यान दें:</strong> कैलेंडर के महीने 28–31 दिन के हो सकते हैं, इसलिए वर्ष–महीने–दिन का अंतर और औसत दिनों से निकला दशमलव महीना अलग माप हैं। Inclusive विकल्प केवल कुल तारीखों की गिनती में लागू होता है; वास्तविक elapsed hours नहीं बदलते।</div>
+</div>
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>

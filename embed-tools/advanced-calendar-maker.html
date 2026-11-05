@@ -1,0 +1,60 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="advanced-calendar-maker" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/advanced-calendar-maker/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML. Keep the visible ToolsBySS brand link unchanged for loader authorization. -->
+<div class="sf-tool sf-advanced-calendar-maker" data-sf-tool="advanced-calendar-maker">
+  
+  <div class="sf-tool-intro">
+    <h2>Advanced Calendar Maker – कस्टम कैलेंडर मेकर</h2>
+    <p>महीने, पूरे साल या साप्ताहिक प्लानर का कैलेंडर बनाएँ। छुट्टियाँ लोड करें, अपने इवेंट/नोट्स जोड़ें और प्रिंट-ready PDF या editable Excel फ़ाइल तैयार करें।</p>
+    <span class="sf-local-note">🗓️ आपके निजी नोट्स इस डिवाइस के ब्राउज़र में सेव रहते हैं।</span>
+  </div>
+  <section class="sf-cm-panel" aria-label="Advanced calendar maker">
+    <div class="sf-cm-controls">
+      <div class="sf-cm-control-head"><div><h3>कैलेंडर सेटिंग्स</h3><p>व्यू, वर्ष, थीम और छुट्टियाँ चुनें</p></div><span class="sf-cm-control-badge">LIVE PREVIEW</span></div>
+      <div class="sf-cm-control-grid">
+        <label class="sf-cm-field"><span>वर्ष</span><input type="number" min="1900" max="2100" step="1" value="2026" data-cm-year></label>
+        <label class="sf-cm-field"><span>महीना</span><select data-cm-month><option value="0">जनवरी</option><option value="1">फरवरी</option><option value="2">मार्च</option><option value="3">अप्रैल</option><option value="4">मई</option><option value="5">जून</option><option value="6">जुलाई</option><option value="7">अगस्त</option><option value="8">सितंबर</option><option value="9">अक्टूबर</option><option value="10">नवंबर</option><option value="11">दिसंबर</option></select></label>
+        <label class="sf-cm-field"><span>लेआउट</span><select data-cm-view><option value="month">मासिक कैलेंडर</option><option value="year">पूरा साल (Annual)</option><option value="week">साप्ताहिक प्लानर</option></select></label>
+        <label class="sf-cm-field"><span>सप्ताह की शुरुआत</span><select data-cm-week-start><option value="1">सोमवार</option><option value="0">रविवार</option></select></label>
+        <label class="sf-cm-field"><span>कलर थीम</span><select data-cm-theme><option value="classic">Classic Blue</option><option value="lavender">Lavender</option><option value="emerald">Emerald</option><option value="rose">Rose</option><option value="dark">Midnight</option></select></label>
+        <label class="sf-cm-field"><span>फॉन्ट</span><select data-cm-font><option value="system">System / साफ़</option><option value="serif">Serif</option><option value="rounded">Rounded</option></select></label>
+      </div>
+      <div class="sf-cm-holiday-box">
+        <div><strong>छुट्टियाँ और त्योहार</strong><small>देश/क्षेत्र के अनुसार public holidays लोड करें। पुराने या बहुत आगे के वर्षों में सूची अधूरी हो सकती है।</small></div>
+        <div class="sf-cm-holiday-controls"><label class="sf-cm-field"><span>देश</span><select data-cm-country><option value="IN">भारत (India)</option><option value="US">United States</option><option value="GB">United Kingdom</option><option value="CA">Canada</option><option value="AU">Australia</option></select></label></div>
+        <button type="button" class="sf-cm-btn sf-cm-secondary" data-cm-load-holidays>ऑटो छुट्टियाँ लोड करें</button>
+        <p class="sf-cm-status" data-cm-holiday-status role="status" aria-live="polite">छुट्टियों के लिए बटन दबाएँ। इससे पहले कोई बाहरी holiday data लोड नहीं होगा।</p>
+      </div>
+      <div class="sf-cm-brand-fields"><strong>प्रिंट हेडर / फुटर</strong><div class="sf-cm-control-grid"><label class="sf-cm-field"><span>हेडर / वेबसाइट नाम</span><input type="text" maxlength="70" value="ToolsBySS" data-cm-header></label><label class="sf-cm-field"><span>फुटर / Watermark टेक्स्ट</span><input type="text" maxlength="90" placeholder="वैकल्पिक नोट या वेबसाइट" data-cm-footer></label></div></div>
+    </div>
+    <div class="sf-cm-preview-wrap">
+      <div class="sf-cm-preview-toolbar"><div><strong>कैलेंडर प्रीव्यू</strong><span data-cm-preview-meta>—</span></div><div class="sf-cm-export-controls"><label class="sf-cm-field sf-cm-orientation"><span>PDF पेज</span><select data-cm-orientation><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></label><button type="button" class="sf-cm-btn sf-cm-primary" data-cm-pdf>PDF / प्रिंट</button><button type="button" class="sf-cm-btn sf-cm-secondary" data-cm-excel>Excel डाउनलोड</button></div></div>
+      <div class="sf-cm-preview" data-cm-preview data-theme="classic" data-font="system"><div class="sf-cm-print-head"><span data-cm-print-header>ToolsBySS</span><strong data-cm-title>2026</strong></div><div data-cm-calendar class="sf-cm-calendar"></div><div class="sf-cm-print-footer" data-cm-print-footer></div></div>
+      <p class="sf-cm-preview-hint">लाइव प्रीव्यू में किसी तारीख पर क्लिक करके उस दिन का इवेंट या निजी नोट जोड़ें।</p>
+    </div>
+    <div class="sf-cm-events">
+      <div class="sf-cm-events-head"><div><h3>इवेंट और निजी नोट्स</h3><p>किसी तारीख पर क्लिक करके विवरण सेव करें। इवेंट इसी टैब में सुरक्षित रहेंगे। Refresh करने पर बने रहेंगे, लेकिन पेज नए सिरे से खोलने या नया टैब इस्तेमाल करने पर खाली कैलेंडर मिलेगा।</p></div><span class="sf-cm-selected-date" data-cm-selected-label>कोई तारीख चुनी नहीं गई</span></div>
+      <div class="sf-cm-event-form">
+        <label class="sf-cm-field"><span>तारीख</span><input type="date" data-cm-event-date></label>
+        <label class="sf-cm-field"><span>इवेंट का नाम</span><input type="text" maxlength="70" placeholder="जैसे: जन्मदिन / मीटिंग" data-cm-event-title></label>
+        <label class="sf-cm-field"><span>प्रकार</span><select data-cm-event-type><option value="event">इवेंट</option><option value="holiday">छुट्टी</option><option value="festival">त्योहार</option><option value="birthday">जन्मदिन</option><option value="anniversary">सालगिरह</option><option value="meeting">मीटिंग</option><option value="note">नोट / रिमाइंडर</option></select></label>
+        <label class="sf-cm-field"><span>रंग</span><select data-cm-event-color><option value="blue">नीला</option><option value="green">हरा</option><option value="rose">गुलाबी</option><option value="amber">पीला</option><option value="violet">बैंगनी</option></select></label>
+        <label class="sf-cm-field sf-cm-field-wide"><span>नोट / विवरण</span><textarea rows="2" maxlength="500" placeholder="समय, स्थान या अतिरिक्त जानकारी…" data-cm-event-notes></textarea></label>
+      </div>
+      <div class="sf-cm-event-actions"><button type="button" class="sf-cm-btn sf-cm-primary" data-cm-save-event>इवेंट सेव करें</button><button type="button" class="sf-cm-btn sf-cm-secondary" data-cm-clear-form>फॉर्म साफ़ करें</button><button type="button" class="sf-cm-btn sf-cm-secondary" data-cm-new-calendar>नया कैलेंडर / सभी इवेंट साफ़ करें</button><span class="sf-cm-status" data-cm-event-status role="status" aria-live="polite"></span></div>
+      <div class="sf-cm-saved-events"><h4>चुनी हुई तारीख के इवेंट</h4><div data-cm-event-list><p class="sf-cm-empty">कैलेंडर में किसी तारीख को चुनें।</p></div></div>
+    </div>
+  </section>
+  <div class="sf-cm-note"><strong>छुट्टियों की सूची और डेटा सीमा:</strong> भारत के लिए 2026–2027 की राष्ट्रीय/सार्वजनिक छुट्टियों की सूची <a href="https://timedatelive.com/data/" target="_blank" rel="noopener noreferrer">TimeDateLive holiday dataset</a> से ली गई है (CC BY 4.0; attribution)। यह राज्य-विशिष्ट/सभी वैकल्पिक छुट्टियों की संपूर्ण सरकारी सूची नहीं है। 2027 में चाँद दिखने पर निर्भर कुछ तारीखें अनुमानित हैं; स्थानीय/राज्य छुट्टियाँ स्वयं जोड़ें और सरकारी अधिसूचना से पुष्टि करें। भारत के अन्य वर्षों और चुने गए दूसरे देशों के लिए Auto Holiday provider उपलब्धता के अनुसार डेटा देता है; पुराने या बहुत आगे के वर्षों में सूची अधूरी हो सकती है। PDF बटन ब्राउज़र का Print dialog खोलता है—वहाँ “Save as PDF” चुनें। Excel export के लिए spreadsheet engine केवल बटन दबाने पर लोड होता है।</div>
+</div>
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>

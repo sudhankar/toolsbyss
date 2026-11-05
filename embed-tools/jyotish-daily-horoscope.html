@@ -1,0 +1,71 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="jyotish-daily-horoscope" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/jyotish-daily-horoscope/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML. Keep the direct-child ToolsBySS brand link unchanged for loader authorization. -->
+<div class="sf-tool sf-jyotish-daily-horoscope" data-sf-tool="jyotish-daily-horoscope">
+  
+  <header class="sf-jdh-intro">
+    <span class="sf-jdh-eyebrow">वैदिक ज्योतिष · दैनिक मार्गदर्शन</span>
+    <h2>आपकी जन्म-कुंडली और आज का सकारात्मक मार्गदर्शन</h2>
+    <p>जन्म विवरण से पारंपरिक ज्योतिषीय गणनाएँ देखें और हर दिन एक नया, व्यावहारिक चिंतन प्राप्त करें। एक ही जन्म-विवरण और तारीख पर परिणाम स्थिर रहेगा।</p>
+  </header>
+
+  <section class="sf-jdh-panel" aria-label="जन्म विवरण">
+    <div class="sf-jdh-panel-head"><div><h3>अपना जन्म विवरण भरें</h3><p>आपकी जानकारी इसी ब्राउज़र में गणना के लिए उपयोग होगी।</p></div><span class="sf-jdh-step">01 / विवरण</span></div>
+    <form class="sf-jdh-form" data-jdh-form novalidate>
+      <div class="sf-jdh-grid">
+        <label class="sf-jdh-field"><span>आपका नाम <b>*</b></span><input type="text" maxlength="60" autocomplete="name" placeholder="अपना नाम लिखें" data-jdh-name required></label>
+        <label class="sf-jdh-field"><span>जन्मतिथि <b>*</b></span><input type="date" min="1900-01-01" data-jdh-dob required><small>उम्र जन्मतिथि से अपने-आप निकलेगी।</small></label>
+        <label class="sf-jdh-field"><span>जन्म समय की जानकारी <b>*</b></span><select data-jdh-time-mode><option value="exact">सटीक जन्म समय मालूम है</option><option value="approx">जन्म समय अनुमानित है</option><option value="unknown">जन्म समय मालूम नहीं</option></select></label>
+        <label class="sf-jdh-field" data-jdh-time-fields><span>जन्म का स्थानीय समय <b>*</b></span><input type="time" step="60" data-jdh-time><small>जन्मस्थान के स्थानीय समय के अनुसार।</small></label>
+        <label class="sf-jdh-field" data-jdh-accuracy-field hidden><span>समय में संभावित अंतर</span><select data-jdh-accuracy><option value="15">± 15 मिनट</option><option value="30" selected>± 30 मिनट</option><option value="60">± 60 मिनट</option></select></label>
+        <label class="sf-jdh-field sf-jdh-place-field"><span>जन्मस्थान (शहर / कस्बा) <b>*</b></span><div class="sf-jdh-place-row"><input type="search" maxlength="100" placeholder="जैसे: Varanasi, Uttar Pradesh" data-jdh-place autocomplete="off"><button type="button" class="sf-jdh-btn sf-jdh-btn-light" data-jdh-search>शहर खोजें</button></div><small>सही शहर चुनें ताकि अक्षांश, देशांतर और टाइमज़ोन लिया जा सके।</small></label>
+      </div>
+      <div class="sf-jdh-location-pick" data-jdh-location-wrap hidden><label class="sf-jdh-field"><span>खोज परिणाम में अपना जन्मस्थान चुनें</span><select data-jdh-location><option value="">पहले शहर खोजें</option></select></label></div>
+      <div class="sf-jdh-privacy"><span aria-hidden="true">🔒</span><p>गोपनीयता: शहर खोजते समय केवल शहर का नाम Open-Meteo Geocoding सेवा को भेजा जाता है। आपका नाम, जन्मतिथि और जन्मसमय वहाँ नहीं भेजे जाते। ज्योतिषीय गणना आपके ब्राउज़र में होती है; जन्म विवरण सर्वर पर सेव नहीं किए जाते।</p></div>
+      <button type="submit" class="sf-jdh-btn sf-jdh-btn-primary" data-jdh-generate>आज का व्यक्तिगत मार्गदर्शन देखें</button>
+      <p class="sf-jdh-status" data-jdh-status role="status" aria-live="polite">सभी अनिवार्य विवरण भरें और जन्मस्थान चुनें।</p>
+    </form>
+  </section>
+
+  <section class="sf-jdh-results" data-jdh-results hidden aria-live="polite">
+    <div class="sf-jdh-result-top"><div><span class="sf-jdh-eyebrow">आपकी व्यक्तिगत रिपोर्ट</span><h3 data-jdh-greeting></h3><p data-jdh-date></p></div><div class="sf-jdh-age-pill" data-jdh-age></div></div>
+    <div class="sf-jdh-daily-card" data-jdh-daily-card>
+      <div class="sf-jdh-daily-head"><span>आज की सकारात्मक दिशा</span><span data-jdh-card-id></span></div>
+      <h3 data-jdh-daily-title></h3><div class="sf-jdh-focus" data-jdh-focus></div>
+      <p class="sf-jdh-main-message" data-jdh-message></p>
+      <div class="sf-jdh-daily-grid">
+        <article><span>काम / करियर</span><p data-jdh-work></p></article>
+        <article><span>पढ़ाई / सीखना</span><p data-jdh-study></p></article>
+        <article><span>रिश्ते / संवाद</span><p data-jdh-relationships></p></article>
+        <article><span>धन / योजना</span><p data-jdh-finance></p></article>
+        <article><span>दिनचर्या / संतुलन</span><p data-jdh-wellbeing></p></article>
+      </div>
+      <div class="sf-jdh-action"><strong>आज का छोटा कदम</strong><p data-jdh-action></p></div>
+      <div class="sf-jdh-reflection"><strong>दिन का आत्मचिंतन</strong><p data-jdh-reflection></p></div>
+    </div>
+
+    <div class="sf-jdh-two-col">
+      <section class="sf-jdh-info-card"><h4>जन्म-कुंडली के गणितीय संकेत</h4><div class="sf-jdh-chart-facts" data-jdh-chart-facts></div><p class="sf-jdh-small-note" data-jdh-time-note></p></section>
+      <section class="sf-jdh-info-card"><h4>आज का पंचांग snapshot एवं चंद्र स्थिति</h4><div class="sf-jdh-chart-facts" data-jdh-transit-facts></div><p class="sf-jdh-small-note">यह 12:00 बजे IST का खगोलीय snapshot है; इसे सूर्योदय-आधारित संपूर्ण पंचांग न समझें।</p></section>
+    </div>
+
+    <section class="sf-jdh-info-card"><div class="sf-jdh-section-head"><div><h4>जन्म के समय ग्रहों की राशि स्थिति</h4><p data-jdh-chart-caption>निरयन राशि · लाहिड़ी अयनांश का अनुमानित polynomial</p></div><span>खगोलीय गणना</span></div><div class="sf-jdh-table-wrap"><table><thead><tr><th>ग्रह</th><th>राशि</th><th>अंश</th><th>भाव</th><th>गति</th></tr></thead><tbody data-jdh-planets></tbody></table></div><p class="sf-jdh-small-note">राहु-केतु को मध्यम चंद्र-नोड से निकाला गया है। अलग ephemeris, अयनांश और गणना-पद्धति से सीमावर्ती स्थितियों में अंतर हो सकता है।</p></section>
+
+    <section class="sf-jdh-info-card" data-jdh-dasha-card hidden><h4>विंशोत्तरी महादशा / अंतर्दशा</h4><div class="sf-jdh-chart-facts" data-jdh-dasha></div><p class="sf-jdh-small-note">यह पारंपरिक 120-वर्षीय विंशोत्तरी क्रम की गणितीय समय-सारणी है, जीवन-घटनाओं की निश्चित भविष्यवाणी नहीं।</p></section>
+
+    <div class="sf-jdh-result-actions"><button type="button" class="sf-jdh-btn sf-jdh-btn-primary" data-jdh-share>रिपोर्ट साझा करें</button><button type="button" class="sf-jdh-btn sf-jdh-btn-light" data-jdh-whatsapp>WhatsApp पर भेजें</button><button type="button" class="sf-jdh-btn sf-jdh-btn-light" data-jdh-print>प्रिंट / PDF सेव करें</button><button type="button" class="sf-jdh-btn sf-jdh-btn-light" data-jdh-new-day>आज का परिणाम फिर देखें</button></div>
+    <details class="sf-jdh-method"><summary>गणना-पद्धति, सीमाएँ और डेटा-स्रोत</summary><div><p>ग्रहों की भौतिक स्थिति Astronomy Engine के खगोलीय मॉडल से ब्राउज़र में निकाली जाती है। निरयन longitude के लिए लाहिड़ी/चित्रपक्ष अयनांश का polynomial approximation घटाया जाता है। लग्न local sidereal time, अक्षांश और ecliptic obliquity से निकाला जाता है। राहु-केतु mean lunar node हैं। जहाँ जन्म-समय अज्ञात या अनुमानित है, वहाँ समय-संवेदनशील निष्कर्ष सीमित या छिपाए जाते हैं।</p><p>आज का 365-दिवसीय कार्ड सकारात्मक दैनिक चिंतन और व्यावहारिक सुझाव है; यह ग्रहों से निकली घटना-विशिष्ट भविष्यवाणी नहीं है। समान जन्म विवरण और समान IST तारीख पर कार्ड स्थिर रहता है; लगातार दिनों में क्रमशः अगला कार्ड चुना जाता है।</p><p>यह पारंपरिक ज्योतिषीय/आत्मचिंतन सामग्री है, वैज्ञानिक रूप से प्रमाणित भविष्यवाणी या चिकित्सा, वित्तीय, कानूनी अथवा पेशेवर सलाह नहीं। किसी बड़े निर्णय का आधार केवल इस रिपोर्ट को न बनाएँ।</p><p>स्थान खोज: Open-Meteo Geocoding API (GeoNames आधारित)। खगोलीय पुस्तकालय: Astronomy Engine 2.1.19, MIT License।</p></div></details>
+  </section>
+  <p class="sf-jdh-footer-note">यह टूल डर या निश्चित परिणामों के दावे नहीं करता। इसका उद्देश्य पारंपरिक ज्योतिषीय गणना को पारदर्शी ढंग से दिखाना और रोज़मर्रा के सकारात्मक चिंतन में मदद करना है।</p>
+</div>
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>

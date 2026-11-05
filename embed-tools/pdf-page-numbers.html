@@ -1,0 +1,38 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="pdf-page-numbers" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/pdf-page-numbers/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger HTML view में paste करें; अपना लेख इस टूल के ऊपर/नीचे रखें. -->
+<div class="sf-tool sf-pdf-page-numbers" data-sf-tool="pdf-page-numbers">
+
+<div class="sfpn-card">
+    <h2 class="sfpn-title">PDF Page Numbers — PDF में पेज नंबर जोड़ें</h2>
+    <p class="sfpn-help">PDF चुनें। प्रीव्यू देखें, नंबर की जगह और शुरुआती नंबर सेट करें, फिर नई PDF डाउनलोड करें।</p>
+    <div class="sf-file-drop" data-sf-file-dropzone>
+      <input class="sfpn-file" id="sfpn-file-1" data-sfpn-file type="file" accept="application/pdf,.pdf">
+      <div class="sf-file-drop__content"><strong>PDF चुनें या यहाँ खींचकर छोड़ें</strong><span>क्लिक या टच करके फ़ाइल चुनें</span></div>
+    </div>
+    <p class="sfpn-status" data-sfpn-selected>अभी कोई PDF चुनी नहीं गई है।</p>
+    <div class="sfpn-settings">
+      <label>नंबर की जगह<select data-sfpn-position><option value="bottom-center">नीचे बीच में</option><option value="bottom-left">नीचे बाईं ओर</option><option value="bottom-right">नीचे दाईं ओर</option><option value="top-center">ऊपर बीच में</option><option value="top-left">ऊपर बाईं ओर</option><option value="top-right">ऊपर दाईं ओर</option></select></label>
+      <label>नंबर का फ़ॉर्मेट<select data-sfpn-format><option value="number">1, 2, 3…</option><option value="roman-upper">I, II, III…</option><option value="roman-lower">i, ii, iii…</option><option value="of">Page 1 of 10</option><option value="of-short">1 of 10</option></select></label>
+      <label>शुरुआती नंबर<input data-sfpn-start type="number" min="1" max="999999" value="1"></label>
+      <label>फ़ॉन्ट आकार<input data-sfpn-size type="number" min="6" max="36" value="12"></label>
+      <label>किनारे से दूरी (pt)<input data-sfpn-margin type="number" min="8" max="100" value="28"></label>
+    </div>
+    <label class="sfpn-check"><input type="checkbox" data-sfpn-skip-first> पहले पेज पर नंबर न लगाएँ</label>
+    <div class="sfpn-preview-wrap"><strong>PDF पेज प्रीव्यू</strong><div class="sf-preview-grid" data-sfpn-preview></div></div>
+    <div class="sfpn-actions"><button class="sfpn-btn" data-sfpn-download type="button" disabled>पेज नंबर जोड़कर PDF डाउनलोड करें</button><button class="sfpn-btn sfpn-secondary" data-sfpn-clear type="button" disabled>Clear</button></div>
+    <p class="sfpn-status" data-sf-status role="status" aria-live="polite"></p>
+  </div>
+</div>
+
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>

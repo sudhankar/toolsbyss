@@ -1,0 +1,98 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="advanced-marriage-biodata-maker" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/advanced-marriage-biodata-maker/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML: Advanced Marriage Biodata Maker. Keep the visible ToolsBySS brand link unchanged for loader authorization. -->
+<div class="sf-tool sf-advanced-marriage-biodata-maker" data-sf-tool="advanced-marriage-biodata-maker">
+  
+  <div class="sf-tool-intro">
+    <h2>Advanced Marriage Biodata Maker</h2>
+    <p>हिंदी, English या दोनों भाषाओं में आकर्षक marriage biodata बनाएं। व्यक्तिगत, जन्म/कुंडली, शिक्षा, करियर, परिवार और जीवनसाथी की अपेक्षाओं के विवरण जोड़ें; फोटो और डिज़ाइन चुनकर A4 PDF तैयार करें।</p>
+    <span class="sf-local-note">🔒 आपकी निजी और पारिवारिक जानकारी इसी ब्राउज़र में प्रोसेस होती है। कोई account या server upload आवश्यक नहीं।</span>
+  </div>
+  <div class="sf-mb-shell">
+    <div class="sf-mb-toolbar" aria-label="Biodata design settings">
+      <div class="sf-mb-toolbar-control"><label for="sf-mb-language">Document language</label><select id="sf-mb-language" data-language><option value="en">English</option><option value="hi">हिन्दी</option><option value="both">हिन्दी + English</option></select></div>
+      <div class="sf-mb-toolbar-control"><label for="sf-mb-template">Biodata design</label><select id="sf-mb-template" data-template><option value="classic">Classic Gold</option><option value="modern">Modern Navy</option><option value="floral">Floral Rose</option><option value="minimal">Elegant Minimal</option></select></div>
+      <div class="sf-mb-toolbar-control"><label for="sf-mb-border">Border style</label><select id="sf-mb-border" data-border><option value="classic">Classic border</option><option value="double">Double line</option><option value="ornate">Ornate frame</option><option value="minimal">No extra border</option></select></div>
+      <div class="sf-mb-toolbar-control"><label for="sf-mb-accent">Theme colour</label><input id="sf-mb-accent" data-accent type="color" value="#a17a35"></div>
+      <label class="sf-mb-toolbar-check"><input type="checkbox" data-autosave checked> Save draft on this device</label>
+    </div>
+    <div class="sf-mb-tabs" role="group" aria-label="Mobile editor tabs"><button type="button" class="sf-mb-button is-light is-active" data-tab="edit" aria-pressed="true">✎ Edit details</button><button type="button" class="sf-mb-button is-light" data-tab="preview" aria-pressed="false">▣ Live preview</button></div>
+    <div class="sf-mb-layout">
+      <section class="sf-mb-editor" aria-label="Marriage biodata form"><h3>Enter biodata details</h3>
+        <fieldset class="sf-mb-form-section"><legend>Profile & Personal Details</legend><div class="sf-mb-fields">
+          <label class="sf-mb-field"><span>Name *</span><input data-field="name" type="text" autocomplete="name" placeholder="Full name"></label>
+          <label class="sf-mb-field"><span>Gender (optional)</span><select data-field="gender"><option value="">Select</option><option>Male</option><option>Female</option><option>Prefer not to say</option></select></label>
+          <label class="sf-mb-field"><span>Date of birth</span><input data-field="dob" type="date"></label>
+          <label class="sf-mb-field"><span>Age (optional override)</span><input data-field="age" type="text" placeholder="Auto-calculated from DOB"></label>
+          <label class="sf-mb-field"><span>Height</span><input data-field="height" type="text" placeholder="e.g. 5 ft 6 in / 168 cm"></label>
+          <label class="sf-mb-field"><span>Marital status</span><select data-field="status"><option value="">Select</option><option>Never Married</option><option>Divorced</option><option>Widowed</option><option>Annulled</option></select></label>
+          <label class="sf-mb-field"><span>Religion (optional)</span><input data-field="religion" type="text" placeholder="Optional"></label>
+          <label class="sf-mb-field"><span>Community / Caste (optional)</span><input data-field="community" type="text" placeholder="Optional"></label>
+          <label class="sf-mb-field"><span>Gotra (optional)</span><input data-field="gotra" type="text" placeholder="Optional"></label>
+          <label class="sf-mb-field"><span>Mother tongue</span><input data-field="motherTongue" type="text" placeholder="e.g. Hindi"></label>
+          <label class="sf-mb-field is-full"><span>Profile photo (optional)</span><div class="sf-mb-photo-row"><input data-photo-upload type="file" accept="image/jpeg,image/png,image/webp"><img data-photo-preview alt="Profile photo preview" hidden></div><small class="sf-mb-hint">JPG, PNG or WebP · Maximum 8 MB. Resized locally to a document-friendly image.</small></label>
+          <label class="sf-mb-field"><span>Optional symbol / emblem</span><select data-emblem-theme><option value="none">No emblem</option><option value="hindu">Hindu</option><option value="muslim">Muslim</option><option value="sikh">Sikh</option><option value="christian">Christian</option><option value="buddhist">Buddhist</option><option value="jain">Jain</option><option value="floral">Floral / Neutral</option></select></label>
+          <label class="sf-mb-field"><span>Emblem size <output data-emblem-size-value>58 px</output></span><input data-emblem-size type="range" min="36" max="112" value="58"></label>
+          <label class="sf-mb-field is-full"><span>Upload your own emblem / family logo (optional)</span><div class="sf-mb-photo-row"><input data-emblem-upload type="file" accept="image/jpeg,image/png,image/webp"><img data-emblem-preview alt="Emblem preview" hidden></div><small class="sf-mb-hint">A custom image overrides the selected symbol. Transparent PNG is supported.</small></label>
+          <label class="sf-mb-field is-full"><span>Optional top line / family greeting</span><input data-field="topLine" type="text" placeholder="Add a short greeting or leave blank"></label>
+          <label class="sf-mb-field is-full"><span>Document subtitle (optional)</span><input data-field="subtitle" type="text" placeholder="A few words about the profile"></label>
+          <label class="sf-mb-field is-full"><span>Custom document heading (optional)</span><input data-field="documentTitle" type="text" placeholder="Marriage Biodata / विवाह परिचय"></label>
+        </div></fieldset>
+        <fieldset class="sf-mb-form-section"><legend>Birth & Horoscope Details (Optional)</legend><div class="sf-mb-fields">
+          <label class="sf-mb-field"><span>Birth time</span><input data-field="birthTime" type="text" placeholder="e.g. 07:30 AM"></label>
+          <label class="sf-mb-field"><span>Birth place</span><input data-field="birthPlace" type="text"></label>
+          <label class="sf-mb-field"><span>Rashi</span><input data-field="rashi" type="text"></label>
+          <label class="sf-mb-field"><span>Nakshatra</span><input data-field="nakshatra" type="text"></label>
+          <label class="sf-mb-field"><span>Manglik</span><select data-field="manglik"><option value="">Not specified</option><option>Yes</option><option>No</option><option>Partial / Anshik</option><option>Not applicable</option></select></label>
+        </div><small class="sf-mb-hint">Only add horoscope/community information when you choose to share it. These fields are optional.</small></fieldset>
+        <fieldset class="sf-mb-form-section"><legend>Education & Career</legend><div class="sf-mb-fields">
+          <label class="sf-mb-field"><span>Education / Qualification</span><input data-field="education" type="text" placeholder="Degree / qualification"></label>
+          <label class="sf-mb-field"><span>College / University</span><input data-field="institution" type="text"></label>
+          <label class="sf-mb-field"><span>Occupation</span><input data-field="occupation" type="text" placeholder="Profession / designation"></label>
+          <label class="sf-mb-field"><span>Employer / Business</span><input data-field="employer" type="text"></label>
+          <label class="sf-mb-field is-full"><span>Annual income (optional)</span><input data-field="income" type="text" placeholder="Optional; enter only if comfortable sharing"></label>
+        </div></fieldset>
+        <fieldset class="sf-mb-form-section"><legend>Family Details</legend><div class="sf-mb-fields">
+          <label class="sf-mb-field"><span>Father's name</span><input data-field="father" type="text"></label>
+          <label class="sf-mb-field"><span>Father's occupation</span><input data-field="fatherWork" type="text"></label>
+          <label class="sf-mb-field"><span>Mother's name</span><input data-field="mother" type="text"></label>
+          <label class="sf-mb-field"><span>Mother's occupation</span><input data-field="motherWork" type="text"></label>
+          <label class="sf-mb-field"><span>Brothers / Sisters</span><input data-field="siblings" type="text" placeholder="e.g. One younger sister"></label>
+          <label class="sf-mb-field"><span>Family type</span><input data-field="familyType" type="text" placeholder="Nuclear / Joint"></label>
+          <label class="sf-mb-field"><span>Family values</span><input data-field="familyValues" type="text" placeholder="Optional"></label>
+          <label class="sf-mb-field"><span>Native place</span><input data-field="nativePlace" type="text"></label>
+        </div></fieldset>
+        <fieldset class="sf-mb-form-section"><legend>About & Partner Preferences</legend><div class="sf-mb-fields">
+          <label class="sf-mb-field is-full"><span>About the candidate</span><textarea data-field="about" rows="4" placeholder="Personality, interests, values and other details you would like to share."></textarea></label>
+          <label class="sf-mb-field is-full"><span>Partner preference / Expectations (optional)</span><textarea data-field="preference" rows="4" placeholder="Write respectful, practical preferences. Leave blank if not needed."></textarea></label>
+        </div></fieldset>
+        <fieldset class="sf-mb-form-section"><legend>Contact Details</legend><div class="sf-mb-fields">
+          <label class="sf-mb-field"><span>Contact person</span><input data-field="contactPerson" type="text" placeholder="Parent / Guardian / Candidate"></label>
+          <label class="sf-mb-field"><span>Phone / WhatsApp</span><input data-field="phone" type="tel" autocomplete="tel"></label>
+          <label class="sf-mb-field"><span>Email</span><input data-field="email" type="email" autocomplete="email"></label>
+          <label class="sf-mb-field is-full"><span>Address / City</span><textarea data-field="address" rows="2" autocomplete="street-address"></textarea></label>
+          <label class="sf-mb-field is-full"><span>Footer note (optional)</span><input data-field="footerNote" type="text" placeholder="Optional short note"></label>
+        </div></fieldset>
+        <fieldset class="sf-mb-form-section"><legend>Custom Details</legend><div data-custom-list></div><button type="button" class="sf-mb-button is-light" data-add-custom>＋ Add Custom Field</button><small class="sf-mb-hint">Add any other detail you want to include. Fields left blank are omitted from the final biodata.</small></fieldset>
+        <p class="sf-mb-hint" data-completeness aria-live="polite">0 sections shown</p>
+        <div class="sf-mb-actions"><button type="button" class="sf-mb-button" data-print>Print / Save A4 PDF</button><button type="button" class="sf-mb-button is-light" data-export-json>Download JSON Backup</button><button type="button" class="sf-mb-button is-light" data-import-trigger>Import Backup</button><button type="button" class="sf-mb-button is-light is-remove" data-reset>Clear Draft</button><input type="file" data-import-file accept="application/json,.json" hidden></div>
+        <p class="sf-mb-status" data-sf-status role="status" aria-live="polite">Draft stays in this browser. JSON backups include personal and family information.</p>
+      </section>
+      <section class="sf-mb-preview-panel" aria-label="Marriage biodata live preview"><div class="sf-mb-preview-head"><h3>Live A4 Preview</h3><span class="sf-mb-hint">Blank fields are not printed</span></div><div class="sf-mb-preview-scroll"><article class="sf-mb-paper tpl-classic" data-preview></article></div></section>
+    </div>
+  </div>
+  <section class="sf-mb-guide"><h2>About Advanced Marriage Biodata Maker</h2><p>This tool creates an editable marriage profile with personal details, optional birth and horoscope fields, education, occupation, family background, partner preferences and contact information. Choose English, Hindi or bilingual labels; the information you type remains as entered. Select from formal, modern, floral and minimal A4 styles.</p><h3>How to make a marriage biodata</h3><ol><li>Enter the candidate's name and the personal details you wish to share.</li><li>Add education, career and family information; leave sensitive or irrelevant fields blank.</li><li>Enter optional birth, horoscope, community or partner-preference information only when appropriate.</li><li>Upload a clear photo, select document language and design, then check the live preview.</li><li>Use Print / Save A4 PDF and choose Save as PDF in the browser print dialog.</li><li>Review every detail before sharing the document with intended recipients.</li></ol><h3>Privacy and limitations</h3><p>All form data and photo processing stay in your browser. The optional draft save uses this device's browser storage; turn it off on a shared device and clear the saved draft when finished. A downloaded JSON backup contains personal and family information, so store it securely. The tool does not verify identity, horoscope, employment, income, community information or the accuracy of any entry. It does not provide matchmaking or compatibility advice. The final document may span more than one A4 page when many fields are filled.</p></section>
+</div>
+<!-- Trial: loader.js. For production, either use loader-production.js here OR deploy the production-loader code at loader.js as per your existing workflow. Do not load the shared loader twice. -->
+
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>

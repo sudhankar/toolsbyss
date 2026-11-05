@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" name="viewport"/>
+  <title>
+   PDF Editor — Add Text, Images &amp; Signatures | ToolsBySS
+  </title>
+  <meta content="Free online PDF editor. Add text, images, shapes, signatures, and annotations on top of any PDF. 100% private — runs in your browser." name="description"/>
+  <link rel="canonical" href="https://toolsbyss.pages.dev/tools/pdf-editor/">
+  <meta content="website" property="og:type"/>
+  <meta content="PDF Editor — ToolsBySS" property="og:title"/>
+  <meta content="Add content on top of any PDF. Free and private." property="og:description"/>
+  <meta content="https://toolsbyss.pages.dev/tools/pdf-editor/" property="og:url"/>
+  <meta content="https://toolsbyss.pages.dev/images/logo.svg" property="og:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <link href="/assets/pdf-editor/images/logo.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/pdf-editor/css/style.css" rel="stylesheet"/>
+  <link href="/assets/pdf-editor/css/tools.css" rel="stylesheet"/>
+  <link href="/assets/pdf-editor/css/editor.css" rel="stylesheet"/>
+  <script type="application/ld+json">
+   {"@context":"https://schema.org","@graph":[
+  {"@type":"SoftwareApplication","name":"PDF Editor — ToolsBySS","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://toolsbyss.pages.dev/tools/pdf-editor/"},
+  {"@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://toolsbyss.pages.dev/"},
+    {"@type":"ListItem","position":2,"name":"Tools","item":"https://toolsbyss.pages.dev/tools/"},
+    {"@type":"ListItem","position":3,"name":"PDF Editor","item":"https://toolsbyss.pages.dev/tools/pdf-editor/"}
+  ]},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Can I edit existing text in the PDF?","acceptedAnswer":{"@type":"Answer","text":"No. Current open-source browser libraries cannot reliably rewrite text already embedded in a PDF. Our editor lets you add new content on top of your PDF — new text, images, shapes, signatures, and annotations."}},
+    {"@type":"Question","name":"Is my file uploaded?","acceptedAnswer":{"@type":"Answer","text":"Never. All editing and export happens in your browser."}},
+    {"@type":"Question","name":"Are annotations flattened?","acceptedAnswer":{"@type":"Answer","text":"By default yes — they are baked into the PDF. You can turn flattening off in the save dialog if you'd prefer overlays to remain as PDF annotation objects."}},
+    {"@type":"Question","name":"What can I add?","acceptedAnswer":{"@type":"Answer","text":"Text boxes, images, rectangles, ellipses, lines, arrows, freehand drawing, highlights, signatures, and watermark-style text."}}
+  ]}
+]}
+  </script>
+  <link href="/manifest.json" rel="manifest"/>
+  <meta content="#0A1929" name="theme-color"/>
+ </head>
+ <body class="editor-body" data-tool="pdf-editor"><div id="pdf-editor-auth-wall" style="position:fixed;inset:0;z-index:999999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:470px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p>Open this editor with a verified ToolsBySS account.</p><a href="/login/?next=/tools/pdf-editor/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div>
+  <a class="skip-link" href="#main">
+   Skip to editor
+  </a>
+  <!-- ============================ EDITOR HEADER ============================ -->
+  <div class="editor-app-shell">
+   <header class="editor-header" role="banner">
+    <div class="editor-header__left">
+     <a aria-label="ToolsBySS home" class="editor-header__brand" href="/">
+      <img aria-hidden="true" class="dspdf-shared-logo" src="/assets/pdf-editor/images/logo.svg"/>
+     </a>
+     <span class="editor-header__file" id="ed-filename">
+      No file loaded
+     </span>
+    </div>
+    <div class="editor-header__center">
+     <button aria-label="Undo (Ctrl+Z)" class="ed-btn" id="ed-undo" title="Undo" type="button">
+      ↶ Undo
+     </button>
+     <button aria-label="Redo (Ctrl+Shift+Z)" class="ed-btn" id="ed-redo" title="Redo" type="button">
+      ↷ Redo
+     </button>
+    </div>
+    <div class="editor-header__right">
+     <a class="ed-btn" href="/">
+      ⌂ Home
+     </a>
+     <a class="ed-btn" href="/tools/">
+      All Tools
+     </a>
+     <button class="ed-btn ed-btn--primary" disabled="" id="ed-save" type="button">
+      Save PDF
+     </button>
+    </div>
+   </header>
+   <div class="editor-notice" role="note">
+    <h1 class="editor-seo-heading">
+     <span class="editor-seo-heading__full">
+      PDF Editor — Add Text, Images &amp; Signatures
+     </span>
+     <span class="editor-seo-heading__mobile">
+      PDF Editor
+     </span>
+    </h1>
+    <p>
+     Add new text, images, shapes and annotations on top of your PDF. Existing PDF content cannot be edited in-browser.
+    </p>
+    <p class="editor-notice__help" style="text-align:center;">
+     New to PDF editing?
+     <a href="/blog/pdf-editor-guide/">
+      Read our PDF editor guide
+     </a>
+     for practical tips on text, shapes, highlights and annotations.
+    </p>
+   </div>
+   <!-- ============================ EDITOR LAYOUT ============================ -->
+   <main aria-label="PDF Editor" class="editor-main" id="main">
+    <!-- LEFT: thumbnails -->
+    <aside aria-label="Page thumbnails" class="editor-thumbs">
+     <div class="editor-thumbs__header">
+      <span>
+       Pages
+      </span>
+      <div class="ed-page-actions">
+       <button class="ed-btn ed-btn--sm" id="ed-page-up" title="Move page up" type="button">
+        ↑
+       </button>
+       <button class="ed-btn ed-btn--sm" id="ed-page-down" title="Move page down" type="button">
+        ↓
+       </button>
+       <button class="ed-btn ed-btn--sm" id="ed-page-rotate" title="Rotate page 90 degrees clockwise" type="button">
+        ↻
+       </button>
+       <button class="ed-btn ed-btn--sm" id="ed-page-delete" title="Delete page" type="button">
+        🗑
+       </button>
+       <button class="ed-btn ed-btn--sm" id="ed-page-blank" title="Add blank page" type="button">
+        ＋
+       </button>
+       <button class="ed-btn ed-btn--sm" id="ed-page-addpdf" title="Add another PDF" type="button">
+        PDF＋
+       </button>
+       <input accept="application/pdf,.pdf" hidden="" id="ed-add-pdf-file" type="file"/>
+      </div>
+      <button aria-label="Close thumbnails" class="ed-btn ed-btn--ghost ed-btn--sm" id="ed-thumb-close" type="button">
+       ✕
+      </button>
+     </div>
+     <div class="editor-thumbs__list" id="ed-thumbs">
+     </div>
+    </aside>
+    <!-- CENTER: canvas stage -->
+    <section aria-label="Editor canvas" class="editor-stage">
+     <!-- Upload screen -->
+     <div class="editor-empty" id="ed-empty">
+      <div aria-label="Add a PDF" class="upload-zone" id="ed-upload-zone" role="button" tabindex="0">
+       <svg aria-hidden="true" class="upload-zone__icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4">
+        </path>
+        <polyline points="17 8 12 3 7 8">
+        </polyline>
+        <line x1="12" x2="12" y1="3" y2="15">
+        </line>
+       </svg>
+       <p class="upload-zone__title">
+        Drop a PDF here or click to select
+       </p>
+       <p class="upload-zone__hint">
+        Opens in the editor. Nothing is uploaded.
+       </p>
+       <input accept="application/pdf,.pdf" hidden="" type="file"/>
+      </div>
+      <div class="alert alert-error mt-4" hidden="" id="ed-empty-alert" role="alert">
+      </div>
+     </div>
+     <!-- Canvas viewport -->
+     <div class="editor-viewport" hidden="" id="ed-viewport">
+      <div class="editor-canvas-wrap" id="ed-canvas-wrap">
+       <canvas aria-label="PDF page canvas" id="ed-pdf-canvas">
+       </canvas>
+       <div aria-hidden="true" class="editor-overlay-layer" id="ed-overlay">
+       </div>
+       <div class="editor-hit-layer" id="ed-hitlayer">
+       </div>
+      </div>
+     </div>
+     <!-- Bottom bar -->
+     <div class="editor-bottombar" hidden="" id="ed-bottombar">
+      <button aria-label="Previous page" class="ed-btn ed-btn--icon" id="ed-prev" type="button">
+       ‹
+      </button>
+      <span class="editor-page-indicator">
+       <span id="ed-page-cur">
+        1
+       </span>
+       /
+       <span id="ed-page-total">
+        1
+       </span>
+      </span>
+      <button aria-label="Next page" class="ed-btn ed-btn--icon" id="ed-next" type="button">
+       ›
+      </button>
+      <span class="editor-bottombar__spacer">
+      </span>
+      <button aria-label="Select mode" class="ed-btn ed-btn--sm ed-gesture-mode" id="ed-select" type="button">
+       Select
+      </button>
+      <button aria-label="Pan mode" class="ed-btn ed-btn--sm ed-gesture-mode" id="ed-pan" type="button">
+       Pan
+      </button>
+      <button aria-label="Zoom out" class="ed-btn ed-btn--icon" id="ed-zoom-out" type="button">
+       −
+      </button>
+      <span class="editor-zoom-indicator" id="ed-zoom-val">
+       100%
+      </span>
+      <button aria-label="Zoom in" class="ed-btn ed-btn--icon" id="ed-zoom-in" type="button">
+       +
+      </button>
+      <button class="ed-btn ed-btn--sm" id="ed-zoom-fit" type="button">
+       Fit
+      </button>
+     </div>
+    </section>
+    <!-- RIGHT: tools -->
+    <aside aria-label="Tools" class="editor-tools">
+     <div class="editor-tools__header">
+      <span>
+       Tools
+      </span>
+      <button aria-label="Close tools" class="ed-btn ed-btn--ghost ed-btn--sm" id="ed-tools-close" type="button">
+       ✕
+      </button>
+     </div>
+     <div class="editor-tool-tabs" role="tablist">
+      <button class="ed-tool-tab is-active" data-panel="text" role="tab" type="button">
+       Text
+      </button>
+      <button class="ed-tool-tab" data-panel="image" role="tab" type="button">
+       Image
+      </button>
+      <button class="ed-tool-tab" data-panel="shape" role="tab" type="button">
+       Shape
+      </button>
+      <button class="ed-tool-tab" data-panel="draw" role="tab" type="button">
+       Draw
+      </button>
+      <button class="ed-tool-tab" data-panel="mark" role="tab" type="button">
+       Mark
+      </button>
+      <button class="ed-tool-tab" data-panel="sign" role="tab" type="button">
+       Sign
+      </button>
+     </div>
+     <div class="editor-tools__body">
+      <!-- Text panel -->
+      <section class="editor-panel is-active" data-panel-id="text" role="tabpanel">
+       <button class="ed-tool-btn" data-tool="text" type="button">
+        <span class="ed-tool-btn__icon">
+         T
+        </span>
+        <span class="ed-tool-btn__label">
+         Add text
+        </span>
+        <span class="ed-tool-btn__hint">
+         Click on the page, then type
+        </span>
+       </button>
+       <div class="editor-props" hidden="" id="props-text">
+        <div class="ed-prop-row">
+         <label>
+          Font
+         </label>
+         <select id="text-font">
+          <option value="Helvetica">
+           Helvetica
+          </option>
+          <option value="TimesRoman">
+           Times
+          </option>
+          <option value="Courier">
+           Courier
+          </option>
+         </select>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Size
+         </label>
+         <input id="text-size" max="72" min="8" type="range" value="16"/>
+         <span id="text-size-val">
+          16
+         </span>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Color
+         </label>
+         <input id="text-color" type="color" value="#000000"/>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Align
+         </label>
+         <select id="text-align">
+          <option value="left">
+           Left
+          </option>
+          <option value="center">
+           Center
+          </option>
+          <option value="right">
+           Right
+          </option>
+         </select>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Bold
+         </label>
+         <input id="text-bold" type="checkbox"/>
+        </div>
+       </div>
+      </section>
+      <!-- Image panel -->
+      <section class="editor-panel" data-panel-id="image" role="tabpanel">
+       <button class="ed-tool-btn" id="image-pick" type="button">
+        <span class="ed-tool-btn__icon">
+         🖼
+        </span>
+        <span class="ed-tool-btn__label">
+         Insert image
+        </span>
+        <span class="ed-tool-btn__hint">
+         PNG, JPG, or WebP
+        </span>
+       </button>
+       <input accept="image/png,image/jpeg,image/webp" hidden="" id="image-file" type="file"/>
+      </section>
+      <!-- Shape panel -->
+      <section class="editor-panel" data-panel-id="shape" role="tabpanel">
+       <button class="ed-tool-btn" data-tool="rect" type="button">
+        ▭
+        <span class="ed-tool-btn__label">
+         Rectangle
+        </span>
+       </button>
+       <button class="ed-tool-btn" data-tool="ellipse" type="button">
+        ◯
+        <span class="ed-tool-btn__label">
+         Ellipse
+        </span>
+       </button>
+       <button class="ed-tool-btn" data-tool="line" type="button">
+        ／
+        <span class="ed-tool-btn__label">
+         Line
+        </span>
+       </button>
+       <button class="ed-tool-btn" data-tool="arrow" type="button">
+        →
+        <span class="ed-tool-btn__label">
+         Arrow
+        </span>
+       </button>
+       <div class="editor-props" hidden="" id="props-shape">
+        <div class="ed-prop-row">
+         <label>
+          Stroke
+         </label>
+         <input id="shape-stroke" type="color" value="#2563EB"/>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Fill
+         </label>
+         <input id="shape-fill" type="color" value="#2563EB"/>
+         <label>
+          <input id="shape-fill-on" type="checkbox"/>
+          Use fill
+         </label>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Width
+         </label>
+         <input id="shape-width" max="20" min="1" type="range" value="2"/>
+         <span id="shape-width-val">
+          2
+         </span>
+        </div>
+       </div>
+      </section>
+      <!-- Draw panel -->
+      <section class="editor-panel" data-panel-id="draw" role="tabpanel">
+       <button class="ed-tool-btn" data-tool="draw" type="button">
+        ✎
+        <span class="ed-tool-btn__label">
+         Freehand pen
+        </span>
+       </button>
+       <button class="ed-tool-btn" id="draw-clear-page" type="button">
+        🗑
+        <span class="ed-tool-btn__label">
+         Clear page drawing
+        </span>
+       </button>
+       <div class="editor-props">
+        <div class="ed-prop-row">
+         <label>
+          Color
+         </label>
+         <input id="draw-color" type="color" value="#EF4444"/>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Width
+         </label>
+         <input id="draw-width" max="20" min="1" type="range" value="3"/>
+         <span id="draw-width-val">
+          3
+         </span>
+        </div>
+       </div>
+      </section>
+      <!-- Mark panel (highlights + redaction) -->
+      <section class="editor-panel" data-panel-id="mark" role="tabpanel">
+       <button class="ed-tool-btn" data-tool="highlight" type="button">
+        🖍
+        <span class="ed-tool-btn__label">
+         Highlight
+        </span>
+       </button>
+       <button class="ed-tool-btn" data-tool="redact" type="button">
+        ▬
+        <span class="ed-tool-btn__label">
+         Redaction box
+        </span>
+       </button>
+       <div class="editor-props">
+        <div class="ed-prop-row">
+         <label>
+          Color
+         </label>
+         <input id="mark-color" type="color" value="#FDE047"/>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Opacity
+         </label>
+         <input id="mark-opacity" max="100" min="10" type="range" value="45"/>
+         <span id="mark-opacity-val">
+          45%
+         </span>
+        </div>
+        <div class="ed-prop-row">
+         <label>
+          Thickness
+         </label>
+         <input id="mark-width" max="40" min="2" type="range" value="8"/>
+         <span id="mark-width-val">
+          8 px
+         </span>
+        </div>
+       </div>
+       <p class="editor-hint">
+        Redaction boxes cover content visually. They do
+        <strong>
+         not
+        </strong>
+        remove the underlying data from the PDF. If you need to fully erase content, use a server-side tool with proper redaction support.
+       </p>
+      </section>
+      <!-- Sign panel -->
+      <section class="editor-panel" data-panel-id="sign" role="tabpanel">
+       <button class="ed-tool-btn" data-tool="sign-draw" type="button">
+        ✍
+        <span class="ed-tool-btn__label">
+         Draw signature
+        </span>
+       </button>
+       <button class="ed-tool-btn" data-tool="sign-type" type="button">
+        Aa
+        <span class="ed-tool-btn__label">
+         Type signature
+        </span>
+       </button>
+       <button class="ed-tool-btn" data-tool="sign-upload" type="button">
+        ⬆
+        <span class="ed-tool-btn__label">
+         Upload image
+        </span>
+       </button>
+       <input accept="image/png,image/jpeg" hidden="" id="sign-file" type="file"/>
+       <div class="editor-sign-preview" hidden="" id="sign-preview">
+       </div>
+      </section>
+     </div>
+    </aside>
+   </main>
+   <div class="editor-creator-badge">
+    Sudhakar Creations
+   </div>
+   <!-- Mobile bottom toolbar -->
+   <nav aria-label="Editor quick actions" class="editor-mobile-bar">
+    <button aria-label="Thumbnails" class="ed-btn ed-btn--icon" id="edm-thumbs" type="button">
+     ☰
+    </button>
+    <button aria-label="Undo" class="ed-btn ed-btn--icon" id="edm-undo" type="button">
+     ↶
+    </button>
+    <button aria-label="Redo" class="ed-btn ed-btn--icon" id="edm-redo" type="button">
+     ↷
+    </button>
+    <button aria-label="Tools" class="ed-btn ed-btn--icon" id="edm-tools" type="button">
+     ✎
+    </button>
+   </nav>
+  </div>
+  <div class="container editor-seo-content">
+   <section class="mt-6">
+    <h2>
+     About PDF Editor
+    </h2>
+    <p>
+     PDF Editor is a browser-based workspace for adding text, images, shapes, freehand marks, highlights, redactions, signatures, and other visual annotations to a PDF. It is designed for practical page-level editing while keeping the original file available until you choose to export.
+    </p>
+   </section>
+   <section class="mt-6">
+    <h2>
+     How to use PDF Editor
+    </h2>
+    <ol class="how-to">
+     <li>
+      Open or drop a PDF into the editor.
+     </li>
+     <li>
+      Choose the editing tool you need, such as Text, Image, Shape, Draw, Mark, or Sign.
+     </li>
+     <li>
+      Click or drag on the page and adjust the available properties such as size, color, opacity, or thickness.
+     </li>
+     <li>
+      Review every edited page at normal zoom and correct any misplaced elements.
+     </li>
+     <li>
+      Choose Save PDF, select the required save option, and export the edited document.
+     </li>
+     <li>
+      Reopen the saved PDF in a separate viewer to confirm the final appearance.
+     </li>
+    </ol>
+   </section>
+   <section class="mt-6">
+    <h2>
+     Technical limitations
+    </h2>
+    <ul>
+     <li>
+      This is a visual PDF editor, not a full desktop publishing application.
+     </li>
+     <li>
+      Complex interactive forms, embedded media, advanced PDF objects, and some document structures may not be editable.
+     </li>
+     <li>
+      Visual redaction must be verified carefully; a rectangle that only covers text is not automatically secure removal of the underlying content.
+     </li>
+     <li>
+      Very large PDFs can use considerable browser memory during rendering and export.
+     </li>
+    </ul>
+   </section>
+   <section class="mt-6">
+    <h2>
+     Frequently asked
+    </h2>
+    <div class="faq-accordion">
+     <details>
+      <summary>
+       Can I add text and shapes?
+      </summary>
+      <p>
+       Yes. The editor provides text, image, shape, drawing, and annotation controls for page-level changes.
+      </p>
+     </details>
+     <details>
+      <summary>
+       Can I sign a PDF?
+      </summary>
+      <p>
+       Yes. You can create and place a visual signature. This is different from a cryptographic digital certificate signature.
+      </p>
+     </details>
+     <details>
+      <summary>
+       Does the editor upload my PDF?
+      </summary>
+      <p>
+       The supported editor workflow is designed for browser-side processing, so the source PDF does not need to be sent to a ToolsBySS editing server.
+      </p>
+     </details>
+     <details>
+      <summary>
+       Why should I reopen the saved PDF?
+      </summary>
+      <p>
+       Reopening the exported file verifies that page positions, text, images, drawings, and signatures look as expected outside the editor.
+      </p>
+     </details>
+    </div>
+   </section>
+   <section class="mt-6">
+    <h2>
+     Related tools
+    </h2>
+    <div class="related-grid">
+     <a class="tool-card" href="../add-text-to-pdf/index.html">
+      <h3 class="tool-card__title">
+       Add Text to PDF
+      </h3>
+      <p class="tool-card__desc">
+       Add focused text without using the full editor workspace.
+      </p>
+     </a>
+     <a class="tool-card" href="../annotate-pdf/index.html">
+      <h3 class="tool-card__title">
+       Annotate PDF
+      </h3>
+      <p class="tool-card__desc">
+       Add review notes, marks, and visual callouts.
+      </p>
+     </a>
+     <a class="tool-card" href="../redact-pdf/index.html">
+      <h3 class="tool-card__title">
+       Redact PDF
+      </h3>
+      <p class="tool-card__desc">
+       Handle sensitive content with a dedicated redaction workflow.
+      </p>
+     </a>
+    </div>
+   </section>
+   <section class="mt-6">
+    <h2>
+     Related reading
+    </h2>
+    <div class="related-grid">
+     <a class="tool-card" href="/blog/pdf-editor-guide/">
+      <h3 class="tool-card__title">
+       PDF Editor: Shapes, Arrows, Lines and Highlights
+      </h3>
+      <p class="tool-card__desc">
+       Use the editor’s drawing and annotation controls effectively.
+      </p>
+     </a>
+     <a class="tool-card" href="/blog/pdf-editor-guide/">
+      <h3 class="tool-card__title">
+       PDF Eraser vs Redaction
+      </h3>
+      <p class="tool-card__desc">
+       Understand the difference between hiding and securely removing content.
+      </p>
+     </a>
+    </div>
+   </section>
+   <section class="mt-6">
+    <h2>
+     Privacy
+    </h2>
+    <p>
+     The editor is designed to process supported PDFs in the browser. The source file does not need to be uploaded to a ToolsBySS editing server. Browser memory, temporary rendering data, and downloaded files remain under the user’s device control. For confidential documents, use a trusted device and verify the exported copy before sharing.
+    </p>
+   </section>
+  </div>
+  <!-- /.editor-app-shell -->
+  <div aria-labelledby="sign-modal-title" aria-modal="true" class="modal" id="sign-modal" role="dialog">
+   <div class="modal__panel">
+    <h3 id="sign-modal-title">
+     Create signature
+    </h3>
+    <div id="sign-modal-body">
+    </div>
+    <div class="editor-modal-actions">
+     <button class="btn btn-ghost" id="sign-cancel" type="button">
+      Cancel
+     </button>
+     <button class="btn btn-primary" id="sign-confirm" type="button">
+      Use this signature
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- Save options modal -->
+  <div aria-labelledby="save-modal-title" aria-modal="true" class="modal" id="save-modal" role="dialog">
+   <div class="modal__panel">
+    <h3 id="save-modal-title">
+     Save PDF
+    </h3>
+    <p class="text-muted">
+     Choose how to save. Flattening makes annotations permanent.
+    </p>
+    <label class="ed-prop-row" style="gap:8px;">
+     <input checked="" id="save-flatten" type="checkbox"/>
+     <span>
+      Flatten annotations into the page (recommended)
+     </span>
+    </label>
+    <div class="editor-modal-actions">
+     <button class="btn btn-ghost" id="save-cancel" type="button">
+      Cancel
+     </button>
+     <button class="btn btn-primary" id="save-confirm" type="button">
+      Export PDF
+     </button>
+    </div>
+   </div>
+  </div>
+  
+  <script data-late-src="/assets/pdf-editor/js/config.js"></script>
+  <script data-late-src="/assets/pdf-editor/js/main.js"></script>
+  <script data-late-src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script data-late-src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script data-late-src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script data-late-src="/assets/pdf-editor/js/tools-engine.js"></script>
+  <script data-late-src="/assets/pdf-editor/js/editor/state.js"></script>
+  <script data-late-src="/assets/pdf-editor/js/editor/render.js"></script>
+  <script data-late-src="/assets/pdf-editor/js/editor/tools.js"></script>
+  <script data-late-src="/assets/pdf-editor/js/editor/interactions.js"></script>
+  <script data-late-src="/assets/pdf-editor/js/editor/export.js"></script>
+  <script data-late-src="/assets/pdf-editor/js/editor/main.js"></script>
+ <script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('pdf-editor-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(async u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSPdfLoaded)return;window.__toolsBySSPdfLoaded=true;wall.remove();
+  for(const old of document.querySelectorAll('script[data-late-src]')){const s=document.createElement('script');s.src=old.dataset.lateSrc;await new Promise((ok,no)=>{s.onload=ok;s.onerror=no;document.body.appendChild(s)});old.remove();}const brand=document.createElement('script');brand.src='/assets/js/download-branding.js';document.body.appendChild(brand);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body>
+</html>

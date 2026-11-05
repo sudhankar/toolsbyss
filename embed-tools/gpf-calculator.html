@@ -1,0 +1,164 @@
+<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="gpf-calculator" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/gpf-calculator/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML: paste this fragment into the post. Keep the ToolsBySS brand link visible. -->
+<div class="sf-tool sf-gpf-calculator" data-sf-tool="gpf-calculator">
+
+<div class="sf-tool-intro"><h2>GPF Calculator</h2><p>12 महीने का GPF statement, opening balance, subscriptions, refunds, DA arrears, withdrawals और महीने से प्रभावी interest-rate changes के साथ। सालाना ब्याज वित्तीय वर्ष के अंत में एक बार जोड़ा जाता है।</p><span class="sf-local-note">🔒 गणना/कन्वर्ज़न आपके ब्राउज़र में</span></div>
+<section aria-labelledby="gpf-heading" class="tool-panel gpf-calculator">
+ <h2 class="sr-only" id="gpf-heading">
+  GPF statement calculator
+ </h2>
+ <div class="gpf-settings">
+  <div>
+   <label for="openingBalance">
+    Opening Balance
+   </label>
+   <div class="input-suffix">
+    <input id="openingBalance" min="0" step="0.01" type="number" value="150000"/>
+    <span>
+     ₹
+    </span>
+   </div>
+  </div>
+  <div>
+   <label for="defaultRate">
+    Default Annual Interest Rate
+   </label>
+   <div class="input-suffix">
+    <input id="defaultRate" max="30" min="0" step="0.01" type="number" value="8"/>
+    <span>
+     %
+    </span>
+   </div>
+  </div>
+  <div>
+   <label>
+    First Month
+   </label>
+   <div aria-label="First month and year" class="month-year-picker">
+    <select aria-label="First month" id="firstMonth">
+    </select>
+    <select aria-label="First year" id="firstYear">
+    </select>
+   </div>
+  </div>
+ </div>
+ <div class="gpf-rate-panel">
+  <div>
+   <strong>
+    Interest rate changes
+   </strong>
+   <span class="toolbar-sub">
+    Add a new annual rate effective from any month. Each month automatically uses the applicable rate.
+   </span>
+  </div>
+  <button class="btn btn-secondary" id="addRate" type="button">
+   ＋ Add Rate Change
+  </button>
+  <div class="rate-rows" id="rateRows">
+  </div>
+ </div>
+ <div class="gpf-note" id="gpfNote">
+  Monthly Interest Share हर महीने के ब्याज का केवल विवरण है: उस महीने का पात्र Principal Balance × लागू वार्षिक दर ÷ 12। यह राशि मासिक Principal Closing Balance में नहीं जुड़ती। एक समान दर पर कुल ब्याज आपकी संदर्भ PDF के Progressive Balance सूत्र के बराबर रहता है। अलग-अलग दरों पर हर महीने की Share उस महीने की लागू दर से निकाली जाती है।
+ </div>
+ <div class="statement-toolbar">
+  <div>
+   <strong>
+    GPF Statement
+   </strong>
+   <span class="toolbar-sub">
+    राशि जिस महीने की पहली तारीख से ब्याज के लिए प्रभावी मानी जानी है, उसी महीने की पंक्ति में दर्ज करें। आगे के महीने अपने-आप भरेंगे। अप्रैल–मार्च वित्तीय वर्ष के लिए First Month अप्रैल रखें।
+   </span>
+  </div>
+  <button class="btn btn-secondary" id="resetBtn" type="button">
+   Reset
+  </button>
+ </div>
+ <div class="gpf-table-wrap sf-table-scroll">
+  <table class="gpf-table" id="gpfTable">
+   <thead>
+    <tr id="gpfHead">
+    </tr>
+   </thead>
+   <tbody id="gpfBody">
+   </tbody>
+   <tfoot>
+    <tr id="gpfFoot">
+    </tr>
+   </tfoot>
+  </table>
+ </div>
+ <div class="gpf-hint">
+  ↔ On mobile, swipe horizontally to see all columns.
+ </div>
+ <div class="gpf-actions">
+  <button class="btn btn-primary btn-lg" id="calculateBtn" type="button">
+   Calculate GPF
+  </button>
+  <span aria-live="polite" class="calc-status" id="gpfStatus" role="status">
+  </span>
+ </div>
+ <div class="export-actions">
+  <button class="btn btn-secondary" id="excelBtn" type="button">
+   ↓ Download Excel
+  </button>
+  <button class="btn btn-secondary" id="pdfBtn" type="button">
+   ▣ Print / Save as PDF
+  </button>
+  <button class="btn btn-secondary" id="printBtn" type="button">
+   🖨 Print Statement
+  </button>
+ </div>
+ <div class="gpf-summary">
+  <div>
+   <span>Opening Balance</span>
+   <strong id="sumOpening">₹0.00</strong>
+  </div>
+  <div>
+   <span>Total Deposits</span>
+   <strong id="sumDeposits">₹0.00</strong>
+  </div>
+  <div>
+   <span>Total Withdrawal</span>
+   <strong id="sumWithdrawal">₹0.00</strong>
+  </div>
+  <div>
+   <span>Principal Closing Balance (before year-end interest)</span>
+   <strong id="sumPrincipalClosing">₹0.00</strong>
+  </div>
+  <div>
+   <span>Calculated Interest (before rounding)</span>
+   <strong id="sumInterest">₹0.00</strong>
+  </div>
+  <div>
+   <span>Annual Interest Credited (nearest rupee) <small id="sumYearEnd">Year-end</small></span>
+   <strong id="sumAnnualCredit">₹0</strong>
+  </div>
+  <div class="gpf-closing">
+   <span>Final Closing Balance (after annual interest)</span>
+   <strong id="sumClosing">₹0.00</strong>
+  </div>
+ </div>
+ <div class="gpf-disclaimer">
+  <strong>
+   Important:
+  </strong>
+  This is an independent calculation aid based on a month-wise progressive-principal model. Each amount entered in a month is assumed effective from the first day of that month; a withdrawal reduces the interest-bearing principal from the first day of its withdrawal month. Monthly Interest Share is only a breakdown and is not added to monthly principal. Annual interest is added once at the end of the selected 12-month period to calculate the Final Closing Balance. An April–March selection ends on 31 March; any other first-month selection is a custom-period estimate, not a full financial-year statement. For this estimate, the year-end interest credit is rounded to the nearest rupee. Under U.P. GPF Rule 11, annual interest is credited at year-end and no interest is admissible on an amount withdrawn from the first day of its withdrawal month; deposit-date exceptions can apply. Actual effective deposit dates and rounding rules vary by department/state. Verify against your official GPF statement and applicable orders.
+ </div>
+</section>
+
+
+</div>
+<!-- Required: load the shared tool loader. If loader-production.js is already included site-wide, remove this script to avoid loading it twice. -->
+
+<script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
+document.addEventListener('DOMContentLoaded',()=>{['pointerdown','keydown','wheel','touchstart','scroll','mousemove'].forEach(evt=>document.addEventListener(evt,()=>parent.postMessage({type:'toolsbyss-activity'},location.origin),{passive:true}));
+ const C=window.TOOLSBySS_MASTER||{},wall=document.getElementById('embed-auth-wall');
+ if(!C.firebase||!C.firebase.enabled||!window.firebase){wall.style.display='grid';return;}
+ try{firebase.initializeApp({apiKey:C.firebase.apiKey,authDomain:C.firebase.authDomain,projectId:C.firebase.projectId,appId:C.firebase.appId});
+ const a=firebase.auth();a.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>a.onAuthStateChanged(u=>{
+  if(!u||!u.emailVerified){wall.style.display='grid';return;}
+  if(window.__toolsBySSEmbedStarted)return;window.__toolsBySSEmbedStarted=true;wall.remove();
+  const b=document.createElement('script');b.src='/assets/js/download-branding.js';document.body.appendChild(b);const s=document.createElement('script');s.src='/core/loader.js';document.body.appendChild(s);
+  const o=new ResizeObserver(()=>parent.postMessage({type:'toolsbyss-resize',height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement);
+ }));}catch(e){wall.style.display='grid';console.error(e);}
+});
+</script></body></html>
