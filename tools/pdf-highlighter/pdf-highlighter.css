@@ -1,0 +1,50 @@
+.sf-pdf-highlighter .sf-file-drop{position:relative;min-height:84px;border:2px dashed #94a3b8;border-radius:10px;padding:18px;text-align:center;box-sizing:border-box;margin:12px 0}.sf-pdf-highlighter .sf-file-drop input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:.01;cursor:pointer;z-index:2}.sf-pdf-highlighter .sf-file-drop__content{display:flex;flex-direction:column;gap:6px;pointer-events:none}.sf-pdf-highlighter .sf-pdf-editor-layout{display:grid;grid-template-columns:minmax(86px,132px) minmax(0,1fr);gap:12px;align-items:start}.sf-pdf-highlighter .sf-preview-grid{display:grid;grid-template-columns:1fr;gap:10px;max-width:100%;max-height:72vh;overflow:auto;margin:12px 0;padding:4px}.sf-pdf-highlighter .sf-preview-tile{position:relative;max-width:100%;overflow:hidden;border:2px solid transparent;border-radius:5px}.sf-pdf-highlighter .sf-preview-tile.is-active{border-color:#2563eb;background:#eff6ff}.sf-pdf-highlighter .sf-preview-tile canvas{display:block;max-width:100%;height:auto}.sf-pdf-highlighter .sf-preview-label{display:flex;gap:4px;align-items:center;justify-content:center;font-size:12px}.sf-pdf-highlighter .sf-pdf-large-wrap{max-width:100%;max-height:75vh;overflow:auto;border:1px solid #cbd5e1;border-radius:8px;background:#e5e7eb;padding:10px;box-sizing:border-box;touch-action:pan-x pan-y}.sf-pdf-highlighter .sf-pdf-large-stage{position:relative;width:max-content;margin:0;line-height:0;touch-action:pan-x pan-y}.sf-pdf-highlighter .sf-large-page-canvas{display:block;max-width:none;height:auto;background:#fff;box-shadow:0 1px 6px #0002}.sf-pdf-highlighter .sfhl-live-rect{position:absolute;box-sizing:border-box;cursor:move;touch-action:none}.sf-pdf-highlighter label{display:block;margin:8px 0}.sf-pdf-highlighter input,.sf-pdf-highlighter select{max-width:100%;box-sizing:border-box}.sf-pdf-highlighter button{margin:6px;padding:10px 14px;cursor:pointer}@media(max-width:600px){.sf-pdf-highlighter .sf-pdf-editor-layout{grid-template-columns:minmax(0,1fr)}.sf-pdf-highlighter .sf-preview-grid{grid-template-columns:repeat(auto-fill,minmax(70px,1fr));max-height:180px}.sf-pdf-highlighter .sf-pdf-large-wrap{max-height:65vh;padding:6px}}
+/* Polished shared controls, scoped to pdf-highlighter only */
+.sf-pdf-highlighter{color:#172033;font:16px/1.55 Arial,sans-serif;max-width:100%}.sf-pdf-highlighter *{box-sizing:border-box}.sf-pdf-highlighter .sfmini-card{padding:clamp(12px,2.5vw,24px);border:1px solid #cbd5e1;border-radius:18px;background:linear-gradient(145deg,#fff,#f7faff);box-shadow:0 10px 28px #1e3a8a12}.sf-pdf-highlighter h2{font-size:clamp(1.2rem,2vw,1.55rem);margin:0 0 8px;color:#172554}.sf-pdf-highlighter .sfmini-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}.sf-pdf-highlighter .sfmini-fields label{display:flex;flex-direction:column;gap:6px;font-weight:650;min-width:0}.sf-pdf-highlighter input:not([type=file]):not([type=range]),.sf-pdf-highlighter select,.sf-pdf-highlighter textarea{width:100%;min-width:0;padding:10px 12px;border:1px solid #cbd5e1;border-radius:9px;background:#fff;color:#172033;font:inherit}.sf-pdf-highlighter input[type=range]{width:100%;accent-color:#2563eb}.sf-pdf-highlighter .sf-file-drop{background:linear-gradient(120deg,#eff6ff,#f8fafc);border-color:#7c9edb!important;border-radius:14px!important;transition:.18s}.sf-pdf-highlighter .sf-pdf-large-wrap{border:1px solid #aab8cc!important;border-radius:14px!important;background:#e9eef6!important;box-shadow:inset 0 1px 4px #0f172a10}.sf-pdf-highlighter .sf-preview-grid{gap:7px!important}.sf-pdf-highlighter .sf-preview-tile{border-radius:8px!important;box-shadow:0 2px 7px #0f172a10}.sf-pdf-highlighter .sf-preview-tile.is-active{border-color:#2563eb!important;box-shadow:0 0 0 2px #2563eb24}.sf-pdf-highlighter .sfmini-actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}.sf-pdf-highlighter button,.sf-pdf-highlighter .sfmini-btn{border:0;border-radius:10px;padding:11px 16px;margin:4px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;font-weight:700;box-shadow:0 4px 10px #1d4ed826;cursor:pointer;transition:transform .15s,box-shadow .15s}.sf-pdf-highlighter button:hover{transform:translateY(-1px);box-shadow:0 7px 16px #1d4ed833}.sf-pdf-highlighter button:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}.sf-pdf-highlighter button.secondary,.sf-pdf-highlighter .sfmini-btn.secondary{background:#e8eefc;color:#1e40af;box-shadow:none}.sf-pdf-highlighter [data-sf-status]{min-height:1.5em;color:#334155;overflow-wrap:anywhere}.sf-pdf-highlighter .sfhl-live-rect{border:2px solid #33415555;box-shadow:0 0 0 1px #ffffffaa inset}.sf-pdf-highlighter .sfhl-live-rect.is-selected{border:3px solid #2563eb;box-shadow:0 0 0 2px #fff,0 0 0 4px #2563eb}@media(max-width:600px){.sf-pdf-highlighter .sf-pdf-editor-layout{grid-template-columns:minmax(0,1fr)}.sf-pdf-highlighter .sf-preview-grid{grid-template-columns:repeat(auto-fill,minmax(62px,1fr));max-height:150px}.sf-pdf-highlighter .sfmini-actions button{flex:1 1 100%}}
+
+.sf-pdf-highlighter .sf-preview-grid{grid-template-columns:1fr!important;max-width:108px!important}.sf-pdf-highlighter .sf-pdf-editor-layout{grid-template-columns:minmax(72px,108px) minmax(0,1fr)!important}
+
+/* ToolsBySS responsive zoom controls: keep zoom actions together on narrow screens. */
+@media (max-width: 640px){.sf-tool [data-sf-canvas-controls],.sf-tool .sf-pdf-canvas-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.sf-tool [data-sf-canvas-controls] .sf-pdf-zoom-label,.sf-tool .sf-pdf-canvas-controls .sf-pdf-zoom-label{flex-basis:100%;margin-top:4px}.sf-tool [data-pdf-zoom-out],.sf-tool [data-pdf-zoom-reset],.sf-tool [data-pdf-zoom-in]{flex:0 0 auto;min-width:58px}.sf-tool [data-pdf-zoom-out]{margin-left:0}}
+
+/* V10: on phones, keep zoom − / Fit / + together on a dedicated row below page controls. */
+@media (max-width: 640px) {
+  .sf-pdf-highlighter [data-sf-canvas-controls],
+  .sf-pdf-highlighter .sf-pdf-canvas-controls {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  }
+  .sf-pdf-highlighter [data-sf-canvas-controls]::after,
+  .sf-pdf-highlighter .sf-pdf-canvas-controls::after {
+    content: ""; order: 80; flex: 0 0 100%; height: 0; margin: 0; padding: 0;
+  }
+  .sf-pdf-highlighter [data-pdf-zoom-out], .sf-pdf-highlighter .sf-pdf-canvas-controls [data-pdf-zoom-out],
+  .sf-pdf-highlighter [data-pdf-zoom-reset], .sf-pdf-highlighter .sf-pdf-canvas-controls [data-pdf-zoom-reset],
+  .sf-pdf-highlighter [data-pdf-zoom-in], .sf-pdf-highlighter .sf-pdf-canvas-controls [data-pdf-zoom-in] {
+    order: 81; flex: 0 0 auto; min-width: 56px; margin-left: 0;
+  }
+  .sf-pdf-highlighter [data-pdf-zoom-reset], .sf-pdf-highlighter .sf-pdf-canvas-controls [data-pdf-zoom-reset] { order: 82; }
+  .sf-pdf-highlighter [data-pdf-zoom-in], .sf-pdf-highlighter .sf-pdf-canvas-controls [data-pdf-zoom-in] { order: 83; }
+}
+
+
+/* V11: move the Zoom label down with the − / Fit / + buttons on mobile. */
+@media (max-width: 640px) {
+  .sf-pdf-highlighter [data-sf-canvas-controls] .sf-pdf-zoom-label,
+  .sf-pdf-highlighter .sf-pdf-canvas-controls .sf-pdf-zoom-label {
+    order: 81 !important;
+    flex: 0 0 auto !important;
+    margin: 0 2px 0 0 !important;
+  }
+  .sf-pdf-highlighter [data-pdf-zoom-out],
+  .sf-pdf-highlighter .sf-pdf-canvas-controls [data-pdf-zoom-out] {
+    order: 82 !important;
+  }
+  .sf-pdf-highlighter [data-pdf-zoom-reset],
+  .sf-pdf-highlighter .sf-pdf-canvas-controls [data-pdf-zoom-reset] {
+    order: 83 !important;
+  }
+  .sf-pdf-highlighter [data-pdf-zoom-in],
+  .sf-pdf-highlighter .sf-pdf-canvas-controls [data-pdf-zoom-in] {
+    order: 84 !important;
+  }
+}
