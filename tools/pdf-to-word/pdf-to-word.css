@@ -1,0 +1,70 @@
+
+.sf-tool .sf-new-card{padding:clamp(12px,2.5vw,22px);border:1px solid #cbd5e1;border-radius:18px;background:linear-gradient(145deg,#fff,#f7faff);box-shadow:0 10px 28px #1e3a8a12;color:#172033;font:16px/1.5 Arial,sans-serif;max-width:100%}
+.sf-tool .sf-new-card h2{margin:0 0 8px;font-size:clamp(1.2rem,2vw,1.55rem);color:#172554}
+.sf-tool .sf-new-card .sf-file-drop{position:relative;border:2px dashed #7c9edb;border-radius:14px;padding:16px;background:linear-gradient(120deg,#eff6ff,#f8fafc);margin:12px 0}
+.sf-tool .sf-new-card .sf-file-drop input[type=file]{width:100%;max-width:100%}
+.sf-tool .sf-new-card input:not([type=file]):not([type=checkbox]):not([type=radio]),.sf-tool .sf-new-card select,.sf-tool .sf-new-card textarea{max-width:100%;width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:9px;background:#fff;color:#172033;font:inherit}
+.sf-tool .sf-new-card label{display:block;margin:8px 0;font-weight:600}
+.sf-tool .sf-new-card button{border:0;border-radius:10px;padding:11px 16px;margin:4px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;font-weight:700;box-shadow:0 4px 10px #1d4ed826;cursor:pointer}
+.sf-tool .sf-new-card button.secondary{background:#e8eefc;color:#1e40af;box-shadow:none}
+.sf-tool .sf-new-card button:disabled{opacity:.45;cursor:not-allowed}
+.sf-tool .sf-new-card .sf-new-status{min-height:1.5em;color:#334155;overflow-wrap:anywhere}
+.sf-tool .sf-new-card .sf-new-layout{display:grid;grid-template-columns:minmax(74px,112px) minmax(0,1fr);gap:12px;align-items:start}
+.sf-tool .sf-new-card .sf-new-thumbs{display:grid;grid-template-columns:1fr;gap:7px;max-height:65vh;overflow:auto;padding:3px}
+.sf-tool .sf-new-card .sf-new-stage-wrap{max-width:100%;max-height:75vh;overflow:auto;border:1px solid #aab8cc;border-radius:14px;background:#e9eef6;padding:10px;box-shadow:inset 0 1px 4px #0f172a10}
+.sf-tool .sf-new-card .sf-new-stage{position:relative;width:max-content;margin:0 auto;line-height:0;touch-action:pan-x pan-y}
+.sf-tool .sf-new-card .sf-new-stage canvas{display:block;max-width:none;background:#fff;box-shadow:0 1px 6px #0002}
+.sf-tool .sf-new-card .sf-new-thumbs .sf-preview-tile{border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;text-align:center}
+.sf-tool .sf-new-card .sf-new-thumbs .sf-preview-tile.is-active{border-color:#2749F5;background:#eff6ff}
+.sf-tool .sf-new-card .sf-new-thumbs canvas{max-width:100%;height:auto;display:block;margin:auto}
+.sf-tool .sf-new-card .sf-new-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:14px 0}
+.sf-tool .sf-new-card .sf-new-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+@media(max-width:620px){.sf-tool .sf-new-card .sf-new-layout{grid-template-columns:minmax(0,1fr)}.sf-tool .sf-new-card .sf-new-thumbs{grid-template-columns:repeat(auto-fill,minmax(64px,1fr));max-height:150px}.sf-tool .sf-new-card .sf-new-stage-wrap{max-height:62vh;padding:6px}}
+
+.sf-pdf-to-word [data-word-text]{width:100%;min-height:160px;margin-top:10px}
+
+/* ToolsBySS responsive zoom controls: keep zoom actions together on narrow screens. */
+@media (max-width: 640px){.sf-tool [data-sf-canvas-controls],.sf-tool .sf-pdf-canvas-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.sf-tool [data-sf-canvas-controls] .sf-pdf-zoom-label,.sf-tool .sf-pdf-canvas-controls .sf-pdf-zoom-label{flex-basis:100%;margin-top:4px}.sf-tool [data-pdf-zoom-out],.sf-tool [data-pdf-zoom-reset],.sf-tool [data-pdf-zoom-in]{flex:0 0 auto;min-width:58px}.sf-tool [data-pdf-zoom-out]{margin-left:0}}
+
+/* OCR/Word: page-selection controls can be wide; keep the complete zoom group on its own row. */
+@media(max-width:640px){.sf-pdf-ocr [data-sf-canvas-controls],.sf-pdf-to-word [data-sf-canvas-controls]{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.sf-pdf-ocr [data-sf-canvas-controls] .sf-pdf-zoom-label,.sf-pdf-to-word [data-sf-canvas-controls] .sf-pdf-zoom-label{order:20;flex:0 0 100%;margin:8px 0 0}.sf-pdf-ocr [data-pdf-zoom-out],.sf-pdf-to-word [data-pdf-zoom-out]{order:21;margin-left:0}.sf-pdf-ocr [data-pdf-zoom-reset],.sf-pdf-to-word [data-pdf-zoom-reset]{order:22}.sf-pdf-ocr [data-pdf-zoom-in],.sf-pdf-to-word [data-pdf-zoom-in]{order:23}.sf-pdf-ocr [data-pdf-zoom-out],.sf-pdf-ocr [data-pdf-zoom-reset],.sf-pdf-ocr [data-pdf-zoom-in],.sf-pdf-to-word [data-pdf-zoom-out],.sf-pdf-to-word [data-pdf-zoom-reset],.sf-pdf-to-word [data-pdf-zoom-in]{flex:0 0 auto;min-width:64px}}
+
+
+
+
+/* V9: put the zoom controls on a distinct row below page navigation on OCR and Word tools. */
+.sf-pdf-ocr [data-sf-canvas-controls],
+.sf-pdf-to-word [data-sf-canvas-controls] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.sf-pdf-ocr [data-sf-canvas-controls]::before,
+.sf-pdf-to-word [data-sf-canvas-controls]::before {
+  content: "";
+  order: 89;
+  flex: 0 0 100%;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+.sf-pdf-ocr [data-sf-canvas-controls] .sf-pdf-zoom-label,
+.sf-pdf-to-word [data-sf-canvas-controls] .sf-pdf-zoom-label {
+  order: 90;
+  flex: 0 0 auto;
+  margin: 0 2px 0 0;
+}
+.sf-pdf-ocr [data-sf-canvas-controls] [data-pdf-zoom-out],
+.sf-pdf-to-word [data-sf-canvas-controls] [data-pdf-zoom-out] {
+  order: 91;
+  margin-left: 0;
+}
+.sf-pdf-ocr [data-sf-canvas-controls] [data-pdf-zoom-reset],
+.sf-pdf-to-word [data-sf-canvas-controls] [data-pdf-zoom-reset] {
+  order: 92;
+}
+.sf-pdf-ocr [data-sf-canvas-controls] [data-pdf-zoom-in],
+.sf-pdf-to-word [data-sf-canvas-controls] [data-pdf-zoom-in] {
+  order: 93;
+}
