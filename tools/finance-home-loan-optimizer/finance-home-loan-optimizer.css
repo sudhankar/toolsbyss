@@ -1,0 +1,3 @@
+/* Tool-specific extension; shared finance styles are scoped to .sf-finance-tool */
+.sf-finance-home-loan-optimizer{max-width:100%;min-width:0}
+.sf-finance-home-loan-optimizer header p{color:#475569;margin:0 0 14px}

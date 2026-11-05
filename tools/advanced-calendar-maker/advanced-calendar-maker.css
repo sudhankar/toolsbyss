@@ -1,0 +1,98 @@
+/* Advanced Calendar Maker — all selectors are isolated under its own root. */
+.sf-tool.sf-advanced-calendar-maker{width:100%;max-width:100%;min-width:0;color:#172033;line-height:1.5;font-family:inherit;overflow-wrap:anywhere}
+.sf-tool.sf-advanced-calendar-maker *,.sf-tool.sf-advanced-calendar-maker *:before,.sf-tool.sf-advanced-calendar-maker *:after{box-sizing:border-box}
+.sf-tool.sf-advanced-calendar-maker [hidden]{display:none!important}
+.sf-tool.sf-advanced-calendar-maker .sf-brand{display:block;margin:0 0 12px}
+.sf-tool.sf-advanced-calendar-maker .sf-tool-intro{margin:0 0 16px}
+.sf-tool.sf-advanced-calendar-maker .sf-tool-intro h2{margin:0 0 7px;font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.3;color:#172554}
+.sf-tool.sf-advanced-calendar-maker .sf-tool-intro p{margin:0 0 9px;color:#475569;line-height:1.65}
+.sf-tool.sf-advanced-calendar-maker .sf-local-note{display:inline-flex;padding:5px 10px;border-radius:999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;font-size:.8rem;font-weight:650}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-panel{display:flex;flex-direction:column;gap:16px;min-width:0}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-controls,.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-wrap,.sf-tool.sf-advanced-calendar-maker .sf-cm-events{padding:clamp(13px,2.2vw,21px);border:1px solid #dbe4f0;border-radius:16px;background:#fff;box-shadow:0 5px 20px rgba(20,45,80,.045);min-width:0}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-control-head,.sf-tool.sf-advanced-calendar-maker .sf-cm-events-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-control-head h3,.sf-tool.sf-advanced-calendar-maker .sf-cm-events-head h3{margin:0;color:#172554;font-size:1.12rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-control-head p,.sf-tool.sf-advanced-calendar-maker .sf-cm-events-head p{margin:2px 0 0;color:#64748b;font-size:.8rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-control-badge{padding:5px 9px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:.68rem;font-weight:800;letter-spacing:.06em}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-control-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-field{display:flex;flex-direction:column;gap:5px;min-width:0;color:#334155;font-size:.8rem;font-weight:700}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-field input,.sf-tool.sf-advanced-calendar-maker .sf-cm-field select,.sf-tool.sf-advanced-calendar-maker .sf-cm-field textarea{width:100%;min-width:0;max-width:100%;min-height:40px;border:1px solid #cbd5e1;border-radius:9px;background:#fff;padding:8px 10px;color:#111827;font:inherit;font-weight:500}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-field textarea{resize:vertical;min-height:68px}
+.sf-tool.sf-advanced-calendar-maker button{font:inherit}
+.sf-tool.sf-advanced-calendar-maker button:focus-visible,.sf-tool.sf-advanced-calendar-maker input:focus-visible,.sf-tool.sf-advanced-calendar-maker select:focus-visible,.sf-tool.sf-advanced-calendar-maker textarea:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-holiday-box{margin-top:14px;padding:13px;border:1px solid #dbeafe;border-radius:12px;background:#f8fbff}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-holiday-box>div:first-child strong,.sf-tool.sf-advanced-calendar-maker .sf-cm-brand-fields>strong{display:block;color:#1e293b;font-size:.9rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-holiday-box>div:first-child small{display:block;margin-top:2px;color:#64748b;font-size:.74rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-holiday-controls{display:grid;grid-template-columns:minmax(0,1fr);max-width:360px;gap:10px;margin:10px 0}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-btn{display:inline-flex;align-items:center;justify-content:center;min-height:41px;padding:9px 14px;border:1px solid transparent;border-radius:9px;cursor:pointer;font-size:.82rem;font-weight:750;max-width:100%}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-primary{background:linear-gradient(110deg,#2458cb,#4f46e5);color:#fff}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-secondary{background:#fff;border-color:#cbd5e1;color:#334155}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-btn:disabled{opacity:.6;cursor:wait}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-status{min-height:18px;margin:7px 0 0;color:#64748b;font-size:.75rem;overflow-wrap:anywhere}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-brand-fields{margin-top:14px;padding-top:13px;border-top:1px solid #e2e8f0}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-brand-fields .sf-cm-control-grid{margin-top:9px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:13px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-toolbar>div:first-child strong,.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-toolbar>div:first-child span{display:block}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-toolbar>div:first-child strong{font-size:1rem;color:#1e293b}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-toolbar>div:first-child span{color:#64748b;font-size:.75rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-export-controls{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-orientation{min-width:105px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-orientation select{min-height:38px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview{--cm-accent:#3157c8;--cm-soft:#eef3ff;--cm-line:#dbe4f0;--cm-weekend:#fff1f2;--cm-holiday:#fff4df;--cm-text:#172033;padding:clamp(10px,2vw,20px);border:1px solid var(--cm-line);border-radius:13px;background:#fff;color:var(--cm-text);min-width:0;overflow:hidden}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview[data-theme="lavender"]{--cm-accent:#7c3aed;--cm-soft:#f3e8ff;--cm-line:#e9d5ff;--cm-weekend:#fff1f2;--cm-holiday:#fdf4ff}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview[data-theme="emerald"]{--cm-accent:#047857;--cm-soft:#d1fae5;--cm-line:#a7f3d0;--cm-weekend:#fff1f2;--cm-holiday:#ecfdf5}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview[data-theme="rose"]{--cm-accent:#be185d;--cm-soft:#fce7f3;--cm-line:#fbcfe8;--cm-weekend:#fff1f2;--cm-holiday:#fff7ed}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview[data-theme="dark"]{--cm-accent:#a5b4fc;--cm-soft:#273449;--cm-line:#475569;--cm-weekend:#472c39;--cm-holiday:#4b3d2c;--cm-text:#f8fafc;background:#111827}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview[data-font="serif"]{font-family:Georgia,"Noto Serif Devanagari",serif}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview[data-font="rounded"]{font-family:"Trebuchet MS","Noto Sans Devanagari",sans-serif}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-print-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 0 12px;margin-bottom:12px;border-bottom:2px solid var(--cm-accent);color:var(--cm-accent)}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-print-head span{font-size:.76rem;font-weight:800;letter-spacing:.06em}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-print-head strong{font-size:clamp(1rem,2.5vw,1.45rem);text-align:right}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-print-footer{margin-top:12px;padding-top:8px;border-top:1px solid var(--cm-line);color:var(--cm-text);opacity:.72;text-align:center;font-size:.7rem;min-height:4px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-calendar{min-width:0;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-calendar>.sf-cm-month-grid{min-width:560px}.sf-tool.sf-advanced-calendar-maker .sf-cm-calendar>.sf-cm-week-view{min-width:680px}.sf-tool.sf-advanced-calendar-maker .sf-cm-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--cm-line);border-left:1px solid var(--cm-line)}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-weekday{padding:8px 3px;background:var(--cm-soft);color:var(--cm-accent);border-right:1px solid var(--cm-line);border-bottom:1px solid var(--cm-line);text-align:center;font-size:.76rem;font-weight:800}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:4px;min-width:0;min-height:84px;padding:6px;border:0;border-right:1px solid var(--cm-line);border-bottom:1px solid var(--cm-line);background:transparent;color:var(--cm-text);text-align:left;cursor:pointer;overflow:hidden}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day:hover{background:var(--cm-soft)}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day.is-outside{background:color-mix(in srgb,var(--cm-soft) 28%,transparent);opacity:.42}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day.is-weekend{background:var(--cm-weekend)}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day.is-holiday{box-shadow:inset 0 3px 0 #e5a12b}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day.is-selected{outline:2px solid var(--cm-accent);outline-offset:-2px;background:var(--cm-soft)}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day-number{display:flex;align-items:center;justify-content:space-between;gap:4px;font-weight:850;font-size:.86rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-today-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;flex:0 0 auto}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day-events{display:flex;flex-direction:column;gap:3px;min-width:0}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-chip{display:block;max-width:100%;padding:2px 4px;border-radius:4px;background:var(--cm-soft);color:var(--cm-accent);font-size:.62rem;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-chip.is-holiday{background:var(--cm-holiday);color:#92400e}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-chip.is-custom{border-left:2px solid var(--cm-accent)}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-more-events{font-size:.58rem;color:var(--cm-text);opacity:.7}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-annual-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-mini-month{min-width:0;padding:8px;border:1px solid var(--cm-line);border-radius:9px;break-inside:avoid}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-mini-title{margin:0 0 6px;color:var(--cm-accent);text-align:center;font-size:.82rem;font-weight:850}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-mini-month .sf-cm-month-grid{border:0;gap:2px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-mini-month .sf-cm-weekday{padding:3px 0;border:0;background:transparent;font-size:.57rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-mini-month .sf-cm-day{min-height:24px;padding:2px;border:0;border-radius:4px;align-items:center;justify-content:center;gap:0}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-mini-month .sf-cm-day-number{font-size:.65rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-mini-month .sf-cm-day-events{display:none}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-week-view{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-week-card{min-width:0;min-height:160px;padding:10px;border:1px solid var(--cm-line);border-radius:10px;background:var(--cm-soft);color:var(--cm-text);text-align:left;cursor:pointer}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-week-card strong,.sf-tool.sf-advanced-calendar-maker .sf-cm-week-card span{display:block}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-week-card strong{color:var(--cm-accent);font-size:1.1rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-week-card>span{font-size:.7rem;opacity:.78}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-week-card .sf-cm-event-chip{margin-top:8px;white-space:normal;overflow-wrap:anywhere}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-hint{margin:9px 0 0;color:#64748b;font-size:.74rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-selected-date{padding:6px 9px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-size:.76rem;font-weight:700}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-field-wide{grid-column:span 2}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-saved-events{margin-top:15px;padding-top:13px;border-top:1px solid #e2e8f0}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-saved-events h4{margin:0 0 9px;color:#1e293b;font-size:.91rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:9px 10px;margin-top:7px;border:1px solid #e2e8f0;border-radius:9px;background:#fff}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-row strong,.sf-tool.sf-advanced-calendar-maker .sf-cm-event-row small{display:block}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-row strong{color:#1e293b;font-size:.82rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-row small{margin-top:2px;color:#64748b;font-size:.73rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-delete-event{border:1px solid #fecaca;border-radius:7px;background:#fff1f2;color:#b91c1c;padding:5px 8px;font-size:.7rem;cursor:pointer;flex:0 0 auto}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-empty{margin:0;color:#94a3b8;font-size:.8rem}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-note{margin-top:13px;padding:12px 14px;border:1px solid #dbeafe;border-radius:11px;background:#f8fbff;color:#475569;font-size:.8rem;line-height:1.65}
+@media(max-width:820px){.sf-tool.sf-advanced-calendar-maker .sf-cm-control-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-tool.sf-advanced-calendar-maker .sf-cm-event-form{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-tool.sf-advanced-calendar-maker .sf-cm-annual-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-tool.sf-advanced-calendar-maker .sf-cm-week-view{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:600px){.sf-tool.sf-advanced-calendar-maker .sf-cm-control-grid,.sf-tool.sf-advanced-calendar-maker .sf-cm-holiday-controls,.sf-tool.sf-advanced-calendar-maker .sf-cm-brand-fields .sf-cm-control-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-tool.sf-advanced-calendar-maker .sf-cm-day{min-height:62px;padding:4px}.sf-tool.sf-advanced-calendar-maker .sf-cm-event-chip{font-size:.55rem}.sf-tool.sf-advanced-calendar-maker .sf-cm-annual-grid{grid-template-columns:1fr 1fr;gap:7px}.sf-tool.sf-advanced-calendar-maker .sf-cm-mini-month{padding:5px}.sf-tool.sf-advanced-calendar-maker .sf-cm-export-controls{width:100%}.sf-tool.sf-advanced-calendar-maker .sf-cm-export-controls .sf-cm-btn{flex:1}.sf-tool.sf-advanced-calendar-maker .sf-cm-week-view{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-tool.sf-advanced-calendar-maker .sf-cm-event-form{grid-template-columns:1fr 1fr}}
+@media(max-width:380px){.sf-tool.sf-advanced-calendar-maker .sf-cm-control-grid,.sf-tool.sf-advanced-calendar-maker .sf-cm-holiday-controls,.sf-tool.sf-advanced-calendar-maker .sf-cm-event-form{grid-template-columns:1fr}.sf-tool.sf-advanced-calendar-maker .sf-cm-field-wide{grid-column:auto}.sf-tool.sf-advanced-calendar-maker .sf-cm-day{min-height:54px}.sf-tool.sf-advanced-calendar-maker .sf-cm-day-events{display:none}.sf-tool.sf-advanced-calendar-maker .sf-cm-annual-grid{grid-template-columns:1fr}}
+@media print{.sf-tool.sf-advanced-calendar-maker .sf-brand,.sf-tool.sf-advanced-calendar-maker .sf-tool-intro,.sf-tool.sf-advanced-calendar-maker .sf-cm-controls,.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-toolbar,.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-hint,.sf-tool.sf-advanced-calendar-maker .sf-cm-events,.sf-tool.sf-advanced-calendar-maker .sf-cm-note{display:none!important}.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-wrap,.sf-tool.sf-advanced-calendar-maker .sf-cm-preview{border:0;box-shadow:none;padding:0}.sf-tool.sf-advanced-calendar-maker .sf-cm-preview{overflow:visible}.sf-tool.sf-advanced-calendar-maker .sf-cm-annual-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}

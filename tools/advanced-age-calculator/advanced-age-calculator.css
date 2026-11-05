@@ -1,0 +1,54 @@
+/* Advanced Age Calculator — fully scoped to its Blogger wrapper. */
+.sf-tool.sf-advanced-age-calculator{width:100%;max-width:100%;min-width:0;color:#172033;line-height:1.5;font-family:inherit;overflow-wrap:anywhere}
+.sf-tool.sf-advanced-age-calculator *,.sf-tool.sf-advanced-age-calculator *:before,.sf-tool.sf-advanced-age-calculator *:after{box-sizing:border-box}
+.sf-tool.sf-advanced-age-calculator [hidden]{display:none!important}
+.sf-tool.sf-advanced-age-calculator .sf-brand{display:block;margin:0 0 12px}
+.sf-tool.sf-advanced-age-calculator .sf-tool-intro{margin:0 0 16px}
+.sf-tool.sf-advanced-age-calculator .sf-tool-intro h2{margin:0 0 7px;font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.3;color:#172554}
+.sf-tool.sf-advanced-age-calculator .sf-tool-intro p{margin:0 0 9px;color:#475569;line-height:1.65}
+.sf-tool.sf-advanced-age-calculator .sf-local-note{display:inline-flex;padding:5px 10px;border-radius:999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;font-size:.8rem;font-weight:650}
+.sf-tool.sf-advanced-age-calculator .sf-ac-panel{padding:clamp(14px,2.4vw,24px);border:1px solid #dbe4f0;border-radius:18px;background:#fff;box-shadow:0 6px 24px rgba(22,45,84,.06);min-width:0}
+.sf-tool.sf-advanced-age-calculator .sf-ac-section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-icon{display:grid;place-items:center;width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:linear-gradient(135deg,#dbeafe,#e0e7ff);color:#2348b8;font-size:25px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-section-title h3{margin:0;color:#172554;font-size:1.15rem}
+.sf-tool.sf-advanced-age-calculator .sf-ac-section-title p{margin:2px 0 0;color:#64748b;font-size:.82rem}
+.sf-tool.sf-advanced-age-calculator .sf-ac-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-field{display:flex;flex-direction:column;gap:6px;min-width:0;color:#334155;font-size:.86rem;font-weight:700}
+.sf-tool.sf-advanced-age-calculator .sf-ac-field input{width:100%;min-width:0;max-width:100%;min-height:44px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;padding:9px 11px;color:#111827;font:inherit;font-weight:500}
+.sf-tool.sf-advanced-age-calculator button,.sf-tool.sf-advanced-age-calculator input{font:inherit}
+.sf-tool.sf-advanced-age-calculator button:focus-visible,.sf-tool.sf-advanced-age-calculator input:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-actions,.sf-tool.sf-advanced-age-calculator .sf-ac-result-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-btn{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:10px 16px;border:1px solid transparent;border-radius:10px;cursor:pointer;font-weight:700;font-size:.88rem;transition:transform .15s,box-shadow .15s;max-width:100%}
+.sf-tool.sf-advanced-age-calculator .sf-ac-btn:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(20,40,90,.12)}
+.sf-tool.sf-advanced-age-calculator .sf-ac-primary{background:linear-gradient(110deg,#2856d8,#4f46e5);color:#fff}
+.sf-tool.sf-advanced-age-calculator .sf-ac-secondary{background:#eff6ff;border-color:#bfdbfe;color:#1e40af}
+.sf-tool.sf-advanced-age-calculator .sf-ac-ghost{background:#fff;border-color:#dbe3ee;color:#475569}
+.sf-tool.sf-advanced-age-calculator .sf-ac-status{min-height:20px;margin:10px 0 0;color:#475569;font-size:.84rem;overflow-wrap:anywhere}
+.sf-tool.sf-advanced-age-calculator .sf-ac-status.is-error{color:#b91c1c;font-weight:700}
+.sf-tool.sf-advanced-age-calculator .sf-ac-main-result{margin-top:14px;padding:22px;border-radius:16px;background:radial-gradient(circle at 90% 10%,#ffffff55,transparent 28%),linear-gradient(125deg,#173b8d,#4f46e5 55%,#7c3aed);color:#fff;text-align:center}
+.sf-tool.sf-advanced-age-calculator .sf-ac-main-label{font-size:.88rem;opacity:.88;font-weight:650}
+.sf-tool.sf-advanced-age-calculator .sf-ac-main-value{margin:7px 0 3px;font-size:clamp(1.4rem,4vw,2.25rem);font-weight:850;line-height:1.45;letter-spacing:-.02em}
+.sf-tool.sf-advanced-age-calculator .sf-ac-main-caption{font-size:.78rem;opacity:.83}
+.sf-tool.sf-advanced-age-calculator .sf-ac-detail-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;margin-top:12px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-detail{min-width:0;padding:13px 8px;border:1px solid #e1e8f3;border-radius:12px;background:#f8faff;text-align:center}
+.sf-tool.sf-advanced-age-calculator .sf-ac-detail span,.sf-tool.sf-advanced-age-calculator .sf-ac-stat-grid span{display:block;color:#64748b;font-size:.74rem;font-weight:650}
+.sf-tool.sf-advanced-age-calculator .sf-ac-detail strong{display:block;margin-top:4px;color:#1e3a8a;font-size:clamp(1rem,2vw,1.35rem);font-weight:850;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.sf-tool.sf-advanced-age-calculator .sf-ac-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-stat-grid>div{padding:12px 13px;border:1px solid #e2e8f0;border-radius:11px;background:#fff;min-width:0}
+.sf-tool.sf-advanced-age-calculator .sf-ac-stat-grid strong{display:block;margin-top:4px;color:#0f172a;font-size:1.05rem;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.sf-tool.sf-advanced-age-calculator .sf-ac-next-birthday{display:flex;gap:13px;align-items:center;margin-top:13px;padding:15px;border-radius:13px;background:#fff7ed;border:1px solid #fed7aa}
+.sf-tool.sf-advanced-age-calculator .sf-ac-next-icon{font-size:29px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-next-birthday span,.sf-tool.sf-advanced-age-calculator .sf-ac-next-birthday small{display:block;color:#9a3412;font-size:.78rem}
+.sf-tool.sf-advanced-age-calculator .sf-ac-next-birthday strong{display:block;color:#7c2d12;font-size:1.05rem}
+.sf-tool.sf-advanced-age-calculator .sf-ac-next-birthday small{margin-top:2px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-milestones{margin-top:15px;padding:15px;border:1px solid #e2e8f0;border-radius:13px}
+.sf-tool.sf-advanced-age-calculator .sf-ac-milestones h4{margin:0 0 9px;color:#1e293b;font-size:.98rem}
+.sf-tool.sf-advanced-age-calculator .sf-ac-milestone-list{display:flex;gap:8px;flex-wrap:wrap}
+.sf-tool.sf-advanced-age-calculator .sf-ac-milestone{padding:7px 10px;border-radius:9px;background:#f1f5f9;color:#475569;font-size:.77rem}
+.sf-tool.sf-advanced-age-calculator .sf-ac-milestone.is-next{background:#ecfdf5;color:#166534;border:1px solid #a7f3d0}
+.sf-tool.sf-advanced-age-calculator .sf-ac-note{margin-top:13px;padding:12px 14px;border:1px solid #dbeafe;border-radius:11px;background:#f8fbff;color:#475569;font-size:.8rem;line-height:1.65}
+.sf-tool.sf-advanced-age-calculator .sf-ac-results{margin-top:8px}
+@media(max-width:760px){.sf-tool.sf-advanced-age-calculator .sf-ac-detail-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:520px){.sf-tool.sf-advanced-age-calculator .sf-ac-form-grid{grid-template-columns:1fr 1fr;gap:10px}.sf-tool.sf-advanced-age-calculator .sf-ac-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-tool.sf-advanced-age-calculator .sf-ac-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-tool.sf-advanced-age-calculator .sf-ac-actions .sf-ac-btn,.sf-tool.sf-advanced-age-calculator .sf-ac-result-actions .sf-ac-btn{flex:1 1 135px}}
+@media(max-width:360px){.sf-tool.sf-advanced-age-calculator .sf-ac-form-grid{grid-template-columns:1fr}.sf-tool.sf-advanced-age-calculator .sf-ac-panel{padding:12px}}
+

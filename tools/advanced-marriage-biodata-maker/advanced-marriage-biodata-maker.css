@@ -1,0 +1,85 @@
+/* All styles are isolated to the Advanced Marriage Biodata Maker root. */
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-shell,
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-shell *{box-sizing:border-box;min-width:0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-shell{width:100%;max-width:100%;overflow:hidden;color:#263244}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-toolbar{display:flex;flex-wrap:wrap;align-items:end;gap:10px;padding:13px;border:1px solid #e6dfd2;border-radius:13px;background:#fbfaf7;margin:14px 0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-toolbar-control{display:flex;flex-direction:column;gap:5px;min-width:135px;flex:1}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-toolbar label,.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-field>span{font-size:13px;font-weight:700;color:#4b5563}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-toolbar select,.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-field input,.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-field textarea{width:100%;max-width:100%;min-height:41px;padding:9px 11px;border:1px solid #d6d3cd;border-radius:8px;background:#fff;color:#263244;font:inherit;font-size:14px;line-height:1.4;box-shadow:none}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-field input[type=range]{min-height:20px;padding:0;accent-color:#8b6a34}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-toolbar input[type=color]{width:100%;height:41px;padding:3px;border:1px solid #d6d3cd;border-radius:8px;background:#fff}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-toolbar-check{display:flex;align-items:center;gap:7px;min-height:41px;padding:6px 8px;font-size:13px;font-weight:600;color:#4b5563}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-toolbar-check input{width:17px;height:17px;min-height:0;accent-color:#96733a}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:9px 13px;border:1px solid #8b6a34;border-radius:8px;background:#8b6a34;color:#fff;font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;text-decoration:none;cursor:pointer;white-space:normal}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-button:hover{filter:brightness(.95)}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-button.is-light{background:#fff;color:#765927;border-color:#d8c9a9}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-button.is-remove{color:#a12e2e;border-color:#f1caca;background:#fff}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-tabs{display:none;gap:7px;margin:10px 0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-tabs .is-active{background:#8b6a34;color:#fff;border-color:#8b6a34}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-layout{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:15px;align-items:start}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-editor,.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-preview-panel{min-width:0;border:1px solid #e6dfd2;border-radius:13px;background:#fff;padding:14px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-editor h3{font-size:16px;margin:0 0 11px;color:#604b29}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-form-section{margin:0 0 14px;padding:13px;border:1px solid #ece7dc;border-radius:10px;background:#fff}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-form-section>legend{padding:0 7px;font-size:15px;font-weight:800;color:#604b29}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-field{display:flex;flex-direction:column;gap:5px;margin:0;min-width:0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-field.is-full{grid-column:1/-1}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-field textarea{min-height:76px;resize:vertical}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-photo-row{display:grid;grid-template-columns:minmax(0,1fr) 76px;gap:10px;align-items:center}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] [data-photo-preview]{width:76px;height:92px;object-fit:cover;border:1px solid #d6d3cd;border-radius:8px;background:#fbfaf7}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] [data-photo-preview][hidden],.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] [data-emblem-preview][hidden]{display:none}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] [data-emblem-preview]{width:76px;height:76px;object-fit:contain;border:1px solid #d6d3cd;border-radius:8px;background:#fff}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-custom-editor{border:1px solid #ece7dc;border-radius:9px;padding:10px;margin:9px 0;background:#fbfaf7}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-custom-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:8px;align-items:end}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-hint{display:block;margin:6px 0 0;color:#6b7280;font-size:12px;line-height:1.5}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-status{min-height:22px;margin:8px 0;color:#276749;font-size:12px;font-weight:600;overflow-wrap:anywhere}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-status.is-error{color:#b42318}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-preview-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-preview-head h3{margin:0;font-size:16px;color:#604b29}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-preview-scroll{max-width:100%;overflow:auto;border:1px solid #e6dfd2;border-radius:8px;background:#f1eee8;padding:10px;overscroll-behavior:contain}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper{width:210mm;min-height:297mm;margin:0 auto;padding:13mm 14mm;background:#fff;color:#252b35;position:relative;font-family:Arial,"Noto Sans Devanagari",Mangal,sans-serif;font-size:10pt;line-height:1.45;overflow-wrap:anywhere;box-shadow:0 2px 13px #3a2f1b20;--sf-mb-accent:#a17a35}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper:before{content:"";position:absolute;inset:5mm;border:1px solid var(--sf-mb-accent);pointer-events:none}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-title-row{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 4px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-emblem{display:block;flex:0 0 auto;object-fit:contain}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper h1{font-size:23pt;text-align:center;line-height:1.2;margin:0 0 4px;color:var(--sf-mb-accent)}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-subtitle{text-align:center;color:#6b7280;font-size:10pt;margin-bottom:9px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-invocation{text-align:center;font-size:10pt;color:var(--sf-mb-accent);margin-bottom:7px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-profile{display:flex;align-items:center;gap:12px;border-bottom:1px solid #e6dfd0;padding:0 0 10px;margin:0 0 9px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-profile-main{flex:1;min-width:0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-profile-main h2{font-size:16pt;margin:0 0 3px;color:#252b35}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-photo{width:31mm;height:38mm;object-fit:cover;border:2px solid var(--sf-mb-accent);border-radius:5px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-section{margin:9px 0;break-inside:avoid}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-section h3{font-size:10.5pt;text-transform:uppercase;letter-spacing:.04em;color:var(--sf-mb-accent);border-bottom:1px solid #ded6c5;padding:0 0 4px;margin:0 0 6px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-rows{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-row{padding:3px 0;border-bottom:1px dotted #e4e7eb;min-width:0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-row b{color:#596273;margin-right:4px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-text{white-space:pre-wrap;margin:0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-footer{border-top:1px solid #e6dfd0;padding-top:7px;margin-top:12px;font-size:9pt;color:#596273}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper.tpl-modern:before{border:0;border-top:7mm solid var(--sf-mb-accent);border-bottom:2px solid var(--sf-mb-accent);inset:0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper.tpl-modern h1{color:var(--sf-mb-accent)}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper.tpl-floral:before{border:2px dashed var(--sf-mb-accent);border-radius:8mm;inset:6mm}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper.tpl-minimal:before{border:0;border-top:3mm solid var(--sf-mb-accent);border-bottom:1px solid #dbe5dc;inset:0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper.tpl-minimal h1{color:var(--sf-mb-accent)}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper.border-double:before{border:3px double var(--sf-mb-accent);inset:4mm}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper.border-ornate:before{border:2px solid var(--sf-mb-accent);border-radius:9mm;inset:5mm;box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 4px var(--sf-mb-accent)}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper.border-minimal:before{border:0;border-top:1px solid var(--sf-mb-accent);border-bottom:1px solid var(--sf-mb-accent);inset:0;border-radius:0;box-shadow:none}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-guide{margin:24px 0;line-height:1.7}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-guide h3{color:#604b29}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-guide li{margin:5px 0}
+@media(max-width:900px){.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-layout{grid-template-columns:minmax(0,1fr)}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-tabs{display:flex}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-editor,.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-preview-panel{display:none}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"].is-edit-tab .sf-mb-editor{display:block}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"].is-preview-tab .sf-mb-preview-panel{display:block}}
+@media(max-width:560px){.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-editor,.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-preview-panel{padding:10px}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-form-section{padding:10px}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-fields{grid-template-columns:minmax(0,1fr)}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-field.is-full{grid-column:auto}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-toolbar-control{min-width:calc(50% - 8px)}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-custom-head{grid-template-columns:minmax(0,1fr)}.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-actions .sf-mb-button{flex:1 1 145px}}
+
+/* Desktop layout refinement: editor first, then a full-width A4 preview. Mobile tabs remain unchanged. */
+@media(min-width:901px){
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-layout{grid-template-columns:minmax(0,1fr);gap:16px}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-preview-panel{width:100%;min-width:0}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-preview-scroll{max-height:min(78vh,900px);overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-paper{margin-left:auto;margin-right:auto}
+}
+
+@media(min-width:901px){
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-actions{align-items:stretch}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-actions .sf-mb-button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;line-height:1.3;text-align:center}
+.sf-tool[data-sf-tool="advanced-marriage-biodata-maker"] .sf-mb-form-section>.sf-mb-button{display:inline-flex;align-items:center;justify-content:center;min-height:40px}
+}

@@ -1,0 +1,96 @@
+/* All styles are isolated to the Advanced Biodata Maker root. */
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-shell,
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-shell *{box-sizing:border-box;min-width:0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-shell{width:100%;max-width:100%;overflow:hidden;color:#172033}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-toolbar{display:flex;flex-wrap:wrap;align-items:end;gap:10px;padding:13px;border:1px solid #dbe3ec;border-radius:13px;background:#f8fafc;margin:14px 0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-toolbar-control{display:flex;flex-direction:column;gap:5px;min-width:135px;flex:1}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-toolbar label,.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-field>span{font-size:13px;font-weight:700;color:#334155}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-toolbar select,.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-field input,.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-field textarea{width:100%;max-width:100%;min-height:41px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#172033;font:inherit;font-size:14px;line-height:1.4;box-shadow:none}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-toolbar input[type=color]{width:100%;height:41px;padding:3px;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-toolbar-check{display:flex;align-items:center;gap:7px;min-height:41px;padding:6px 8px;font-size:13px;font-weight:600;color:#334155}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-toolbar-check input{width:17px;height:17px;min-height:0;accent-color:#174b80}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:9px 13px;border:1px solid #174b80;border-radius:8px;background:#174b80;color:#fff;font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;text-decoration:none;cursor:pointer;white-space:normal}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-button:hover{filter:brightness(.95)}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-button.is-light{background:#fff;color:#174b80;border-color:#cbd5e1}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-button.is-remove{color:#a12e2e;border-color:#f1caca;background:#fff}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-tabs{display:none;gap:7px;margin:10px 0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-tabs .is-active{background:#174b80;color:#fff;border-color:#174b80}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-layout{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:15px;align-items:start}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-editor,.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-preview-panel{min-width:0;border:1px solid #dbe3ec;border-radius:13px;background:#fff;padding:14px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-editor h3{font-size:16px;margin:0 0 11px;color:#183a5c}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-form-section{margin:0 0 14px;padding:13px;border:1px solid #e1e8f0;border-radius:10px;background:#fff}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-form-section>legend{padding:0 7px;font-size:15px;font-weight:800;color:#173b61}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-field{display:flex;flex-direction:column;gap:5px;margin:0;min-width:0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-field.is-full{grid-column:1/-1}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-field textarea{min-height:76px;resize:vertical}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-photo-row{display:grid;grid-template-columns:minmax(0,1fr) 76px;gap:10px;align-items:center}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] [data-photo-preview]{width:76px;height:92px;object-fit:cover;border:1px solid #cbd5e1;border-radius:8px;background:#f8fafc}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] [data-photo-preview][hidden]{display:none}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-entry-editor,.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-custom-editor{border:1px solid #e2e8f0;border-radius:9px;padding:10px;margin:9px 0;background:#f8fafc}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-entry-editor-head,.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-custom-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-entry-editor-head strong{font-size:13px;color:#334155}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-mini-actions{display:flex;gap:4px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-mini-actions button{width:30px;height:30px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;color:#334155;cursor:pointer}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-mini-actions button:disabled{opacity:.35;cursor:not-allowed}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-mini-actions .is-remove{width:auto;padding:0 8px;color:#a12e2e}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-custom-title{flex:1}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-hint{display:block;margin:6px 0 0;color:#64748b;font-size:12px;line-height:1.5}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-status{min-height:22px;margin:8px 0;color:#276749;font-size:12px;font-weight:600;overflow-wrap:anywhere}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-status.is-error{color:#b42318}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-quality{border:1px solid #cfe0f1;border-radius:10px;padding:12px;margin-top:12px;background:#f3f8fd}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-quality-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-quality-head strong{font-size:15px;color:#173b61}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] [data-quality-score]{font-size:19px;font-weight:800;color:#174b80;font-variant-numeric:tabular-nums}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-quality ul{margin:8px 0 0;padding-left:19px;font-size:12px;line-height:1.55;color:#475569}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-quality p{font-size:12px;line-height:1.5;margin:8px 0 0;color:#475569}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-preview-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-preview-head h3{margin:0;font-size:16px;color:#183a5c}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-preview-scroll{max-width:100%;overflow:auto;border:1px solid #dbe3ec;border-radius:8px;background:#e9eef4;padding:10px;overscroll-behavior:contain}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper{width:210mm;min-height:297mm;margin:0 auto;padding:15mm 16mm;background:#fff;color:#172033;font-family:Arial,"Noto Sans Devanagari",Mangal,sans-serif;font-size:10.2pt;line-height:1.42;overflow-wrap:anywhere;box-shadow:0 2px 13px #1e293b20;--sf-bm-accent:#174b80}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper h1{font-size:23pt;line-height:1.15;margin:0 0 4px;color:var(--sf-bm-accent)}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper h2{font-size:12pt;margin:16px 0 7px;padding:0 0 4px;border-bottom:1.4px solid var(--sf-bm-accent);color:var(--sf-bm-accent);text-transform:uppercase;letter-spacing:.04em}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper p{margin:4px 0;white-space:pre-wrap}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-header{display:flex;gap:16px;align-items:center;border-bottom:2px solid var(--sf-bm-accent);padding-bottom:13px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-head-copy{min-width:0;flex:1}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-subtitle{font-size:11.5pt;color:#526174;font-weight:600}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-contact{font-size:9pt;color:#526174;margin-top:7px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-photo{width:27mm;height:34mm;object-fit:cover;border-radius:5px;border:1px solid #d6dce5}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-section{margin-top:10px;break-inside:avoid}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-entry{margin:0 0 8px;break-inside:avoid}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-entry-title{font-weight:700;font-size:10.5pt}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-entry-meta{font-size:9pt;color:#64748b}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-bullets{margin:4px 0 0 17px;padding:0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-bullets li{margin:2px 0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-tags{display:flex;flex-wrap:wrap;gap:5px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-tag{display:inline-block;border:1px solid #d8e0ea;border-radius:4px;padding:3px 7px;font-size:9pt}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-personal{display:grid;grid-template-columns:1fr 1fr;gap:5px 16px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-personal div{border-bottom:1px solid #edf0f4;padding:3px 0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-personal b{color:#475569;margin-right:5px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-signature{display:flex;justify-content:space-between;margin-top:23px;font-size:9pt}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper.tpl-modern{border-top:9mm solid var(--sf-bm-accent)}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper.tpl-classic{border:1px solid #d8cba8;outline:3px double #d8cba8;outline-offset:-5mm}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper.tpl-ats .sf-bm-header{border-bottom:1px solid #bcc8d6}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper.tpl-modern h2{border-bottom:0;border-left:3px solid var(--sf-bm-accent);padding-left:8px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper.tpl-classic h1{text-align:center}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper.tpl-classic .sf-bm-header{border-bottom:1px solid #d8cba8}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-guide{margin:24px 0;line-height:1.7}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-guide h3{color:#173b61}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-guide li{margin:5px 0}
+@media(max-width:900px){.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-layout{grid-template-columns:minmax(0,1fr)}.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-tabs{display:flex}.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-editor,.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-preview-panel{display:none}.sf-tool[data-sf-tool="advanced-biodata-maker"].is-edit-tab .sf-bm-editor{display:block}.sf-tool[data-sf-tool="advanced-biodata-maker"].is-preview-tab .sf-bm-preview-panel{display:block}}
+@media(max-width:560px){.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-editor,.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-preview-panel{padding:10px}.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-form-section{padding:10px}.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-fields{grid-template-columns:minmax(0,1fr)}.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-field.is-full{grid-column:auto}.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-toolbar-control{min-width:calc(50% - 8px)}.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-actions .sf-bm-button{flex:1 1 145px}}
+
+/* Desktop layout refinement: editor first, then a full-width A4 preview. Mobile tabs remain unchanged. */
+@media(min-width:901px){
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-layout{grid-template-columns:minmax(0,1fr);gap:16px}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-preview-panel{width:100%;min-width:0}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-preview-scroll{max-height:min(78vh,900px);overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-paper{margin-left:auto;margin-right:auto}
+}
+
+@media(min-width:901px){
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-actions{align-items:stretch}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-actions .sf-bm-button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;line-height:1.3;text-align:center}
+.sf-tool[data-sf-tool="advanced-biodata-maker"] .sf-bm-form-section>.sf-bm-button{display:inline-flex;align-items:center;justify-content:center;min-height:40px}
+}
