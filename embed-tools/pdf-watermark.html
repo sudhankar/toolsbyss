@@ -1,33 +1,32 @@
-<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="pdf-watermark" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/pdf-watermark/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger HTML view में paste करें; अपना लेख इस टूल के ऊपर/नीचे रखें. -->
+<!DOCTYPE html>
+<html lang="hi"><head><script defer="" src="/assets/js/master-config.js"></script><script defer="" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer="" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex,nofollow" name="robots"/><link href="/core/core.css" rel="stylesheet"/><link href="/tools/finance/finance-tools.css" rel="stylesheet"/><link href="/assets/css/toolsbyss-tool-theme.css" rel="stylesheet"/></head><body data-tool="pdf-watermark" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/pdf-watermark/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger HTML view में paste करें; अपना लेख इस टूल के ऊपर/नीचे रखें. -->
 <div class="sf-tool sf-pdf-watermark" data-sf-tool="pdf-watermark">
-
 <div class="sfpw-card">
-    <h2 class="sfpw-title">PDF Watermark — टेक्स्ट और इमेज वॉटरमार्क</h2>
-    <p class="sfpw-help">PDF चुनें। टेक्स्ट या PNG/JPG इमेज जोड़ें। सेटिंग बदलते ही थंबनेल पर लाइव प्रीव्यू दिखेगा; डाउनलोड में भी वही घुमाव-दिशा रखने का सुधार शामिल है। वॉटरमार्क को पेज पर खींचकर उसकी जगह बदलें।</p>
-    <div class="sf-file-drop" data-sf-file-dropzone>
-      <input id="sfpw-file-1" data-sfpw-file type="file" accept="application/pdf,.pdf">
-      <div class="sf-file-drop__content"><strong>PDF चुनें या यहाँ खींचकर छोड़ें</strong><span>क्लिक या टच करके फ़ाइल चुनें</span></div>
-    </div>
-    <p class="sfpw-status" data-sfpw-selected>अभी कोई PDF चुनी नहीं गई है।</p>
-    <div class="sfpw-settings">
-      <label>टेक्स्ट वॉटरमार्क<input data-sfpw-text type="text" maxlength="180" value="DRAFT" placeholder="जैसे SAMPLE या DRAFT"></label>
-      <label>जगह का शुरुआती विकल्प<select data-sfpw-position><option value="diagonal">बीच में तिरछा</option><option value="center">बीच में</option><option value="top">ऊपर</option><option value="bottom">नीचे</option></select></label>
-      <label>टेक्स्ट का आकार<input data-sfpw-size type="number" min="8" max="96" value="36"></label>
-      <label>टेक्स्ट का रंग<input data-sfpw-color type="color" value="#777777"></label>
-      <label>टेक्स्ट की Opacity <span data-sfpw-text-opacity-value>45%</span><input data-sfpw-text-opacity type="range" min="0" max="100" value="45"></label>
-      <label>टेक्स्ट / इमेज का घुमाव (प्रीव्यू जैसी दिशा)<select data-sfpw-rotation><option value="-45">-45°</option><option value="0">0°</option><option value="45">45°</option><option value="90">90°</option><option value="180">180°</option></select></label>
-      <label>इमेज वॉटरमार्क (PNG/JPG)<input data-sfpw-image type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg"></label>
-      <label>इमेज की Opacity <span data-sfpw-image-opacity-value>35%</span><input data-sfpw-image-opacity type="range" min="0" max="100" value="35"></label>
-      <label>इमेज की चौड़ाई <span data-sfpw-image-width-value>25%</span><input data-sfpw-image-width type="range" min="5" max="80" value="25"></label>
-      <label>किन पेजों पर? (खाली = सभी)<input data-sfpw-pages type="text" placeholder="जैसे: 1-3, 5"></label>
-    </div>
-    <p class="sfpw-move-hint" data-sfpw-move-hint>प्रीव्यू पर टेक्स्ट या इमेज को ड्रैग/टच करके मूव करें। टेक्स्ट और इमेज अलग-अलग मूव हो सकते हैं।</p>
-    <div class="sfpw-preview-wrap"><strong>लाइव PDF प्रीव्यू</strong><div class="sf-preview-grid" data-sfpw-preview></div></div>
-    <div class="sfpw-actions"><button class="sfpw-btn" data-sfpw-download type="button" disabled>वॉटरमार्क लगाकर PDF डाउनलोड करें</button><button class="sfpw-btn sfpw-secondary" data-sfpw-clear type="button" disabled>Clear</button></div>
-    <p class="sfpw-status" data-sf-status role="status" aria-live="polite"></p>
-  </div>
+<h2 class="sfpw-title">PDF Watermark — टेक्स्ट और इमेज वॉटरमार्क</h2>
+<p class="sfpw-help">PDF चुनें। टेक्स्ट या PNG/JPG इमेज जोड़ें। सेटिंग बदलते ही थंबनेल पर लाइव प्रीव्यू दिखेगा; डाउनलोड में भी वही घुमाव-दिशा रखने का सुधार शामिल है। वॉटरमार्क को पेज पर खींचकर उसकी जगह बदलें।</p>
+<div class="sf-file-drop" data-sf-file-dropzone="">
+<input accept="application/pdf,.pdf" data-sfpw-file="" id="sfpw-file-1" type="file"/>
+<div class="sf-file-drop__content"><strong>PDF चुनें या यहाँ खींचकर छोड़ें</strong><span>क्लिक या टच करके फ़ाइल चुनें</span></div>
 </div>
-
+<p class="sfpw-status" data-sfpw-selected="">अभी कोई PDF चुनी नहीं गई है।</p>
+<div class="sfpw-settings">
+<label>टेक्स्ट वॉटरमार्क<input data-sfpw-text="" maxlength="180" placeholder="जैसे SAMPLE या DRAFT" type="text" value="DRAFT"/></label>
+<label>जगह का शुरुआती विकल्प<select data-sfpw-position=""><option value="diagonal">बीच में तिरछा</option><option value="center">बीच में</option><option value="top">ऊपर</option><option value="bottom">नीचे</option></select></label>
+<label>टेक्स्ट का आकार<input data-sfpw-size="" max="96" min="8" type="number" value="36"/></label>
+<label>टेक्स्ट का रंग<input data-sfpw-color="" type="color" value="#777777"/></label>
+<label>टेक्स्ट की Opacity <span data-sfpw-text-opacity-value="">45%</span><input data-sfpw-text-opacity="" max="100" min="0" type="range" value="45"/></label>
+<label>टेक्स्ट / इमेज का घुमाव (प्रीव्यू जैसी दिशा)<select data-sfpw-rotation=""><option value="-45">-45°</option><option value="0">0°</option><option value="45">45°</option><option value="90">90°</option><option value="180">180°</option></select></label>
+<label>इमेज वॉटरमार्क (PNG/JPG)<input accept="image/png,image/jpeg,.png,.jpg,.jpeg" data-sfpw-image="" type="file"/></label>
+<label>इमेज की Opacity <span data-sfpw-image-opacity-value="">35%</span><input data-sfpw-image-opacity="" max="100" min="0" type="range" value="35"/></label>
+<label>इमेज की चौड़ाई <span data-sfpw-image-width-value="">25%</span><input data-sfpw-image-width="" max="80" min="5" type="range" value="25"/></label>
+<label>किन पेजों पर? (खाली = सभी)<input data-sfpw-pages="" placeholder="जैसे: 1-3, 5" type="text"/></label>
+</div>
+<p class="sfpw-move-hint" data-sfpw-move-hint="">प्रीव्यू पर टेक्स्ट या इमेज को ड्रैग/टच करके मूव करें। टेक्स्ट और इमेज अलग-अलग मूव हो सकते हैं।</p>
+<div class="sfpw-preview-wrap"><strong>लाइव PDF प्रीव्यू</strong><div class="sf-preview-grid" data-sfpw-preview=""></div></div>
+<div class="sfpw-actions"><button class="sfpw-btn" data-sfpw-download="" disabled="" type="button">वॉटरमार्क लगाकर PDF डाउनलोड करें</button><button class="sfpw-btn sfpw-secondary" data-sfpw-clear="" disabled="" type="button">Clear</button></div>
+<p aria-live="polite" class="sfpw-status" data-sf-status="" role="status"></p>
+</div>
+</div>
 <script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
 document.addEventListener('DOMContentLoaded', () => {
   const activityEvents = ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'];
