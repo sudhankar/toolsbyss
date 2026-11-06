@@ -1,72 +1,71 @@
-<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="advanced-biodata-maker" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/advanced-biodata-maker/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML: Advanced Biodata Maker. Keep the visible ToolsBySS brand link unchanged for loader authorization. -->
+<!DOCTYPE html>
+<html lang="hi"><head><script defer="" src="/assets/js/master-config.js"></script><script defer="" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer="" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex,nofollow" name="robots"/><link href="/core/core.css" rel="stylesheet"/><link href="/tools/finance/finance-tools.css" rel="stylesheet"/><link href="/assets/css/toolsbyss-tool-theme.css" rel="stylesheet"/></head><body data-tool="advanced-biodata-maker" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/advanced-biodata-maker/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML: Advanced Biodata Maker. Keep the visible ToolsBySS brand link unchanged for loader authorization. -->
 <div class="sf-tool sf-advanced-biodata-maker" data-sf-tool="advanced-biodata-maker">
-  
-  <div class="sf-tool-intro">
-    <h2>Advanced Biodata Maker</h2>
-    <p>नौकरी, सरकारी आवेदन, fresher और experienced candidates के लिए professional biodata बनाएं। शिक्षा, अनुभव, कौशल, फोटो और अपनी जरूरत के sections जोड़ें; live preview देखकर A4 में Print / Save as PDF करें।</p>
-    <span class="sf-local-note">🔒 आपकी जानकारी इसी ब्राउज़र में तैयार होती है। कोई account या server upload आवश्यक नहीं।</span>
-  </div>
-  <div class="sf-bm-shell">
-    <div class="sf-bm-toolbar" aria-label="Document design settings">
-      <div class="sf-bm-toolbar-control"><label for="sf-bm-template">Biodata design</label><select id="sf-bm-template" data-template><option value="ats">ATS / Simple</option><option value="modern">Modern Professional</option><option value="classic">Classic Formal</option></select></div>
-      <div class="sf-bm-toolbar-control"><label for="sf-bm-accent">Theme colour</label><input id="sf-bm-accent" data-accent type="color" value="#174b80"></div>
-      <label class="sf-bm-toolbar-check"><input type="checkbox" data-autosave checked> Save draft on this device</label>
-    </div>
-    <div class="sf-bm-tabs" role="group" aria-label="Mobile editor tabs">
-      <button type="button" class="sf-bm-button is-light is-active" data-tab="edit" aria-pressed="true">✎ Edit details</button>
-      <button type="button" class="sf-bm-button is-light" data-tab="preview" aria-pressed="false">▣ Live preview</button>
-    </div>
-    <div class="sf-bm-layout">
-      <section class="sf-bm-editor" aria-label="Biodata details editor">
-        <h3>Enter your details</h3>
-        <fieldset class="sf-bm-form-section"><legend>Personal & Contact Details</legend><div class="sf-bm-fields">
-          <label class="sf-bm-field"><span>Full name *</span><input data-field="fullName" type="text" autocomplete="name" placeholder="Your full name"></label>
-          <label class="sf-bm-field"><span>Profession / Applying for</span><input data-field="profession" type="text" placeholder="e.g. Junior Accountant / Clerk"></label>
-          <label class="sf-bm-field"><span>Email</span><input data-field="email" type="email" autocomplete="email" placeholder="name@example.com"></label>
-          <label class="sf-bm-field"><span>Mobile number</span><input data-field="phone" type="tel" autocomplete="tel" placeholder="10-digit mobile number"></label>
-          <label class="sf-bm-field is-full"><span>Address / Location</span><input data-field="address" type="text" autocomplete="street-address" placeholder="City, State"></label>
-          <label class="sf-bm-field"><span>LinkedIn profile (optional)</span><input data-field="linkedin" type="url" placeholder="https://linkedin.com/in/..."></label>
-          <label class="sf-bm-field"><span>Portfolio / Website (optional)</span><input data-field="website" type="url" placeholder="https://..."></label>
-          <label class="sf-bm-field"><span>Date of birth</span><input data-field="dob" type="date"></label>
-          <label class="sf-bm-field"><span>Gender (optional)</span><input data-field="gender" type="text" placeholder="As applicable"></label>
-          <label class="sf-bm-field"><span>Nationality (optional)</span><input data-field="nationality" type="text" placeholder="Indian"></label>
-          <label class="sf-bm-field"><span>Marital status (optional)</span><input data-field="maritalStatus" type="text" placeholder="Optional"></label>
-          <label class="sf-bm-field"><span>Father's name (optional)</span><input data-field="father" type="text"></label>
-          <label class="sf-bm-field"><span>Mother's name (optional)</span><input data-field="mother" type="text"></label>
-          <label class="sf-bm-field is-full"><span>Profile photo (optional)</span><div class="sf-bm-photo-row"><input data-photo-upload type="file" accept="image/jpeg,image/png,image/webp"><img data-photo-preview alt="Photo preview" hidden></div><small class="sf-bm-hint">JPG, PNG or WebP · Maximum 8 MB. The image is resized in your browser before it is saved with the draft.</small></label>
-        </div></fieldset>
-        <fieldset class="sf-bm-form-section"><legend>Career Objective / Profile</legend><div class="sf-bm-fields">
-          <label class="sf-bm-field is-full"><span>Career objective / Short professional profile</span><textarea data-field="objective" rows="4" placeholder="Write 2–4 concise lines relevant to the role or application."></textarea></label>
-          <label class="sf-bm-field is-full"><span>Key skills (comma or new-line separated)</span><textarea data-field="skills" rows="3" placeholder="MS Office, Accounting, Communication, Data Entry..."></textarea></label>
-          <label class="sf-bm-field is-full"><span>Languages known</span><input data-field="languages" type="text" placeholder="Hindi, English"></label>
-        </div></fieldset>
-        <fieldset class="sf-bm-form-section"><legend>Education</legend><div data-list="education"></div><button type="button" class="sf-bm-button is-light" data-add-entry="education">＋ Add Education</button></fieldset>
-        <fieldset class="sf-bm-form-section"><legend>Work Experience</legend><div data-list="experience"></div><button type="button" class="sf-bm-button is-light" data-add-entry="experience">＋ Add Experience</button><small class="sf-bm-hint">Freshers can leave this blank and add academic projects, internships or training instead.</small></fieldset>
-        <fieldset class="sf-bm-form-section"><legend>Projects</legend><div data-list="project"></div><button type="button" class="sf-bm-button is-light" data-add-entry="project">＋ Add Project</button></fieldset>
-        <fieldset class="sf-bm-form-section"><legend>Additional Information</legend><div class="sf-bm-fields">
-          <label class="sf-bm-field is-full"><span>Certifications, awards & achievements</span><textarea data-field="achievements" rows="3" placeholder="Add certifications, awards or notable achievements."></textarea></label>
-          <label class="sf-bm-field"><span>Strengths</span><textarea data-field="strengths" rows="3" placeholder="e.g. Teamwork, attention to detail"></textarea></label>
-          <label class="sf-bm-field"><span>Hobbies / Interests</span><textarea data-field="hobbies" rows="3" placeholder="Optional"></textarea></label>
-        </div></fieldset>
-        <fieldset class="sf-bm-form-section"><legend>Custom Sections</legend><div data-custom-list></div><button type="button" class="sf-bm-button is-light" data-add-custom>＋ Add Custom Section</button><small class="sf-bm-hint">Add computer skills, training, publications, volunteer work, references or any other relevant section.</small></fieldset>
-        <fieldset class="sf-bm-form-section"><legend>Declaration & Signature</legend><div class="sf-bm-fields">
-          <label class="sf-bm-field is-full"><span>Declaration (optional)</span><textarea data-field="declaration" rows="2" placeholder="I hereby declare that the information provided above is true to the best of my knowledge."></textarea></label>
-          <label class="sf-bm-field"><span>Place</span><input data-field="place" type="text"></label>
-          <label class="sf-bm-field"><span>Date</span><input data-field="date" type="date"></label>
-          <label class="sf-bm-field"><span>Signature name</span><input data-field="signature" type="text" placeholder="Your name"></label>
-        </div></fieldset>
-        <fieldset class="sf-bm-form-section"><legend>Optional Job Description Check</legend><label class="sf-bm-field"><span>Paste the job description to check basic keyword coverage</span><textarea data-field="jobDescription" rows="4" placeholder="Paste job requirements here. Matching runs locally in this browser."></textarea></label><small class="sf-bm-hint">This is a simple word-match helper, not an employer ATS score or a guarantee of selection.</small><p data-keyword-result class="sf-bm-hint" aria-live="polite">Add a job description to see keyword coverage.</p></fieldset>
-        <div class="sf-bm-quality"><div class="sf-bm-quality-head"><strong>Content completeness check</strong><span data-quality-score>0/100</span></div><ul data-quality-tips></ul><p>Heuristic checklist only. It does not judge your qualifications or guarantee ATS acceptance.</p></div>
-        <div class="sf-bm-actions"><button type="button" class="sf-bm-button" data-print>Print / Save as PDF</button><button type="button" class="sf-bm-button is-light" data-export-json>Download JSON Backup</button><button type="button" class="sf-bm-button is-light" data-import-trigger>Import Backup</button><button type="button" class="sf-bm-button is-light is-remove" data-reset>Clear Draft</button><input type="file" data-import-file accept="application/json,.json" hidden></div>
-        <p class="sf-bm-status" data-sf-status role="status" aria-live="polite">Your details stay in this browser. Use JSON Backup to carry your draft to another device.</p>
-      </section>
-      <section class="sf-bm-preview-panel" aria-label="Live biodata preview"><div class="sf-bm-preview-head"><h3>Live A4 Preview</h3><span class="sf-bm-hint">Review page breaks before saving</span></div><div class="sf-bm-preview-scroll"><article class="sf-bm-paper tpl-ats" data-preview></article></div></section>
-    </div>
-  </div>
-  <section class="sf-bm-guide"><h2>About Advanced Biodata Maker</h2><p>This browser-based maker helps prepare a structured job or personal biodata for applications, office use and professional sharing. Add only information relevant to the intended employer or form. The simple ATS-style layout uses standard headings and selectable text in the browser print output; visual designs are provided for situations where a more styled document is appropriate.</p><h3>How to create your biodata</h3><ol><li>Enter your name, contact information and the role you are applying for.</li><li>Add a concise career objective and relevant skills.</li><li>Add education, work experience, projects and certifications. Use the up/down controls to arrange repeated entries.</li><li>Choose a design and theme colour, then review the live A4 preview.</li><li>Use Print / Save as PDF and select A4 paper with default scale.</li><li>Open the saved PDF once to check text, links, spelling and page breaks.</li></ol><h3>Privacy and limitations</h3><p>Details and photos are processed in this browser. The optional draft save stores information in this browser's local storage on this device; turn it off on a shared computer or clear the saved draft when finished. JSON backups contain personal information and should be kept private. The keyword helper performs basic local word matching only. It does not use AI, connect to employers, verify certificates or guarantee ATS compatibility. Some employers and government applications require their own prescribed form; follow the official instructions where applicable.</p></section>
+<div class="sf-tool-intro">
+<h2>Advanced Biodata Maker</h2>
+<p>नौकरी, सरकारी आवेदन, fresher और experienced candidates के लिए professional biodata बनाएं। शिक्षा, अनुभव, कौशल, फोटो और अपनी जरूरत के sections जोड़ें; live preview देखकर A4 में Print / Save as PDF करें।</p>
+<span class="sf-local-note">🔒 आपकी जानकारी इसी ब्राउज़र में तैयार होती है। कोई account या server upload आवश्यक नहीं।</span>
+</div>
+<div class="sf-bm-shell">
+<div aria-label="Document design settings" class="sf-bm-toolbar">
+<div class="sf-bm-toolbar-control"><label for="sf-bm-template">Biodata design</label><select data-template="" id="sf-bm-template"><option value="ats">ATS / Simple</option><option value="modern">Modern Professional</option><option value="classic">Classic Formal</option></select></div>
+<div class="sf-bm-toolbar-control"><label for="sf-bm-accent">Theme colour</label><input data-accent="" id="sf-bm-accent" type="color" value="#174b80"/></div>
+<label class="sf-bm-toolbar-check"><input checked="" data-autosave="" type="checkbox"/> Save draft on this device</label>
+</div>
+<div aria-label="Mobile editor tabs" class="sf-bm-tabs" role="group">
+<button aria-pressed="true" class="sf-bm-button is-light is-active" data-tab="edit" type="button">✎ Edit details</button>
+<button aria-pressed="false" class="sf-bm-button is-light" data-tab="preview" type="button">▣ Live preview</button>
+</div>
+<div class="sf-bm-layout">
+<section aria-label="Biodata details editor" class="sf-bm-editor">
+<h3>Enter your details</h3>
+<fieldset class="sf-bm-form-section"><legend>Personal &amp; Contact Details</legend><div class="sf-bm-fields">
+<label class="sf-bm-field"><span>Full name *</span><input autocomplete="name" data-field="fullName" placeholder="Your full name" type="text"/></label>
+<label class="sf-bm-field"><span>Profession / Applying for</span><input data-field="profession" placeholder="e.g. Junior Accountant / Clerk" type="text"/></label>
+<label class="sf-bm-field"><span>Email</span><input autocomplete="email" data-field="email" placeholder="name@example.com" type="email"/></label>
+<label class="sf-bm-field"><span>Mobile number</span><input autocomplete="tel" data-field="phone" placeholder="10-digit mobile number" type="tel"/></label>
+<label class="sf-bm-field is-full"><span>Address / Location</span><input autocomplete="street-address" data-field="address" placeholder="City, State" type="text"/></label>
+<label class="sf-bm-field"><span>LinkedIn profile (optional)</span><input data-field="linkedin" placeholder="https://linkedin.com/in/..." type="url"/></label>
+<label class="sf-bm-field"><span>Portfolio / Website (optional)</span><input data-field="website" placeholder="https://..." type="url"/></label>
+<label class="sf-bm-field"><span>Date of birth</span><input data-field="dob" type="date"/></label>
+<label class="sf-bm-field"><span>Gender (optional)</span><input data-field="gender" placeholder="As applicable" type="text"/></label>
+<label class="sf-bm-field"><span>Nationality (optional)</span><input data-field="nationality" placeholder="Indian" type="text"/></label>
+<label class="sf-bm-field"><span>Marital status (optional)</span><input data-field="maritalStatus" placeholder="Optional" type="text"/></label>
+<label class="sf-bm-field"><span>Father's name (optional)</span><input data-field="father" type="text"/></label>
+<label class="sf-bm-field"><span>Mother's name (optional)</span><input data-field="mother" type="text"/></label>
+<label class="sf-bm-field is-full"><span>Profile photo (optional)</span><div class="sf-bm-photo-row"><input accept="image/jpeg,image/png,image/webp" data-photo-upload="" type="file"/><img alt="Photo preview" data-photo-preview="" hidden=""/></div><small class="sf-bm-hint">JPG, PNG or WebP · Maximum 8 MB. The image is resized in your browser before it is saved with the draft.</small></label>
+</div></fieldset>
+<fieldset class="sf-bm-form-section"><legend>Career Objective / Profile</legend><div class="sf-bm-fields">
+<label class="sf-bm-field is-full"><span>Career objective / Short professional profile</span><textarea data-field="objective" placeholder="Write 2–4 concise lines relevant to the role or application." rows="4"></textarea></label>
+<label class="sf-bm-field is-full"><span>Key skills (comma or new-line separated)</span><textarea data-field="skills" placeholder="MS Office, Accounting, Communication, Data Entry..." rows="3"></textarea></label>
+<label class="sf-bm-field is-full"><span>Languages known</span><input data-field="languages" placeholder="Hindi, English" type="text"/></label>
+</div></fieldset>
+<fieldset class="sf-bm-form-section"><legend>Education</legend><div data-list="education"></div><button class="sf-bm-button is-light" data-add-entry="education" type="button">＋ Add Education</button></fieldset>
+<fieldset class="sf-bm-form-section"><legend>Work Experience</legend><div data-list="experience"></div><button class="sf-bm-button is-light" data-add-entry="experience" type="button">＋ Add Experience</button><small class="sf-bm-hint">Freshers can leave this blank and add academic projects, internships or training instead.</small></fieldset>
+<fieldset class="sf-bm-form-section"><legend>Projects</legend><div data-list="project"></div><button class="sf-bm-button is-light" data-add-entry="project" type="button">＋ Add Project</button></fieldset>
+<fieldset class="sf-bm-form-section"><legend>Additional Information</legend><div class="sf-bm-fields">
+<label class="sf-bm-field is-full"><span>Certifications, awards &amp; achievements</span><textarea data-field="achievements" placeholder="Add certifications, awards or notable achievements." rows="3"></textarea></label>
+<label class="sf-bm-field"><span>Strengths</span><textarea data-field="strengths" placeholder="e.g. Teamwork, attention to detail" rows="3"></textarea></label>
+<label class="sf-bm-field"><span>Hobbies / Interests</span><textarea data-field="hobbies" placeholder="Optional" rows="3"></textarea></label>
+</div></fieldset>
+<fieldset class="sf-bm-form-section"><legend>Custom Sections</legend><div data-custom-list=""></div><button class="sf-bm-button is-light" data-add-custom="" type="button">＋ Add Custom Section</button><small class="sf-bm-hint">Add computer skills, training, publications, volunteer work, references or any other relevant section.</small></fieldset>
+<fieldset class="sf-bm-form-section"><legend>Declaration &amp; Signature</legend><div class="sf-bm-fields">
+<label class="sf-bm-field is-full"><span>Declaration (optional)</span><textarea data-field="declaration" placeholder="I hereby declare that the information provided above is true to the best of my knowledge." rows="2"></textarea></label>
+<label class="sf-bm-field"><span>Place</span><input data-field="place" type="text"/></label>
+<label class="sf-bm-field"><span>Date</span><input data-field="date" type="date"/></label>
+<label class="sf-bm-field"><span>Signature name</span><input data-field="signature" placeholder="Your name" type="text"/></label>
+</div></fieldset>
+<fieldset class="sf-bm-form-section"><legend>Optional Job Description Check</legend><label class="sf-bm-field"><span>Paste the job description to check basic keyword coverage</span><textarea data-field="jobDescription" placeholder="Paste job requirements here. Matching runs locally in this browser." rows="4"></textarea></label><small class="sf-bm-hint">This is a simple word-match helper, not an employer ATS score or a guarantee of selection.</small><p aria-live="polite" class="sf-bm-hint" data-keyword-result="">Add a job description to see keyword coverage.</p></fieldset>
+<div class="sf-bm-quality"><div class="sf-bm-quality-head"><strong>Content completeness check</strong><span data-quality-score="">0/100</span></div><ul data-quality-tips=""></ul><p>Heuristic checklist only. It does not judge your qualifications or guarantee ATS acceptance.</p></div>
+<div class="sf-bm-actions"><button class="sf-bm-button" data-print="" type="button">Print / Save as PDF</button><button class="sf-bm-button is-light" data-export-json="" type="button">Download JSON Backup</button><button class="sf-bm-button is-light" data-import-trigger="" type="button">Import Backup</button><button class="sf-bm-button is-light is-remove" data-reset="" type="button">Clear Draft</button><input accept="application/json,.json" data-import-file="" hidden="" type="file"/></div>
+<p aria-live="polite" class="sf-bm-status" data-sf-status="" role="status">Your details stay in this browser. Use JSON Backup to carry your draft to another device.</p>
+</section>
+<section aria-label="Live biodata preview" class="sf-bm-preview-panel"><div class="sf-bm-preview-head"><h3>Live A4 Preview</h3><span class="sf-bm-hint">Review page breaks before saving</span></div><div class="sf-bm-preview-scroll"><article class="sf-bm-paper tpl-ats" data-preview=""></article></div></section>
+</div>
+</div>
+<section class="sf-bm-guide"><h2>About Advanced Biodata Maker</h2><p>This browser-based maker helps prepare a structured job or personal biodata for applications, office use and professional sharing. Add only information relevant to the intended employer or form. The simple ATS-style layout uses standard headings and selectable text in the browser print output; visual designs are provided for situations where a more styled document is appropriate.</p><h3>How to create your biodata</h3><ol><li>Enter your name, contact information and the role you are applying for.</li><li>Add a concise career objective and relevant skills.</li><li>Add education, work experience, projects and certifications. Use the up/down controls to arrange repeated entries.</li><li>Choose a design and theme colour, then review the live A4 preview.</li><li>Use Print / Save as PDF and select A4 paper with default scale.</li><li>Open the saved PDF once to check text, links, spelling and page breaks.</li></ol><h3>Privacy and limitations</h3><p>Details and photos are processed in this browser. The optional draft save stores information in this browser's local storage on this device; turn it off on a shared computer or clear the saved draft when finished. JSON backups contain personal information and should be kept private. The keyword helper performs basic local word matching only. It does not use AI, connect to employers, verify certificates or guarantee ATS compatibility. Some employers and government applications require their own prescribed form; follow the official instructions where applicable.</p></section>
 </div>
 <!-- Trial: loader.js. For production, either use loader-production.js here OR deploy the production-loader code at loader.js as per your existing workflow. Do not load the shared loader twice. -->
-
 <script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
 document.addEventListener('DOMContentLoaded', () => {
   const activityEvents = ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'];

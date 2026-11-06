@@ -1,49 +1,49 @@
-<!doctype html><html lang="hi"><head><script defer src="/assets/js/master-config.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/core/core.css"><link rel="stylesheet" href="/tools/finance/finance-tools.css"></head><body data-tool="advanced-age-calculator" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/advanced-age-calculator/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML. Keep the visible ToolsBySS brand link unchanged for loader authorization. -->
+<!DOCTYPE html>
+<html lang="hi"><head><script defer="" src="/assets/js/master-config.js"></script><script defer="" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script defer="" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex,nofollow" name="robots"/><link href="/core/core.css" rel="stylesheet"/><link href="/tools/finance/finance-tools.css" rel="stylesheet"/><link href="/assets/css/toolsbyss-tool-theme.css" rel="stylesheet"/></head><body data-tool="advanced-age-calculator" style="margin:0;padding:14px;background:#fff;color:#17212b;font-family:Arial,sans-serif"><div id="embed-auth-wall" style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,#061522,#0b3530);color:#f2fffa;text-align:center;font-family:Arial,sans-serif"><div style="max-width:480px;padding:30px;border:1px solid #71f3c455;border-radius:22px;background:#0c2637"><div style="font-size:30px">🔐</div><h2>Sign in required</h2><p style="color:#b3cbd0">This tool is available after you sign in with a verified ToolsBySS account.</p><a href="/login/?next=/tools/advanced-age-calculator/" style="display:inline-block;padding:11px 18px;border-radius:99px;background:#71f3c4;color:#08251b;font-weight:bold;text-decoration:none">Sign in / Create account</a></div></div><!-- Blogger post HTML. Keep the visible ToolsBySS brand link unchanged for loader authorization. -->
 <div class="sf-tool sf-advanced-age-calculator" data-sf-tool="advanced-age-calculator">
-  
-  <div class="sf-tool-intro">
-    <h2>Advanced Age Calculator – सटीक आयु कैलकुलेटर</h2>
-    <p>जन्मतिथि और समय से किसी भी चुनी हुई तारीख तक उम्र वर्ष, महीने, दिन, घंटे, मिनट और सेकंड में जानें। अगला जन्मदिन, कुल दिन, सप्ताह और जीवन के महत्वपूर्ण पड़ाव भी देखें।</p>
-    <span class="sf-local-note">🔒 आपकी जन्मतिथि और गणना इसी ब्राउज़र में रहती है।</span>
-  </div>
-  <section class="sf-ac-panel" aria-label="Age calculator">
-    <div class="sf-ac-section-title"><span class="sf-ac-icon">⌛</span><div><h3>अपनी जन्म जानकारी भरें</h3><p>समय उपलब्ध न हो तो 00:00 मानकर गणना होगी।</p></div></div>
-    <div class="sf-ac-form-grid">
-      <label class="sf-ac-field"><span>जन्मतिथि (Date of Birth)</span><input type="date" data-ac-dob required></label>
-      <label class="sf-ac-field"><span>जन्म का समय (वैकल्पिक)</span><input type="time" step="1" value="00:00:00" data-ac-dob-time></label>
-      <label class="sf-ac-field"><span>किस तारीख तक उम्र निकालें?</span><input type="date" data-ac-asof required></label>
-      <label class="sf-ac-field"><span>उस समय का समय</span><input type="time" step="1" data-ac-asof-time></label>
-    </div>
-    <div class="sf-ac-actions">
-      <button type="button" class="sf-ac-btn sf-ac-primary" data-ac-calculate>उम्र की गणना करें</button>
-      <button type="button" class="sf-ac-btn sf-ac-secondary" data-ac-today>आज तक उम्र देखें</button>
-      <button type="button" class="sf-ac-btn sf-ac-ghost" data-ac-reset>रीसेट</button>
-    </div>
-    <p class="sf-ac-status" data-ac-status role="status" aria-live="polite"></p>
-    <div class="sf-ac-results" data-ac-results hidden>
-      <div class="sf-ac-main-result"><div class="sf-ac-main-label">आपकी सटीक उम्र</div><div class="sf-ac-main-value" data-ac-main-age>—</div><div class="sf-ac-main-caption" data-ac-asof-caption></div></div>
-      <div class="sf-ac-detail-grid">
-        <div class="sf-ac-detail"><span>पूरे वर्ष</span><strong data-ac-years>—</strong></div>
-        <div class="sf-ac-detail"><span>अतिरिक्त महीने</span><strong data-ac-months>—</strong></div>
-        <div class="sf-ac-detail"><span>अतिरिक्त दिन</span><strong data-ac-days>—</strong></div>
-        <div class="sf-ac-detail"><span>घंटे</span><strong data-ac-hours>—</strong></div>
-        <div class="sf-ac-detail"><span>मिनट</span><strong data-ac-minutes>—</strong></div>
-        <div class="sf-ac-detail"><span>सेकंड</span><strong data-ac-seconds>—</strong></div>
-      </div>
-      <div class="sf-ac-stat-grid">
-        <div><span>कुल दिन</span><strong data-ac-total-days>—</strong></div>
-        <div><span>कुल सप्ताह</span><strong data-ac-total-weeks>—</strong></div>
-        <div><span>कुल घंटे</span><strong data-ac-total-hours>—</strong></div>
-        <div><span>कुल मिनट</span><strong data-ac-total-minutes>—</strong></div>
-        <div><span>कुल सेकंड</span><strong data-ac-total-seconds>—</strong></div>
-        <div><span>जन्म का दिन</span><strong data-ac-weekday>—</strong></div>
-      </div>
-      <div class="sf-ac-next-birthday"><div class="sf-ac-next-icon">🎂</div><div><span>अगला जन्मदिन</span><strong data-ac-next-date>—</strong><small data-ac-countdown>—</small></div></div>
-      <div class="sf-ac-milestones"><h4>आने वाले महत्वपूर्ण पड़ाव</h4><div data-ac-milestone-list></div></div>
-      <div class="sf-ac-result-actions"><button type="button" class="sf-ac-btn sf-ac-secondary" data-ac-copy>परिणाम कॉपी करें</button><button type="button" class="sf-ac-btn sf-ac-secondary" data-ac-print>रिपोर्ट प्रिंट / PDF</button></div>
-    </div>
-  </section>
-  <div class="sf-ac-note"><strong>गणना का आधार:</strong> वर्ष, महीने और दिन कैलेंडर के अनुसार निकाले जाते हैं। कुल घंटे/मिनट/सेकंड चुने गए समय के बीच के वास्तविक elapsed time पर आधारित हैं। समय आपके डिवाइस के स्थानीय time zone के अनुसार पढ़ा जाता है।</div>
+<div class="sf-tool-intro">
+<h2>Advanced Age Calculator – सटीक आयु कैलकुलेटर</h2>
+<p>जन्मतिथि और समय से किसी भी चुनी हुई तारीख तक उम्र वर्ष, महीने, दिन, घंटे, मिनट और सेकंड में जानें। अगला जन्मदिन, कुल दिन, सप्ताह और जीवन के महत्वपूर्ण पड़ाव भी देखें।</p>
+<span class="sf-local-note">🔒 आपकी जन्मतिथि और गणना इसी ब्राउज़र में रहती है।</span>
+</div>
+<section aria-label="Age calculator" class="sf-ac-panel">
+<div class="sf-ac-section-title"><span class="sf-ac-icon">⌛</span><div><h3>अपनी जन्म जानकारी भरें</h3><p>समय उपलब्ध न हो तो 00:00 मानकर गणना होगी।</p></div></div>
+<div class="sf-ac-form-grid">
+<label class="sf-ac-field"><span>जन्मतिथि (Date of Birth)</span><input data-ac-dob="" required="" type="date"/></label>
+<label class="sf-ac-field"><span>जन्म का समय (वैकल्पिक)</span><input data-ac-dob-time="" step="1" type="time" value="00:00:00"/></label>
+<label class="sf-ac-field"><span>किस तारीख तक उम्र निकालें?</span><input data-ac-asof="" required="" type="date"/></label>
+<label class="sf-ac-field"><span>उस समय का समय</span><input data-ac-asof-time="" step="1" type="time"/></label>
+</div>
+<div class="sf-ac-actions">
+<button class="sf-ac-btn sf-ac-primary" data-ac-calculate="" type="button">उम्र की गणना करें</button>
+<button class="sf-ac-btn sf-ac-secondary" data-ac-today="" type="button">आज तक उम्र देखें</button>
+<button class="sf-ac-btn sf-ac-ghost" data-ac-reset="" type="button">रीसेट</button>
+</div>
+<p aria-live="polite" class="sf-ac-status" data-ac-status="" role="status"></p>
+<div class="sf-ac-results" data-ac-results="" hidden="">
+<div class="sf-ac-main-result"><div class="sf-ac-main-label">आपकी सटीक उम्र</div><div class="sf-ac-main-value" data-ac-main-age="">—</div><div class="sf-ac-main-caption" data-ac-asof-caption=""></div></div>
+<div class="sf-ac-detail-grid">
+<div class="sf-ac-detail"><span>पूरे वर्ष</span><strong data-ac-years="">—</strong></div>
+<div class="sf-ac-detail"><span>अतिरिक्त महीने</span><strong data-ac-months="">—</strong></div>
+<div class="sf-ac-detail"><span>अतिरिक्त दिन</span><strong data-ac-days="">—</strong></div>
+<div class="sf-ac-detail"><span>घंटे</span><strong data-ac-hours="">—</strong></div>
+<div class="sf-ac-detail"><span>मिनट</span><strong data-ac-minutes="">—</strong></div>
+<div class="sf-ac-detail"><span>सेकंड</span><strong data-ac-seconds="">—</strong></div>
+</div>
+<div class="sf-ac-stat-grid">
+<div><span>कुल दिन</span><strong data-ac-total-days="">—</strong></div>
+<div><span>कुल सप्ताह</span><strong data-ac-total-weeks="">—</strong></div>
+<div><span>कुल घंटे</span><strong data-ac-total-hours="">—</strong></div>
+<div><span>कुल मिनट</span><strong data-ac-total-minutes="">—</strong></div>
+<div><span>कुल सेकंड</span><strong data-ac-total-seconds="">—</strong></div>
+<div><span>जन्म का दिन</span><strong data-ac-weekday="">—</strong></div>
+</div>
+<div class="sf-ac-next-birthday"><div class="sf-ac-next-icon">🎂</div><div><span>अगला जन्मदिन</span><strong data-ac-next-date="">—</strong><small data-ac-countdown="">—</small></div></div>
+<div class="sf-ac-milestones"><h4>आने वाले महत्वपूर्ण पड़ाव</h4><div data-ac-milestone-list=""></div></div>
+<div class="sf-ac-result-actions"><button class="sf-ac-btn sf-ac-secondary" data-ac-copy="" type="button">परिणाम कॉपी करें</button><button class="sf-ac-btn sf-ac-secondary" data-ac-print="" type="button">रिपोर्ट प्रिंट / PDF</button></div>
+</div>
+</section>
+<div class="sf-ac-note"><strong>गणना का आधार:</strong> वर्ष, महीने और दिन कैलेंडर के अनुसार निकाले जाते हैं। कुल घंटे/मिनट/सेकंड चुने गए समय के बीच के वास्तविक elapsed time पर आधारित हैं। समय आपके डिवाइस के स्थानीय time zone के अनुसार पढ़ा जाता है।</div>
 </div>
 <script>window.addEventListener("DOMContentLoaded",()=>{const o=new ResizeObserver(()=>parent.postMessage({type:"toolsbyss-resize",height:document.documentElement.scrollHeight},location.origin));o.observe(document.documentElement)});</script><script>
 document.addEventListener('DOMContentLoaded', () => {
