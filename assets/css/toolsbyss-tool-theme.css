@@ -22,3 +22,206 @@ a.btn:not(.btn-primary),a.button:not(.button-primary),a[class*=btn]:not([class*=
 .sf-tool button.primary:not(:disabled),.sf-tool button[class*=primary]:not(:disabled),.sf-tool button[class*=download]:not(:disabled),.sf-tool button[class*=generate]:not(:disabled),.sf-tool button[class*=process]:not(:disabled),.sf-tool button[class*=calculate]:not(:disabled),.sf-tool button[class*=export]:not(:disabled),.sf-tool input[type=submit]:not(:disabled),.sf-tool .btn-primary,.sf-tool .button-primary{background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important;border-color:transparent!important}
 .sf-tool .sf-new-card .sf-file-drop,.sf-tool [class*=drop-zone],.sf-tool [class*=upload-zone]{border-color:rgba(113,243,196,.48)!important}
 .sf-tool input:focus,.sf-tool select:focus,.sf-tool textarea:focus{border-color:#71f3c4!important;box-shadow:0 0 0 3px rgba(113,243,196,.12)!important;outline:none!important}
+
+/* ToolsBySS contrast pass — 2026-11-06
+   Use Advanced SWP & Withdrawal Planner as the control reference:
+   readable white-on-deep-green actions, bright mint primary actions,
+   white input surfaces with dark entry text, and light headings/labels. */
+.sf-tool{
+  --tbs-tool-ink:#08271e;
+  --tbs-tool-text:#f3fff9;
+  --tbs-tool-muted:#c6ddd4;
+  --tbs-tool-mint:#71f3c4;
+  --tbs-tool-mint-strong:#25c994;
+  --tbs-tool-field:#f7fffb;
+  --tbs-tool-field-text:#122e25;
+  --tbs-tool-border:rgba(113,243,196,.52);
+  color:var(--tbs-tool-text)!important;
+  min-width:0;
+}
+
+/* Tool headings, field labels and captions must remain readable on the dark glass panel. */
+.sf-tool :is(h1,h2,h3,h4,h5,h6,legend),
+.sf-tool label,
+.sf-tool .form-label,
+.sf-tool .field-label,
+.sf-tool .control-label,
+.sf-tool .input-label,
+.sf-tool .sf-fin-grid label,
+.sf-tool .sf-new-fields label{
+  color:var(--tbs-tool-text)!important;
+  -webkit-text-fill-color:var(--tbs-tool-text)!important;
+  text-shadow:0 1px 1px rgba(0,0,0,.22);
+}
+.sf-tool :is(header p,.description,.field-hint,.form-hint,.help-text,.hint,.subtext,.sf-fin-note){
+  color:var(--tbs-tool-muted)!important;
+  -webkit-text-fill-color:var(--tbs-tool-muted)!important;
+}
+
+/* Entry fields: light surface + dark characters, never grey-on-dark or white-on-white. */
+.sf-tool input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]),
+.sf-tool select,
+.sf-tool textarea{
+  background:var(--tbs-tool-field)!important;
+  color:var(--tbs-tool-field-text)!important;
+  -webkit-text-fill-color:var(--tbs-tool-field-text)!important;
+  border:1px solid #8bcdb7!important;
+  border-radius:9px!important;
+  box-shadow:inset 0 1px 2px rgba(4,35,25,.06)!important;
+  caret-color:#087a56;
+}
+.sf-tool input::placeholder,
+.sf-tool textarea::placeholder{
+  color:#657d73!important;
+  -webkit-text-fill-color:#657d73!important;
+  opacity:1!important;
+}
+.sf-tool select option{background:#fff!important;color:#122e25!important;}
+.sf-tool input[type=checkbox],
+.sf-tool input[type=radio],
+.sf-tool input[type=range],
+.sf-tool input[type=color]{accent-color:#24c995!important;}
+.sf-tool input[type=file]{color:#f3fff9!important;-webkit-text-fill-color:#f3fff9!important;background:transparent!important;border-color:var(--tbs-tool-border)!important;}
+.sf-tool input[type=file]::file-selector-button{
+  background:#174b3d!important;color:#fff!important;border:1px solid #71f3c4!important;
+  border-radius:8px!important;padding:8px 12px!important;font-weight:800!important;margin-right:10px!important;
+}
+.sf-tool input:focus,
+.sf-tool select:focus,
+.sf-tool textarea:focus,
+.sf-tool input:focus-visible,
+.sf-tool select:focus-visible,
+.sf-tool textarea:focus-visible{
+  outline:2px solid #71f3c4!important;outline-offset:1px!important;
+  border-color:#24c995!important;box-shadow:0 0 0 3px rgba(36,201,149,.18)!important;
+}
+
+/* Standard action button, following the Advanced SWP reference. */
+.sf-tool button:not(:disabled),
+.sf-tool input[type=button]:not(:disabled),
+.sf-tool input[type=submit]:not(:disabled),
+.sf-tool input[type=reset]:not(:disabled),
+.sf-tool a.btn,
+.sf-tool a.button,
+.sf-tool .btn,
+.sf-tool .button,
+.sf-tool [role=button]:not([aria-disabled=true]){
+  background:linear-gradient(135deg,#17664f,#104b3c)!important;
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+  border:1px solid rgba(142,255,213,.72)!important;
+  border-radius:9px!important;
+  font-weight:800!important;
+  text-shadow:0 1px 1px rgba(0,0,0,.28)!important;
+  box-shadow:0 5px 14px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.10)!important;
+  opacity:1!important;
+}
+.sf-tool button:not(:disabled):hover,
+.sf-tool input[type=button]:not(:disabled):hover,
+.sf-tool input[type=submit]:not(:disabled):hover,
+.sf-tool input[type=reset]:not(:disabled):hover,
+.sf-tool a.btn:hover,
+.sf-tool a.button:hover,
+.sf-tool .btn:hover,
+.sf-tool .button:hover,
+.sf-tool [role=button]:not([aria-disabled=true]):hover{
+  background:linear-gradient(135deg,#218563,#17664f)!important;
+  color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;
+  border-color:#b8ffe5!important;filter:none!important;
+  box-shadow:0 0 0 2px rgba(113,243,196,.16),0 8px 20px rgba(0,0,0,.22)!important;
+}
+
+/* Primary / generate / calculate / download actions get the high-contrast mint treatment. */
+.sf-tool button.primary:not(:disabled),
+.sf-tool button[class*=primary]:not(:disabled),
+.sf-tool button[class*=download]:not(:disabled),
+.sf-tool button[class*=generate]:not(:disabled),
+.sf-tool button[class*=process]:not(:disabled),
+.sf-tool button[class*=calculate]:not(:disabled),
+.sf-tool button[class*=export]:not(:disabled),
+.sf-tool input[type=submit]:not(:disabled),
+.sf-tool .btn-primary,
+.sf-tool .button-primary,
+.sf-tool a[class*=primary]{
+  background:linear-gradient(135deg,#c5ffe9,#63e6b8)!important;
+  color:#06251a!important;-webkit-text-fill-color:#06251a!important;
+  border:1px solid #9af4d1!important;text-shadow:none!important;
+  box-shadow:0 7px 18px rgba(36,201,149,.23)!important;
+}
+.sf-tool button.primary:not(:disabled):hover,
+.sf-tool button[class*=primary]:not(:disabled):hover,
+.sf-tool button[class*=download]:not(:disabled):hover,
+.sf-tool button[class*=generate]:not(:disabled):hover,
+.sf-tool button[class*=process]:not(:disabled):hover,
+.sf-tool button[class*=calculate]:not(:disabled):hover,
+.sf-tool button[class*=export]:not(:disabled):hover,
+.sf-tool input[type=submit]:not(:disabled):hover,
+.sf-tool .btn-primary:hover,
+.sf-tool .button-primary:hover,
+.sf-tool a[class*=primary]:hover{
+  background:linear-gradient(135deg,#dcfff1,#7af0c7)!important;
+  color:#06251a!important;-webkit-text-fill-color:#06251a!important;
+}
+
+/* Secondary/reset actions stay dark and readable; destructive actions are visibly red. */
+.sf-tool button.secondary:not(:disabled),
+.sf-tool button[class*=secondary]:not(:disabled),
+.sf-tool button[class*=reset]:not(:disabled),
+.sf-tool button[class*=clear]:not(:disabled),
+.sf-tool .btn-secondary,
+.sf-tool .button-secondary{
+  background:linear-gradient(135deg,#23463d,#17372f)!important;
+  color:#f2fff9!important;-webkit-text-fill-color:#f2fff9!important;
+  border:1px solid rgba(157,224,199,.55)!important;
+}
+.sf-tool button.danger:not(:disabled),
+.sf-tool button.delete:not(:disabled),
+.sf-tool button.remove:not(:disabled),
+.sf-tool button[class*=danger]:not(:disabled),
+.sf-tool button[class*=delete]:not(:disabled),
+.sf-tool button[class*=remove]:not(:disabled){
+  background:linear-gradient(135deg,#a93445,#7f2032)!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border:1px solid #ff9aa8!important;
+}
+.sf-tool button:disabled,
+.sf-tool input:disabled,
+.sf-tool select:disabled,
+.sf-tool textarea:disabled{
+  opacity:.58!important;filter:saturate(.45)!important;cursor:not-allowed!important;
+}
+
+/* Light form-choice cards are an intentional exception: keep their text dark. */
+.sf-tool .sf-new-card .sf-new-fields label:has(input[type=checkbox]),
+.sf-tool .sf-new-card .sf-permission-option,
+.sf-tool label:has(>input[type=checkbox]),
+.sf-tool label:has(>input[type=radio]){
+  color:#173b30!important;-webkit-text-fill-color:#173b30!important;
+  text-shadow:none!important;
+}
+
+/* Preserve contrast in finance result tables and the pale result panel. */
+.sf-tool .sf-fin-result,
+.sf-tool .sf-fin-result :is(h1,h2,h3,h4,p,span,strong,small,div),
+.sf-tool .sf-fin-kpi,
+.sf-tool .sf-fin-kpi :is(span,strong),
+.sf-tool .sf-fin-table-wrap,
+.sf-tool .sf-fin-table-wrap :is(th,td){
+  color:#172b24!important;-webkit-text-fill-color:#172b24!important;
+  text-shadow:none!important;
+}
+.sf-tool .sf-fin-result{background:#f8fffc!important;border-color:#b7e8d5!important;}
+.sf-tool .sf-fin-table-wrap{background:#fff!important;border-color:#c8e2d7!important;}
+.sf-tool .sf-fin-table-wrap th{background:#e8f7f0!important;color:#183b30!important;}
+.sf-tool .sf-fin-kpi{background:#fff!important;border-color:#c8e2d7!important;}
+.sf-tool .sf-fin-error{color:#a12636!important;-webkit-text-fill-color:#a12636!important;}
+
+@media(max-width:640px){
+  .sf-tool button:not(:disabled),
+  .sf-tool input[type=button]:not(:disabled),
+  .sf-tool input[type=submit]:not(:disabled),
+  .sf-tool input[type=reset]:not(:disabled),
+  .sf-tool a.btn,.sf-tool a.button,.sf-tool .btn,.sf-tool .button{
+    min-height:40px;max-width:100%;white-space:normal;line-height:1.3;
+  }
+}

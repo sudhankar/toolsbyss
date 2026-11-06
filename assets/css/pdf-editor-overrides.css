@@ -9,3 +9,44 @@
 .ed-btn--primary:not(:disabled),#ed-save:not(:disabled){background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important}
 .editor-thumbs .ed-btn,.editor-toolbar .ed-btn,.editor-panel .ed-btn{background:rgba(36,201,149,.13)!important;color:#e5fff5!important;border-color:rgba(113,243,196,.3)!important}
 .editor-app-shell{--accent:#42dcae;--accent-color:#42dcae}
+
+/* ToolsBySS high-contrast controls for the direct PDF Editor app. */
+.pdf-editor-direct-root{--accent:#24c995;--accent-hover:#19ad7f;--accent-soft:rgba(36,201,149,.16);}
+.pdf-editor-direct-root :is(.editor-panel,.tool-panel) :is(h1,h2,h3,h4,h5,h6),
+.pdf-editor-direct-root :is(.ed-prop-row label,.opt-row label,.fin-field label,.maker-form label,.sign-controls label){
+  color:#f3fff9!important;-webkit-text-fill-color:#f3fff9!important;text-shadow:0 1px 1px rgba(0,0,0,.22);
+}
+.pdf-editor-direct-root .editor-panel :is(.editor-hint,.ed-tool-btn__hint),
+.pdf-editor-direct-root .tool-panel :is(.editor-hint,.ed-tool-btn__hint,.fin-note){
+  color:#c6ddd4!important;-webkit-text-fill-color:#c6ddd4!important;
+}
+.pdf-editor-direct-root input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]),
+.pdf-editor-direct-root select,
+.pdf-editor-direct-root textarea{
+  background:#f7fffb!important;color:#122e25!important;-webkit-text-fill-color:#122e25!important;
+  border:1px solid #8bcdb7!important;border-radius:8px!important;caret-color:#087a56;
+}
+.pdf-editor-direct-root input::placeholder,
+.pdf-editor-direct-root textarea::placeholder{color:#657d73!important;-webkit-text-fill-color:#657d73!important;opacity:1!important;}
+.pdf-editor-direct-root select option{background:#fff!important;color:#122e25!important;}
+.pdf-editor-direct-root input[type=checkbox],
+.pdf-editor-direct-root input[type=radio],
+.pdf-editor-direct-root input[type=range]{accent-color:#24c995!important;}
+.pdf-editor-direct-root :is(.ed-btn,.ed-tool-btn,.tool-panel button,.tool-panel .btn,.tool-actions .btn,.fin-actions button,.maker-actions button,.converter-actions button,.wm-nudge button):not(:disabled){
+  background:linear-gradient(135deg,#17664f,#104b3c)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border:1px solid rgba(142,255,213,.72)!important;border-radius:8px!important;font-weight:800!important;
+  text-shadow:0 1px 1px rgba(0,0,0,.25)!important;box-shadow:0 5px 14px rgba(0,0,0,.18)!important;
+}
+.pdf-editor-direct-root :is(.ed-btn--primary,#ed-save,.tool-actions .btn-primary,.fin-actions .btn-primary):not(:disabled){
+  background:linear-gradient(135deg,#c5ffe9,#63e6b8)!important;color:#06251a!important;-webkit-text-fill-color:#06251a!important;
+  border:1px solid #9af4d1!important;text-shadow:none!important;
+}
+.pdf-editor-direct-root :is(.ed-btn,.ed-tool-btn,.tool-panel button,.tool-panel .btn,.tool-actions .btn,.fin-actions button,.maker-actions button,.converter-actions button,.wm-nudge button):not(:disabled):hover{
+  background:linear-gradient(135deg,#218563,#17664f)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:#b8ffe5!important;
+}
+.pdf-editor-direct-root :is(.ed-btn--primary,#ed-save,.tool-actions .btn-primary):not(:disabled):hover{
+  background:linear-gradient(135deg,#dcfff1,#7af0c7)!important;color:#06251a!important;-webkit-text-fill-color:#06251a!important;
+}
+.pdf-editor-direct-root .maker-preview,
+.pdf-editor-direct-root .maker-preview *{color:#111!important;-webkit-text-fill-color:#111!important;text-shadow:none!important;}
+.pdf-editor-direct-root .maker-preview :is(input,textarea,select){background:#fff!important;color:#111!important;-webkit-text-fill-color:#111!important;}
