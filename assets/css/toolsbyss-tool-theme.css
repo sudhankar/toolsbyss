@@ -377,3 +377,97 @@ a.btn:not(.btn-primary),a.button:not(.button-primary),a[class*=btn]:not([class*=
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
 }
+
+
+/* Light tool work surfaces are intentional (upload panels, previews and settings).
+   Restore dark text inside them so the shared dark-panel label rule cannot wash
+   out controls on white backgrounds. Scoped to known light-surface components. */
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card){
+  color:#17352b!important;
+  -webkit-text-fill-color:#17352b;
+}
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ :is(h1,h2,h3,h4,h5,h6,p,label,legend,strong,b,small,span,em,li,div){
+  color:#17352b!important;
+  -webkit-text-fill-color:#17352b!important;
+  text-shadow:none!important;
+}
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=range]):not([type=color]),
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card) select,
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card) textarea{
+  background:#fff!important;
+  color:#17352b!important;
+  -webkit-text-fill-color:#17352b!important;
+  border-color:#a9cdbd!important;
+}
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ button:not(:disabled), 
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ .btn:not(:disabled),
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ [role=button]:not([aria-disabled=true]){
+  background:linear-gradient(135deg,#17664f,#104b3c)!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border-color:rgba(22,102,79,.55)!important;
+}
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ button.primary:not(:disabled),
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ button[class*=primary]:not(:disabled),
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ input[type=submit]:not(:disabled){
+  background:linear-gradient(135deg,#c5ffe9,#63e6b8)!important;
+  color:#06251a!important;-webkit-text-fill-color:#06251a!important;
+}
+.sf-tool .sfmini-card .sf-file-drop__content strong,
+.sf-tool .sfmini-card .sf-file-drop__content span{
+  color:#17352b!important;-webkit-text-fill-color:#17352b!important;
+}
+.sf-tool .sfmini-card [data-sf-status],
+.sf-tool .sfmini-card [role=status]{
+  color:#334b40!important;-webkit-text-fill-color:#334b40!important;
+}
+
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ button:not(:disabled) :is(span,strong,b,small),
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ .btn:not(:disabled) :is(span,strong,b,small){
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ button.primary:not(:disabled) :is(span,strong,b,small),
+.sf-tool :is(.sfmini-card,.sftj-card,.sf-img-preview-card,.sf-preview-tile,
+             .sf-adv-field,.sf-img-field,.sf-img-drop,.sf-img-preview,
+             .sf-img-check,.sf-local-note,.sf-file-drop,.sf-new-card)
+ .btn-primary:not(:disabled) :is(span,strong,b,small){
+  color:#06251a!important;-webkit-text-fill-color:#06251a!important;
+}

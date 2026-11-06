@@ -48,3 +48,102 @@
 .auth-spin-mark{width:48px;height:48px;margin:0 auto 12px;border-radius:16px;display:grid;place-items:center;color:#06251a;background:linear-gradient(145deg,#c7ffe9,#42dcae);box-shadow:0 8px 28px rgba(36,201,149,.24);transform:rotate(-8deg);animation:authBadgeSpin 4.5s ease-in-out infinite}.auth-spin-mark span{font-size:24px;animation:authSpin 5s linear infinite}@keyframes authBadgeSpin{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.07)}}
 
 .auth-form.auth-mode-enter .auth-spin-mark{animation:authModeSpin .72s cubic-bezier(.2,.8,.2,1) both;transform-style:preserve-3d}.auth-form.auth-mode-enter .auth-spin-mark span{animation:authSpin .72s linear both}@keyframes authModeSpin{0%{transform:rotateY(0) rotateZ(-10deg) scale(.82)}50%{transform:rotateY(180deg) rotateZ(10deg) scale(1.13)}100%{transform:rotateY(360deg) rotateZ(0) scale(1)}}
+
+
+/* ToolsBySS animated glass authentication — inspired by the supplied signup video.
+   Presentation-only overrides: all existing auth forms/data attributes stay intact. */
+body:has(.auth-page){background:#030817;isolation:isolate}
+body:has(.auth-page)::before{
+  content:"";position:fixed;inset:-18%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 32%,rgba(15,181,112,.38),transparent 30%),
+    radial-gradient(ellipse at 78% 70%,rgba(10,120,86,.38),transparent 34%),
+    radial-gradient(ellipse at 52% 8%,rgba(18,54,108,.28),transparent 38%),
+    linear-gradient(135deg,#020611 0%,#061326 48%,#020713 100%);
+  animation:authAtmosphere 18s ease-in-out infinite alternate;
+}
+body:has(.auth-page)::after{
+  content:"";position:fixed;inset:-24%;z-index:-1;pointer-events:none;opacity:.72;
+  background:
+    linear-gradient(122deg,transparent 31%,rgba(23,205,127,.12) 32%,rgba(23,205,127,.30) 37%,transparent 44%),
+    linear-gradient(302deg,transparent 45%,rgba(15,142,91,.16) 47%,rgba(26,201,121,.28) 52%,transparent 59%),
+    radial-gradient(ellipse at 50% 50%,transparent 48%,rgba(0,0,0,.34) 100%);
+  filter:blur(1px);animation:authRibbons 24s ease-in-out infinite alternate;
+}
+.auth-page{min-height:calc(100vh - 130px);padding:42px 16px;position:relative}
+.auth-shell{
+  width:min(440px,100%);display:flex;flex-direction:column;overflow:hidden;
+  border:1px solid rgba(142,255,210,.18);border-radius:28px;
+  background:linear-gradient(155deg,rgba(12,22,53,.97),rgba(7,15,37,.98));
+  box-shadow:0 35px 110px rgba(0,0,0,.62),0 0 55px rgba(24,197,121,.10);
+  backdrop-filter:blur(24px);animation:authCardArrive .8s cubic-bezier(.2,.8,.2,1) both;
+}
+.auth-promo{
+  min-height:0;padding:28px 30px 20px;text-align:center;overflow:hidden;
+  background:linear-gradient(180deg,rgba(16,42,71,.32),rgba(10,20,48,.04));
+}
+.auth-promo::before{
+  content:"";display:block;width:100%;height:126px;margin:0 auto 16px;
+  border-radius:20px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 26% 75%,#35d88d 0 18%,transparent 19%),
+    radial-gradient(ellipse at 51% 35%,#8af5b8 0 22%,transparent 23%),
+    radial-gradient(ellipse at 72% 74%,#1caa70 0 24%,transparent 25%),
+    linear-gradient(135deg,#0c6848,#1ac47d 48%,#0b4b42);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 14px 35px rgba(0,0,0,.28);
+  animation:authArtFloat 7s ease-in-out infinite;
+}
+.auth-promo::after{
+  content:"";position:absolute;top:32px;left:18%;width:64%;height:120px;
+  border:1px solid rgba(220,255,236,.3);border-radius:48% 22% 48% 22%;
+  transform:rotate(-13deg);pointer-events:none;
+}
+.auth-promo .eyebrow{display:none}
+.auth-promo h2{font-size:24px;line-height:1.25;margin:4px 0 8px;color:#f4fff9}
+.auth-promo p{max-width:310px;margin:0 auto;color:#b7cbd8;font-size:12px;line-height:1.6}
+.auth-promo .auth-orb{width:120px;height:120px;right:-62px;bottom:-68px;opacity:.42}
+.auth-form{padding:20px 30px 28px;gap:11px}
+.auth-spin-mark{width:40px;height:40px;margin:0 auto 3px;border-radius:14px}
+.auth-mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:5px;margin:0 0 8px;border:1px solid rgba(172,220,210,.14);border-radius:14px;background:rgba(255,255,255,.045)}
+.auth-mode-tab{border:0!important;border-radius:10px!important;padding:9px 12px!important;background:transparent!important;color:#b8cbd3!important;font-size:12px;font-weight:800;cursor:pointer}
+.auth-mode-tab.is-active{background:linear-gradient(135deg,#a8f8c8,#37d88d)!important;color:#06251a!important;box-shadow:0 5px 16px rgba(40,211,130,.2)}
+.auth-form h1{font-size:25px;letter-spacing:-.5px;color:#f4fff9}
+.auth-form>form>p,.auth-form form>p{color:#aabecb}
+.auth-form label{display:block;color:#dcebe7;font-size:12px}
+.auth-form input{
+  display:block;width:100%;min-height:44px;margin-top:6px;padding:11px 13px;
+  border:1px solid rgba(173,214,207,.22);border-radius:11px;
+  background:rgba(255,255,255,.075);color:#f5fff9;
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.18);transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.auth-form input::placeholder{color:#8298a9}
+.auth-form input:focus{outline:none;border-color:#5be5a0;background:rgba(255,255,255,.10);box-shadow:0 0 0 3px rgba(65,220,142,.13)}
+.auth-form .btn,.auth-form button.btn{
+  min-height:43px;border-radius:12px;font-weight:800;transition:transform .2s,filter .2s,box-shadow .2s;
+}
+.auth-form button.btn-primary{background:linear-gradient(135deg,#aaf8c9,#35d887)!important;color:#06251a!important;border:1px solid rgba(210,255,226,.6)!important;box-shadow:0 8px 22px rgba(32,205,121,.2)}
+.auth-form button.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:0 12px 28px rgba(32,205,121,.28)}
+.auth-switch{color:#aabecb}
+.auth-switch button{color:#71edaa}
+.auth-status{color:#ffe09b}
+.verification-guide{color:#e7f4ee}
+.verification-guide h2,.verification-guide li,.verification-guide p{color:#d5e8df}
+.verification-guide .verify-email{color:#7df0ad}
+.auth-form .notice{color:#ffd6a0}
+.auth-form>p:last-child{color:#8198a8!important}
+.auth-form a{color:#78ecae}
+@keyframes authAtmosphere{from{transform:translate3d(-2%,0,0) scale(1)}to{transform:translate3d(2%,1%,0) scale(1.06)}}
+@keyframes authRibbons{from{transform:translate3d(-3%,1%,0) rotate(-3deg)}to{transform:translate3d(3%,-1%,0) rotate(3deg)}}
+@keyframes authArtFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-6px) rotate(1deg)}}
+@keyframes authCardArrive{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:520px){
+  .auth-page{padding:22px 12px}
+  .auth-shell{width:min(420px,100%);border-radius:23px}
+  .auth-promo{padding:20px 22px 15px}
+  .auth-promo::before{height:104px;margin-bottom:13px}
+  .auth-form{padding:17px 22px 23px}
+}
+@media(prefers-reduced-motion:reduce){
+  body:has(.auth-page)::before,body:has(.auth-page)::after,.auth-shell,.auth-promo::before,.auth-spin-mark,.auth-spin-mark span{animation:none!important}
+  .auth-form .btn{transition:none!important}
+}
