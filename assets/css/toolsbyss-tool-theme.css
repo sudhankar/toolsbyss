@@ -225,3 +225,155 @@ a.btn:not(.btn-primary),a.button:not(.button-primary),a[class*=btn]:not([class*=
     min-height:40px;max-width:100%;white-space:normal;line-height:1.3;
   }
 }
+
+/* Advanced Calendar Maker: preserve calendar-specific surfaces after the
+   site-wide button and light-text rules have been applied. The calendar grid
+   is content, not an action button; form panels are intentionally light. */
+.sf-tool.sf-advanced-calendar-maker .sf-cm-controls,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-wrap,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-events{
+  color:#17352b!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-controls :is(h2,h3,h4,h5,strong,small,p,span,label,legend),
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-wrap :is(h2,h3,h4,h5,strong,small,p,span,label,legend),
+.sf-tool.sf-advanced-calendar-maker .sf-cm-events :is(h2,h3,h4,h5,strong,small,p,span,label,legend){
+  color:#17352b!important;
+  -webkit-text-fill-color:#17352b!important;
+  text-shadow:none!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-field{
+  color:#17352b!important;
+  -webkit-text-fill-color:#17352b!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-field :is(span,strong,small){
+  color:#17352b!important;
+  -webkit-text-fill-color:#17352b!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-control-head p,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-events-head p,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-toolbar span,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-holiday-box small,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview-hint,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-status,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-event-row small,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-empty{
+  color:#526b60!important;
+  -webkit-text-fill-color:#526b60!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-control-badge{
+  background:#e5f7ef!important;
+  color:#14543f!important;
+  -webkit-text-fill-color:#14543f!important;
+  border:1px solid #b8e5d2!important;
+}
+
+/* Restore the calendar's own day-cell colors instead of the global green
+   action-button treatment. Text remains dark on light themes and white on
+   the Midnight theme through the local --cm-text variable. */
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day:not(:disabled),
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day:not(:disabled):visited{
+  display:flex!important;
+  background:transparent!important;
+  background-image:none!important;
+  color:var(--cm-text)!important;
+  -webkit-text-fill-color:var(--cm-text)!important;
+  border:0!important;
+  border-right:1px solid var(--cm-line)!important;
+  border-bottom:1px solid var(--cm-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+  filter:none!important;
+  transform:none!important;
+  opacity:1!important;
+  font-weight:inherit!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day:not(:disabled):hover{
+  background:var(--cm-soft)!important;
+  color:var(--cm-text)!important;
+  -webkit-text-fill-color:var(--cm-text)!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day.is-outside:not(:disabled){
+  background:color-mix(in srgb,var(--cm-soft) 35%,transparent)!important;
+  color:var(--cm-text)!important;
+  -webkit-text-fill-color:var(--cm-text)!important;
+  opacity:.58!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day.is-weekend:not(:disabled){
+  background:var(--cm-weekend)!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day.is-selected:not(:disabled){
+  background:var(--cm-soft)!important;
+  outline:2px solid var(--cm-accent)!important;
+  outline-offset:-2px!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day-number,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day-number span,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-more-events{
+  color:var(--cm-text)!important;
+  -webkit-text-fill-color:var(--cm-text)!important;
+  text-shadow:none!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-weekday{
+  background:var(--cm-soft)!important;
+  color:var(--cm-accent)!important;
+  -webkit-text-fill-color:var(--cm-accent)!important;
+  border-color:var(--cm-line)!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-event-chip{
+  background:var(--cm-soft)!important;
+  color:var(--cm-accent)!important;
+  -webkit-text-fill-color:var(--cm-accent)!important;
+  text-shadow:none!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-event-chip.is-holiday{
+  background:var(--cm-holiday)!important;
+  color:#78420a!important;
+  -webkit-text-fill-color:#78420a!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-week-card:not(:disabled){
+  background:var(--cm-soft)!important;
+  background-image:none!important;
+  color:var(--cm-text)!important;
+  -webkit-text-fill-color:var(--cm-text)!important;
+  border:1px solid var(--cm-line)!important;
+  border-radius:10px!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-week-card:not(:disabled):hover{
+  background:var(--cm-line)!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-week-card strong{
+  color:var(--cm-accent)!important;
+  -webkit-text-fill-color:var(--cm-accent)!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-week-card>span{
+  color:var(--cm-text)!important;
+  -webkit-text-fill-color:var(--cm-text)!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-delete-event:not(:disabled){
+  background:#fff0f1!important;
+  background-image:none!important;
+  color:#a51f32!important;
+  -webkit-text-fill-color:#a51f32!important;
+  border:1px solid #f3b3bd!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+}
+.sf-tool.sf-advanced-calendar-maker .sf-cm-day:focus-visible,
+.sf-tool.sf-advanced-calendar-maker .sf-cm-week-card:focus-visible{
+  outline:3px solid #16845f!important;
+  outline-offset:-3px!important;
+}
+
+@media print{
+  .sf-tool.sf-advanced-calendar-maker .sf-cm-controls :is(h2,h3,h4,h5,strong,small,p,span,label,legend),
+  .sf-tool.sf-advanced-calendar-maker .sf-cm-preview-wrap :is(h2,h3,h4,h5,strong,small,p,span,label,legend),
+  .sf-tool.sf-advanced-calendar-maker .sf-cm-events :is(h2,h3,h4,h5,strong,small,p,span,label,legend){
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .sf-tool.sf-advanced-calendar-maker .sf-cm-preview .sf-cm-day:not(:disabled){
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+}
