@@ -1,13 +1,18 @@
-# Launch checklist
+# ToolsBySS Launch Checklist (Hindi)
 
-- [ ] Replace `YOUR_EMAIL@example.com` in `assets/js/master-config.js`, `assets/pdf-editor/js/config.js`, `contact/index.html` and `master/index.html` (or set the admin/contact email in Master page before exporting config).
-- [ ] Configure Firebase Email/Password, authorised domain, verification email and reset email.
-- [ ] Test sign-up, verification, sign-in, reset password, tab close, idle warning and back navigation.
-- [ ] Set up Google Sheet, Apps Script deployment and Cloudflare secret variables.
-- [ ] Test every tool's file upload, calculation, mobile controls and download filename.
-- [ ] Test PDF Editor import, page controls, overlays, export and reopened exported file.
-- [ ] Proofread all policy pages and ensure actual data practices match them.
-- [ ] Add genuine contact details and useful unique blog content.
-- [ ] Set up Search Console, submit sitemap and check canonical URLs/404.
-- [ ] Keep ads off until site is live and AdSense review is completed. Configure consent platform before personalised ads where required.
-- [ ] Confirm keyboard navigation, accessible labels and reduced-motion support.
+- [ ] GitHub पर updated ZIP की सभी files सही root paths में commit हुईं।
+- [ ] Cloudflare Pages का latest deployment Success है।
+- [ ] `master-config.js` में Firebase `enabled:true`, project ID `toolsbyss`, contact/admin email सही हैं।
+- [ ] Firebase Email/Password provider enabled है और `toolsbyss.pages.dev` Authorized Domains में है।
+- [ ] Signup, verification email, sign-in, password reset और sign-out test किए।
+- [ ] PDF Editor iframe में duplicate site navigation/instructions नहीं हैं।
+- [ ] 2–3 PDF, image, finance और office tools मोबाइल/desktop पर test किए; बाकी 114 tools की functional QA भी पूरी की।
+- [ ] सभी downloadable outputs खुलकर verify किए और file names जाँचे।
+- [ ] Google Apps Script `setupToolsBySS` Run हुआ; `UserSessions` और `ToolEvents` tabs बने।
+- [ ] Apps Script Web App `/exec` URL deploy किया; Cloudflare Production variables सेट किए।
+- [ ] Google Sheet Public नहीं है; केवल owner/trusted access है।
+- [ ] 15-minute idle logout, warning, tab close और next login behaviour test किया।
+- [ ] Privacy, Terms, Disclaimer, DMCA, Cookie Policy, Data Deletion और Contact content वास्तविक operations से मेल खाते हैं।
+- [ ] सभी 114 tool guides fact-check और edit किए; screenshots/examples/author value जोड़ी।
+- [ ] Broken internal links, mobile layout, keyboard access और 404/console errors जाँचे।
+- [ ] AdSense apply करने से पहले Google की वर्तमान publisher policies/consent requirements जाँचीं।
