@@ -313,7 +313,7 @@
     $('[data-warning-logout]')?.addEventListener('click', () => logout('manual'));
   }
 
-  function handleAuthState(nextUser) {
+  async function handleAuthState(nextUser) {
     user = nextUser || null;
     updateUserInterface();
 
@@ -337,14 +337,14 @@
     } catch (_) {}
 
     if (!hasSessionMarker) {
-      sendAudit('LOGIN');
+      await sendAudit('LOGIN');
       try {
         sessionStorage.setItem('toolsbyss_logged_session', '1');
       } catch (_) {}
     }
 
     armSessionTimers();
-    if (pageTool) recordTool(pageTool);
+    if (pageTool) await recordTool(pageTool);
 
     if (location.pathname === '/login/' && !redirectStarted) {
       redirectStarted = true;

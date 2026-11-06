@@ -1,0 +1,11 @@
+
+/* PDF Editor: the outer ToolsBySS page owns all site navigation and instructions. */
+.editor-header__brand,.editor-header__right a,.editor-notice,.editor-seo-content{display:none!important}
+.editor-header{grid-template-columns:minmax(0,1fr) auto auto!important}
+.editor-header__left{min-width:0}
+.editor-header__right{display:flex!important;justify-content:flex-end;gap:10px}
+.editor-header .ed-btn{background:rgba(36,201,149,.14)!important;color:#e5fff5!important;border:1px solid rgba(113,243,196,.34)!important}
+.editor-header .ed-btn--primary{background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important;border:0!important}
+.ed-btn--primary:not(:disabled),#ed-save:not(:disabled){background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important}
+.editor-thumbs .ed-btn,.editor-toolbar .ed-btn,.editor-panel .ed-btn{background:rgba(36,201,149,.13)!important;color:#e5fff5!important;border-color:rgba(113,243,196,.3)!important}
+.editor-app-shell{--accent:#42dcae;--accent-color:#42dcae}

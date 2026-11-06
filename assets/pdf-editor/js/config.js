@@ -7,7 +7,7 @@
  */
 window.ToolsBySS_CONFIG = {
   siteName: "ToolsBySS",
-  tagline: "Useful PDF, Image & Everyday Tools. Private and Browser-Based.",
+  tagline: "PDF, image and productivity tools with practical guides from ToolsBySS.",
 
   /**
    * basePath
@@ -32,7 +32,7 @@ window.ToolsBySS_CONFIG = {
   /**
    * Your real contact email. Shown on /contact.
    */
-  contactEmail: "YOUR_EMAIL@example.com",
+  contactEmail: "sudhankar111@gmail.com",
 
   /**
    * Ads — set to true ONLY after AdSense approves your site.
