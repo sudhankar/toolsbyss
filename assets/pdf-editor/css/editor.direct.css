@@ -1,0 +1,1302 @@
+/* =====================================================================
+   DSPDF — PDF Editor styles
+   ===================================================================== */
+
+
+
+.pdf-editor-direct-root{
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  background: var(--bg-dark);
+}
+
+
+
+/* Keep the actual editor app at one full viewport. SEO/help content lives
+   below it, so it can never shrink the workspace or cover the tool panels. */
+
+
+.pdf-editor-direct-root .editor-app-shell{
+  height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+
+.pdf-editor-direct-root .editor-seo-content{
+  flex: 0 0 auto;
+}
+
+
+
+/* ---------- Header ---------- */
+
+
+.pdf-editor-direct-root .editor-header{
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  height: 56px;
+  flex-shrink: 0;
+  z-index: 50;
+}
+
+
+.pdf-editor-direct-root .editor-header__left, .pdf-editor-direct-root .editor-header__right{ display: flex; align-items: center; gap: var(--space-2); }
+
+
+.pdf-editor-direct-root .editor-header__left{ flex: 1; min-width: 0; }
+
+
+.pdf-editor-direct-root .editor-header__center{ display: flex; gap: var(--space-2); }
+
+
+.pdf-editor-direct-root .editor-header__right{ justify-content: flex-end; }
+
+
+.pdf-editor-direct-root .editor-header__brand{ display: inline-flex; align-items: center; color: var(--text-primary); }
+
+
+.pdf-editor-direct-root .editor-header__file{
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 40vw;
+}
+
+
+
+.pdf-editor-direct-root .editor-seo-heading{
+  margin: 0 0 2px;
+  font-size: 0.92rem;
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+
+.pdf-editor-direct-root .editor-notice p{
+  margin: 0;
+}
+
+
+
+.pdf-editor-direct-root .editor-notice{
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-soft);
+  flex-shrink: 0;
+}
+
+
+
+/* ---------- Buttons ---------- */
+
+
+.pdf-editor-direct-root .ed-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+
+.pdf-editor-direct-root .ed-btn:hover{ background: var(--bg-card); }
+
+
+.pdf-editor-direct-root .ed-btn:disabled{ opacity: 0.5; cursor: not-allowed; }
+
+
+.pdf-editor-direct-root .ed-btn--primary{ background: var(--accent); border-color: var(--accent); color: #fff; }
+
+
+.pdf-editor-direct-root .ed-btn--primary:hover{ background: var(--accent-hover); }
+
+
+.pdf-editor-direct-root .ed-btn--ghost{ background: transparent; border-color: transparent; }
+
+
+.pdf-editor-direct-root .ed-btn--ghost:hover{ background: var(--bg-elevated); }
+
+
+.pdf-editor-direct-root .ed-btn--icon{ width: 36px; padding: 0; font-size: 1.1rem; }
+
+
+.pdf-editor-direct-root .ed-btn--sm{ min-height: 30px; padding: 4px 10px; font-size: 0.8rem; }
+
+
+
+/* ---------- Main layout ---------- */
+
+
+.pdf-editor-direct-root .editor-main{
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) 300px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+
+
+/* ---------- Thumbnails ---------- */
+
+
+.pdf-editor-direct-root .editor-thumbs{
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+
+.pdf-editor-direct-root .editor-thumbs__header{
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 12px;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+
+.pdf-editor-direct-root .editor-thumbs__header .ed-btn{ display: none; }
+
+
+.pdf-editor-direct-root .ed-page-actions{display:flex;gap:3px;align-items:center;flex-wrap:wrap;margin-left:auto}
+.pdf-editor-direct-root .ed-page-actions .ed-btn{display:inline-flex;min-width:28px;padding:3px 6px;font-weight:700}
+.pdf-editor-direct-root .ed-page-actions #ed-page-delete{color:#ef4444}
+.pdf-editor-direct-root .ed-page-actions #ed-page-rotate{color:#2563eb}
+
+
+
+.pdf-editor-direct-root .editor-thumbs__list{
+  overflow-y: auto;
+  padding: var(--space-3);
+  display: flex; flex-direction: column; gap: var(--space-3);
+}
+
+
+.pdf-editor-direct-root .ed-thumb{
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  background: var(--bg-dark);
+  padding: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color var(--transition);
+}
+
+
+.pdf-editor-direct-root .ed-thumb:hover{ border-color: var(--border); }
+
+
+.pdf-editor-direct-root .ed-thumb.is-active{ border-color: var(--accent); }
+
+
+.pdf-editor-direct-root .ed-thumb canvas{ max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+
+.pdf-editor-direct-root .ed-thumb__num{
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+
+
+/* ---------- Stage ---------- */
+
+
+.pdf-editor-direct-root .editor-stage{
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+  background: #0f1a2b;
+}
+
+
+.pdf-editor-direct-root [data-theme="light"] .editor-stage{ background: #E2E8F0; }
+
+
+
+.pdf-editor-direct-root .editor-empty{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+
+
+.pdf-editor-direct-root .editor-viewport{
+  flex: 1;
+  overflow: auto;
+  padding: var(--space-5);
+  display: block;
+  position: relative;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+.pdf-editor-direct-root .editor-canvas-wrap{
+  position: relative;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  touch-action: none;
+  user-select: none;
+}
+
+
+.pdf-editor-direct-root .editor-canvas-wrap canvas{
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
+
+.pdf-editor-direct-root .editor-overlay-layer{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem{
+  position: absolute;
+  pointer-events: auto;
+  cursor: move;
+}
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem[data-type="draw"]{ overflow: visible; }
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem.is-selected{
+  outline: 1.5px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem .ed-handle{
+  position: absolute;
+  width: 12px; height: 12px;
+  background: #fff;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem .ed-handle[data-h="nw"]{ left: -6px; top: -6px; cursor: nwse-resize; }
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem .ed-handle[data-h="ne"]{ right: -6px; top: -6px; cursor: nesw-resize; }
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem .ed-handle[data-h="sw"]{ left: -6px; bottom: -6px; cursor: nesw-resize; }
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem .ed-handle[data-h="se"]{ right: -6px; bottom: -6px; cursor: nwse-resize; }
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem .ed-delete{
+  position: absolute;
+  right: -10px; top: -10px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--danger);
+  color: #fff;
+  border: 2px solid var(--bg-card);
+  font-size: 0.7rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+}
+
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-text-content{
+  width: 100%; height: 100%;
+  pointer-events: auto;
+  cursor: text;
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.25;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+
+.pdf-editor-direct-root .editor-overlay-layer .ed-text-editable{
+  outline: none;
+  min-width: 40px;
+}
+
+
+.pdf-editor-direct-root .editor-hit-layer{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+
+.pdf-editor-direct-root .editor-hit-layer.is-drawing{ pointer-events: auto; cursor: crosshair; }
+
+
+
+/* ---------- Bottom bar ---------- */
+
+
+.pdf-editor-direct-root .editor-bottombar{
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 12px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+
+.pdf-editor-direct-root .editor-bottombar__spacer{ flex: 1; }
+
+
+.pdf-editor-direct-root .editor-page-indicator, .pdf-editor-direct-root .editor-zoom-indicator{
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  min-width: 60px;
+  text-align: center;
+}
+
+
+
+/* ---------- Tools panel ---------- */
+
+
+.pdf-editor-direct-root .editor-tools{
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+
+.pdf-editor-direct-root .editor-tools__header{
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 12px;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+
+.pdf-editor-direct-root .editor-tools__header .ed-btn{ display: none; }
+
+
+
+.pdf-editor-direct-root .editor-tool-tabs{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 6px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+
+.pdf-editor-direct-root .ed-tool-tab{
+  padding: 8px 6px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.pdf-editor-direct-root .ed-tool-tab.is-active{
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+
+
+.pdf-editor-direct-root .editor-tools__body{
+  overflow-y: auto;
+  padding: var(--space-3);
+  flex: 1;
+}
+
+
+.pdf-editor-direct-root .editor-panel{ display: none; }
+
+
+.pdf-editor-direct-root .editor-panel.is-active{ display: block; }
+
+
+
+.pdf-editor-direct-root .ed-tool-btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+
+.pdf-editor-direct-root .ed-tool-btn:hover{ background: var(--bg-card); border-color: var(--accent); }
+
+
+.pdf-editor-direct-root .ed-tool-btn.is-active{ background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+
+.pdf-editor-direct-root .ed-tool-btn__icon{
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+
+.pdf-editor-direct-root .ed-tool-btn__label{ flex: 1; font-weight: 600; }
+
+
+.pdf-editor-direct-root .ed-tool-btn__hint{
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+
+
+.pdf-editor-direct-root .editor-props{
+  background: var(--bg-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  margin-top: var(--space-3);
+  border: 1px solid var(--border-soft);
+}
+
+
+.pdf-editor-direct-root .ed-prop-row{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+
+.pdf-editor-direct-root .ed-prop-row:last-child{ margin-bottom: 0; }
+
+
+.pdf-editor-direct-root .ed-prop-row label{ min-width: 60px; color: var(--text-secondary); }
+
+
+.pdf-editor-direct-root .ed-prop-row input[type="range"]{ flex: 1; }
+
+
+.pdf-editor-direct-root .ed-prop-row input[type="color"]{
+  width: 36px; height: 28px; padding: 0; border: 1px solid var(--border);
+  background: transparent; border-radius: 6px; cursor: pointer;
+}
+
+
+.pdf-editor-direct-root .ed-prop-row select, .pdf-editor-direct-root .ed-prop-row input[type="text"]{
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  flex: 1;
+  min-width: 0;
+}
+
+
+.pdf-editor-direct-root .editor-hint{
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+  line-height: 1.5;
+}
+
+
+
+.pdf-editor-direct-root .editor-sign-preview{
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+
+.pdf-editor-direct-root .editor-sign-preview img{ max-height: 80px; }
+
+
+
+.pdf-editor-direct-root .editor-modal-actions{
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+
+
+/* Signature draw pad */
+
+
+.pdf-editor-direct-root .sign-pad{
+  position: relative;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  height: 180px;
+  touch-action: none;
+}
+
+
+.pdf-editor-direct-root .sign-pad canvas{ width: 100%; height: 100%; display: block; cursor: crosshair; }
+
+
+.pdf-editor-direct-root .sign-type-input{
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1.5rem;
+  font-family: "Dancing Script", cursive;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: #000;
+}
+
+
+.pdf-editor-direct-root .sign-font-choice{ display: flex; gap: 8px; margin-top: 8px; }
+
+
+.pdf-editor-direct-root .sign-font-choice button{
+  flex: 1; padding: 8px; background: #fff; border: 1px solid var(--border);
+  color: #000; border-radius: 6px; cursor: pointer;
+}
+
+
+.pdf-editor-direct-root .sign-font-choice button.is-active{ border-color: var(--accent); background: var(--accent-soft); }
+
+
+
+/* ---------- Mobile bar ---------- */
+
+
+.pdf-editor-direct-root .editor-mobile-bar{
+  display: none;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: 8px;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0));
+  gap: var(--space-2);
+  justify-content: space-around;
+}
+
+
+
+/* ---------- Element-specific ---------- */
+
+
+.pdf-editor-direct-root .ed-elem[data-type="text"]{
+  min-width: 40px;
+  min-height: 20px;
+}
+
+
+.pdf-editor-direct-root .ed-elem[data-type="text"] .ed-text-content{
+  padding: 2px 4px;
+}
+
+
+
+/* ---------- Responsive ---------- */
+
+
+@media (max-width: 1024px) {
+  
+.pdf-editor-direct-root .editor-main{ grid-template-columns: 160px minmax(0, 1fr) 260px; }
+
+}
+
+
+
+@media (max-width: 768px) {
+  
+.pdf-editor-direct-root .editor-canvas-wrap{ touch-action: auto; }
+
+  
+.pdf-editor-direct-root .editor-main{ grid-template-columns: 1fr; }
+
+  
+.pdf-editor-direct-root .editor-thumbs{
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    width: 240px;
+    z-index: 80;
+    transform: translateX(-100%);
+    transition: transform 220ms ease;
+    box-shadow: var(--shadow-lg);
+  }
+
+  
+.pdf-editor-direct-root .editor-thumbs.is-open{ transform: translateX(0); }
+
+  
+.pdf-editor-direct-root .editor-thumbs__header .ed-btn{ display: inline-flex; }
+
+
+  
+.pdf-editor-direct-root .editor-tools{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    max-height: 70vh;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    transform: translateY(100%);
+    transition: transform 220ms ease;
+    z-index: 80;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  
+.pdf-editor-direct-root .editor-tools.is-open{ transform: translateY(0); }
+
+  
+.pdf-editor-direct-root .editor-tools__header .ed-btn{ display: inline-flex; }
+
+
+  
+.pdf-editor-direct-root .editor-header__center{ display: none; }
+
+  
+.pdf-editor-direct-root .editor-mobile-bar{ display: flex; }
+
+  
+.pdf-editor-direct-root .editor-header{ height: 48px; }
+
+  
+.pdf-editor-direct-root .editor-header__file{ font-size: 0.78rem; max-width: 55vw; }
+
+  
+.pdf-editor-direct-root .editor-stage{ min-height: 0; }
+
+  
+.pdf-editor-direct-root .editor-bottombar{ padding: 4px 8px; font-size: 0.78rem; }
+
+}
+
+
+
+@media (min-width: 769px) {
+  
+.pdf-editor-direct-root .editor-mobile-bar{ display: none; }
+
+}
+
+
+
+/* Reduced motion */
+
+
+@media (prefers-reduced-motion: reduce) {
+  
+.pdf-editor-direct-root .editor-thumbs, .pdf-editor-direct-root .editor-tools{ transition: none; }
+
+}
+
+
+
+/* Robust editor upload/viewport behavior */
+
+
+.pdf-editor-direct-root .editor-empty[hidden], .pdf-editor-direct-root .editor-viewport[hidden], .pdf-editor-direct-root .editor-bottombar[hidden]{ display: none !important; }
+
+
+.pdf-editor-direct-root .editor-viewport{ min-width: 0; min-height: 0; overflow: auto; }
+
+
+.pdf-editor-direct-root .editor-canvas-wrap{ flex: 0 0 auto; }
+
+
+
+@media (max-width: 768px) {
+  
+.pdf-editor-direct-root .editor-viewport{
+    width: 100%; min-width: 0; padding: 12px;
+    justify-content: flex-start; align-items: flex-start;
+    overflow: auto; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+  }
+
+  
+.pdf-editor-direct-root .editor-stage{ width: 100%; min-width: 0; }
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap{ max-width: none; margin: 0 auto; }
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap canvas{ max-width: none; }
+
+  
+.pdf-editor-direct-root .editor-empty{ padding: 12px; }
+
+  
+.pdf-editor-direct-root .editor-empty .upload-zone{ max-width: 100%; }
+
+  
+.pdf-editor-direct-root .editor-main{ min-height: 0; }
+
+}
+
+
+
+.pdf-editor-direct-root .sign-controls{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin:8px 0 10px; }
+
+
+.pdf-editor-direct-root .sign-controls label{ display:flex; align-items:center; gap:6px; font-size:.85rem; color:var(--text-secondary); }
+
+
+.pdf-editor-direct-root .sign-controls input[type=color]{ width:34px; height:28px; padding:0; border:1px solid var(--border); border-radius:6px; }
+
+
+.pdf-editor-direct-root .sign-controls input[type=range]{ width:110px; }
+
+
+
+/* v4: editor navigation + reliable mobile panning */
+
+
+@media (max-width: 768px){
+  
+.pdf-editor-direct-root .editor-header__right{gap:5px;}
+
+  
+.pdf-editor-direct-root .editor-header__right .ed-btn{padding:5px 7px;font-size:.72rem;}
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap{touch-action:auto;}
+
+  
+.pdf-editor-direct-root .editor-hit-layer.is-drawing{touch-action:none;}
+
+}
+
+
+
+/* Mobile / touch browsers: keep editor controls reachable and PDF fitted */
+
+
+@media (max-width: 900px), (pointer:coarse){
+  
+.pdf-editor-direct-root{height:100dvh;min-height:100vh;overflow:hidden;}
+
+  
+.pdf-editor-direct-root .editor-main{grid-template-columns:1fr;min-height:0;position:relative;}
+
+  
+.pdf-editor-direct-root .editor-tools{position:fixed!important;left:0;right:0;bottom:0;max-height:72dvh;overflow:auto;z-index:200!important;transform:translateY(100%);-webkit-overflow-scrolling:touch;}
+
+  
+.pdf-editor-direct-root .editor-tools.is-open{transform:translateY(0);}
+
+  
+.pdf-editor-direct-root .editor-mobile-bar{display:flex!important;position:relative;z-index:210;flex-shrink:0;}
+
+  
+.pdf-editor-direct-root .editor-viewport{width:100%;min-width:0;padding:8px;overflow:auto!important;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;}
+
+  
+.pdf-editor-direct-root .editor-stage{min-height:0;height:100%;}
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap{margin:0 auto;touch-action:auto;max-width:none;}
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap canvas{max-width:none;}
+
+  
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem{touch-action:none;}
+
+  
+.pdf-editor-direct-root .ed-page-actions{max-width:180px;}
+
+}
+
+
+
+
+/* v12: reliable mobile editor viewport/toolbar layout */
+
+
+.pdf-editor-direct-root .editor-empty.is-hidden, .pdf-editor-direct-root .editor-viewport.is-hidden{display:none!important}
+
+
+@media (max-width:900px),(pointer:coarse){
+  
+.pdf-editor-direct-root{height:100dvh;min-height:100dvh;overflow:hidden;}
+
+  
+.pdf-editor-direct-root .editor-main{height:calc(100dvh - 48px - 52px - 58px);flex:0 0 auto;min-height:0;display:grid;grid-template-columns:1fr;overflow:hidden;}
+
+  
+.pdf-editor-direct-root .editor-stage{height:100%;min-height:0;overflow:hidden;}
+
+  
+.pdf-editor-direct-root .editor-viewport{height:100%;min-height:0;overflow:auto!important;display:flex;align-items:flex-start;justify-content:center;padding:8px;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch;}
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap{margin:0 auto;max-width:none;flex:0 0 auto;touch-action:none;}
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap canvas{max-width:none;}
+
+  
+.pdf-editor-direct-root .editor-overlay-layer .ed-elem{touch-action:none;will-change:left,top,width,height;}
+
+  
+.pdf-editor-direct-root .editor-hit-layer.is-drawing{touch-action:none;}
+
+  
+.pdf-editor-direct-root .editor-bottombar{flex:0 0 auto;position:relative;z-index:205;}
+
+  
+.pdf-editor-direct-root .editor-mobile-bar{display:flex!important;position:fixed!important;left:0;right:0;bottom:0;z-index:260!important;flex-shrink:0;min-height:58px;box-sizing:border-box;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px));background:var(--bg-card);}
+
+  
+.pdf-editor-direct-root .editor-tools{z-index:250!important;}
+
+}
+
+
+@media (min-width:901px) and (pointer:fine){.pdf-editor-direct-root .editor-creator-badge{display:block;}}
+
+
+@media (max-width:900px),(pointer:coarse){.pdf-editor-direct-root .editor-creator-badge{display:none!important;}}
+
+
+.pdf-editor-direct-root .editor-creator-badge{position:fixed;right:10px;bottom:66px;z-index:240;font-size:.68rem;letter-spacing:.04em;color:var(--text-muted);background:rgba(15,23,42,.72);padding:4px 8px;border-radius:999px;pointer-events:none;}
+
+
+
+/* v13: mobile editor layout — keep the PDF viewport and both toolbars inside
+   the actual browser content area. The previous fixed quick-bar could cover
+   the page-navigation bar, while the hard-coded main height ignored the
+   variable-height notice/header. */
+
+
+@media (max-width: 900px), (pointer: coarse) {
+  
+.pdf-editor-direct-root{
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  
+.pdf-editor-direct-root .editor-header, .pdf-editor-direct-root .editor-notice, .pdf-editor-direct-root .editor-mobile-bar{
+    flex: 0 0 auto;
+  }
+
+
+  
+.pdf-editor-direct-root .editor-main{
+    height: auto !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+
+  
+.pdf-editor-direct-root .editor-stage{
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  
+.pdf-editor-direct-root .editor-viewport{
+    flex: 1 1 auto !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    box-sizing: border-box;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+    touch-action: pan-x pan-y;
+  }
+
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap{
+    flex: 0 0 auto;
+    margin: 0 auto;
+    max-width: none;
+  }
+
+
+  
+/* Do not let the quick toolbar float over the page-navigation bar. */
+
+  
+.pdf-editor-direct-root .editor-mobile-bar{
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100%;
+    z-index: 260 !important;
+    box-sizing: border-box;
+  }
+
+
+  
+.pdf-editor-direct-root .editor-bottombar{
+    position: relative;
+    z-index: 205;
+    flex: 0 0 auto;
+    min-height: 46px;
+    box-sizing: border-box;
+  }
+
+
+  
+.pdf-editor-direct-root .editor-tools{
+    z-index: 500 !important;
+  }
+
+
+  
+.pdf-editor-direct-root .editor-thumbs{
+    z-index: 490 !important;
+  }
+
+}
+
+
+
+/* Keep page navigation comfortably tappable on narrow phones. */
+
+
+@media (max-width: 520px) {
+  
+.pdf-editor-direct-root .editor-bottombar{
+    padding: 5px 8px;
+    gap: 6px;
+  }
+
+  
+.pdf-editor-direct-root .editor-bottombar .ed-btn--icon{
+    width: 40px;
+    min-width: 40px;
+    min-height: 38px;
+  }
+
+  
+.pdf-editor-direct-root .editor-page-indicator, .pdf-editor-direct-root .editor-zoom-indicator{
+    min-width: 52px;
+  }
+
+  
+.pdf-editor-direct-root .editor-bottombar #ed-zoom-fit{
+    min-width: 48px;
+  }
+
+}
+
+
+
+
+/* v16: Select / Pan stay in the page/zoom bar on mobile; the quick toolbar is kept compact. */
+
+
+/* v15: touch-friendly Select / Pan controls and stable gesture surfaces. */
+
+
+.pdf-editor-direct-root .ed-gesture-mode.is-active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700;}
+
+
+.pdf-editor-direct-root .editor-viewport, .pdf-editor-direct-root .editor-canvas-wrap, .pdf-editor-direct-root .editor-overlay-layer, .pdf-editor-direct-root .editor-hit-layer{
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+}
+
+
+@media (max-width:900px),(pointer:coarse){
+  
+.pdf-editor-direct-root .editor-viewport{touch-action:none;overscroll-behavior:contain;}
+
+  
+.pdf-editor-direct-root .editor-canvas-wrap{touch-action:none;will-change:transform;}
+
+  
+.pdf-editor-direct-root .editor-mobile-bar .ed-gesture-mode{min-width:52px;padding-left:8px;padding-right:8px;font-size:.72rem;}
+
+}
+
+
+
+/* v17: keep the complete mobile page/zoom control row inside narrow phone screens. */
+
+
+@media (max-width: 520px) {
+  
+.pdf-editor-direct-root .editor-bottombar{
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 3px;
+    padding: 4px 6px;
+    box-sizing: border-box;
+  }
+
+  
+.pdf-editor-direct-root .editor-bottombar__spacer{ display: none; }
+
+  
+.pdf-editor-direct-root .editor-bottombar > *{ flex: 0 0 auto; }
+
+  
+.pdf-editor-direct-root .editor-bottombar .ed-btn--icon{
+    width: 32px;
+    min-width: 32px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0;
+  }
+
+  
+.pdf-editor-direct-root .editor-page-indicator{
+    min-width: 30px;
+    width: 30px;
+    font-size: .78rem;
+  }
+
+  
+.pdf-editor-direct-root .editor-bottombar .ed-gesture-mode{
+    min-width: 43px;
+    width: 43px;
+    height: 36px;
+    min-height: 36px;
+    padding: 3px 2px;
+    font-size: .72rem;
+  }
+
+  
+.pdf-editor-direct-root .editor-zoom-indicator{
+    min-width: 40px;
+    width: 40px;
+    font-size: .78rem;
+  }
+
+  
+.pdf-editor-direct-root .editor-bottombar #ed-zoom-fit{
+    min-width: 36px;
+    width: 36px;
+    height: 36px;
+    padding: 3px 2px;
+    font-size: .72rem;
+  }
+
+}
+
+
+
+@media (max-width: 390px) {
+  
+/* On very narrow phones Fit is the only optional control; keep +/- and the
+     percentage visible rather than allowing the right side to be clipped. */
+
+  
+.pdf-editor-direct-root .editor-bottombar #ed-zoom-fit{ display: none; }
+
+}
+
+
+
+.pdf-editor-direct-root .editor-notice__help{margin:6px auto 0;max-width:760px;font-size:.82rem;line-height:1.45;opacity:.92;text-align:center}
+.pdf-editor-direct-root .editor-notice__help a{text-decoration:underline;text-underline-offset:2px}
+
+
+
+
+/* v26: compact mobile editor intro. Keep the H1 visible for users/SEO,
+   but remove the long explanatory copy from the limited phone viewport. */
+
+
+.pdf-editor-direct-root .editor-seo-heading__mobile{display:none;}
+
+
+@media (max-width:900px),(pointer:coarse){
+  
+.pdf-editor-direct-root .editor-notice{padding:4px 8px;}
+
+  
+.pdf-editor-direct-root .editor-notice p:not(.editor-notice__help){display:none;}
+
+  
+.pdf-editor-direct-root .editor-notice__help{display:block!important;margin:0;font-size:.86rem;line-height:1.25;}
+
+  
+.pdf-editor-direct-root .editor-seo-heading{margin:0;font-size:.92rem;line-height:1.2;}
+
+  
+.pdf-editor-direct-root .editor-seo-heading__full{display:none;}
+
+  
+.pdf-editor-direct-root .editor-seo-heading__mobile{display:inline;}
+
+}
+
+
+/* SEO/help content lives below the editor so it never pushes the workspace off-screen. */
+
+
+.pdf-editor-direct-root .editor-mobile-guide{display:none;text-align:center;padding:8px 14px;background:var(--bg-card);border-bottom:1px solid var(--border);font-size:.92rem}
+.pdf-editor-direct-root .editor-mobile-guide a{color:var(--accent);font-weight:700}
+
+
+.pdf-editor-direct-root .editor-seo-content{max-width:900px;margin:28px auto 48px;padding:0 20px;color:var(--text)}
+
+
+.pdf-editor-direct-root .editor-seo-content h2{margin:24px 0 10px}
+.pdf-editor-direct-root .editor-seo-content p, .pdf-editor-direct-root .editor-seo-content li{line-height:1.7;color:var(--text-muted)}
+
+
+.pdf-editor-direct-root .editor-seo-content .related-grid{margin-top:12px}
+
+
+@media(max-width:700px){.pdf-editor-direct-root .editor-mobile-guide{display:block}
+.pdf-editor-direct-root .editor-seo-content{padding:0 14px;margin-top:20px}
+.pdf-editor-direct-root .editor-seo-content .editor-mobile-only-note{display:block}}
+
+
+
+
+/* Final layout guard: the editor workspace always owns the first viewport.
+   The long SEO guide is below the app and never competes with editor space. */
+
+
+.pdf-editor-direct-root{
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  display: block !important;
+}
+
+
+.pdf-editor-direct-root .editor-app-shell{
+  height: 100vh !important;
+  min-height: 100dvh !important;
+  max-height: 100dvh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+
+.pdf-editor-direct-root .editor-app-shell .editor-main{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+
+
+.pdf-editor-direct-root .editor-app-shell .editor-mobile-bar{
+  flex: 0 0 auto !important;
+}
+
+
+@media (max-width: 900px), (pointer: coarse) {
+  
+.pdf-editor-direct-root .editor-app-shell{
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+  }
+
+}
+
+
+
+/* v75: restore the standard site footer below the full-screen PDF editor workspace. */
+
+
+.pdf-editor-direct-root .editor-page-footer{ position: relative; z-index: 2; }
+
+
+.pdf-editor-direct-root .editor-page-footer .container{ max-width: 1180px; margin: 0 auto; padding-left: 20px; padding-right: 20px; box-sizing: border-box; }
+

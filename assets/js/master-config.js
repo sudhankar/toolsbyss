@@ -4,34 +4,15 @@ window.TOOLSBySS_MASTER = {
   "contactEmail": "sudhankar111@gmail.com",
   "brandLine": "BRAIN BEHIND THE CODE :: SUDHAKAR",
   "nav": [
-    {
-      "label": "Home",
-      "url": "/"
-    },
-    {
-      "label": "All Tools",
-      "url": "/tools/"
-    },
-    {
-      "label": "PDF",
-      "url": "/category/pdf/"
-    },
-    {
-      "label": "Images",
-      "url": "/category/images/"
-    },
-    {
-      "label": "Finance",
-      "url": "/category/finance/"
-    },
-    {
-      "label": "Office",
-      "url": "/category/office/"
-    },
-    {
-      "label": "Blog",
-      "url": "/blog/"
-    }
+    {"label":"Home","url":"/"},
+    {"label":"All Tools","url":"/tools/"},
+    {"label":"PDF","url":"/category/pdf/"},
+    {"label":"Images","url":"/category/images/"},
+    {"label":"Office","url":"/category/office/"},
+    {"label":"Student","url":"/category/student/"},
+    {"label":"Other","url":"/category/other/"},
+    {"label":"Finance","url":"/category/finance/"},
+    {"label":"Blog","url":"/blog/"}
   ],
   "admins": [
     "sudhankar111@gmail.com"

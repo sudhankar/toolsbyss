@@ -18,3 +18,33 @@
 /* Keep the account action accessible in compact mobile headers. */
 @media(max-width:720px){.nav-right .btn:not(.btn-primary){display:inline-flex;padding:8px 10px;font-size:10px}.nav-right{gap:6px}.user-chip{max-width:104px;font-size:9px}}
 @media(max-width:420px){.nav-right .user-chip{display:none}.nav-right .btn:not(.btn-primary){display:inline-flex;padding:7px 9px;font-size:10px}}
+
+/* Direct, responsive tool mounting (no nested iframe). */
+.tool-direct-mount{display:block;width:100%;max-width:100%;min-width:0;overflow-x:clip;isolation:isolate}
+.tool-direct-mount>.sf-tool{width:100%;max-width:100%;min-width:0;margin:0 auto}
+.tool-direct-mount .sf-tool *{max-width:100%}
+.tool-direct-mount img,.tool-direct-mount canvas,.tool-direct-mount svg{max-width:100%;height:auto}
+.tool-direct-mount table{max-width:100%;display:block;overflow-x:auto}
+.tool-privacy-note{margin-top:18px;padding:13px 16px;border:1px solid rgba(113,243,196,.25);border-radius:14px;background:rgba(113,243,196,.055);color:#c4ddd7;font-size:13px;line-height:1.65}
+.tool-privacy-note strong{color:var(--mint)}
+@media(max-width:720px){.content-card:has(>.tool-lock){padding:14px}.tool-direct-mount{margin:0;overflow-x:auto;overscroll-behavior-x:contain}.tool-direct-mount>.sf-tool{padding-left:0!important;padding-right:0!important}.tool-direct-mount input,.tool-direct-mount select,.tool-direct-mount textarea{max-width:100%;min-width:0}.tool-direct-mount button{max-width:100%;white-space:normal}.tool-direct-mount .sf-tool-intro h2{font-size:clamp(20px,6vw,28px)}}
+/* Animated account mode switch and mail verification help. */
+.auth-mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:6px;border:1px solid rgba(113,243,196,.2);background:rgba(255,255,255,.035);border-radius:16px;margin-bottom:16px}
+.auth-mode-tab{border:0;border-radius:12px;padding:11px 10px;color:#b6cbd1;background:transparent;font-weight:800;cursor:pointer;transition:.25s}
+.auth-mode-tab.is-active{color:#06251a;background:linear-gradient(135deg,#b8ffe5,#47dcae);box-shadow:0 8px 22px rgba(36,201,149,.2)}
+.auth-form.auth-mode-enter{animation:authPanelIn .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes authPanelIn{0%{opacity:0;transform:translateY(18px) rotateX(-7deg)}100%{opacity:1;transform:translateY(0) rotateX(0)}}
+.auth-orb:after{content:'';position:absolute;inset:20%;border:2px solid rgba(226,255,245,.55);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:authSpin 5s linear infinite}
+@keyframes authSpin{to{transform:rotate(360deg)}}
+.verification-guide{padding:20px;border:1px solid rgba(113,243,196,.3);border-radius:18px;background:linear-gradient(145deg,rgba(36,201,149,.12),rgba(101,223,242,.05));animation:reveal .5s both}
+.verification-guide h2{font-size:22px;margin:0 0 8px;color:#eafff7}.verification-guide p,.verification-guide li{color:#c3d9d7;font-size:13px}.verification-guide ol{padding-left:22px}
+.verification-guide .verify-email{overflow-wrap:anywhere;color:var(--mint);font-weight:800}
+.pdf-editor-direct-root{width:100%;max-width:100%;min-width:0;overflow:hidden;border-radius:18px;background:#0d1b29;color:#eaf3ff;isolation:isolate}
+.pdf-editor-direct-root .editor-app-shell{height:min(980px,calc(100vh - 190px));min-height:680px;width:100%;max-width:100%;overflow:hidden}
+.pdf-editor-direct-root a[href="/"],.pdf-editor-direct-root a[href="/tools/"]{display:none!important}
+@media(max-width:900px){.pdf-editor-direct-root .editor-app-shell{height:calc(100vh - 150px);min-height:650px}}
+@media(max-width:640px){.pdf-editor-direct-root{border-radius:12px}.pdf-editor-direct-root .editor-app-shell{height:calc(100dvh - 130px);min-height:600px}.pdf-editor-direct-root .editor-main{grid-template-columns:92px minmax(0,1fr)!important}.pdf-editor-direct-root .editor-panel{display:none!important}.pdf-editor-direct-root .editor-header{gap:5px;padding:6px}.pdf-editor-direct-root .ed-btn{font-size:11px;padding:5px 7px}}
+
+.auth-spin-mark{width:48px;height:48px;margin:0 auto 12px;border-radius:16px;display:grid;place-items:center;color:#06251a;background:linear-gradient(145deg,#c7ffe9,#42dcae);box-shadow:0 8px 28px rgba(36,201,149,.24);transform:rotate(-8deg);animation:authBadgeSpin 4.5s ease-in-out infinite}.auth-spin-mark span{font-size:24px;animation:authSpin 5s linear infinite}@keyframes authBadgeSpin{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.07)}}
+
+.auth-form.auth-mode-enter .auth-spin-mark{animation:authModeSpin .72s cubic-bezier(.2,.8,.2,1) both;transform-style:preserve-3d}.auth-form.auth-mode-enter .auth-spin-mark span{animation:authSpin .72s linear both}@keyframes authModeSpin{0%{transform:rotateY(0) rotateZ(-10deg) scale(.82)}50%{transform:rotateY(180deg) rotateZ(10deg) scale(1.13)}100%{transform:rotateY(360deg) rotateZ(0) scale(1)}}

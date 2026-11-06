@@ -13,10 +13,9 @@
   let lastTool = '';
   let lastArmAt = 0;
   let redirectStarted = false;
-  let frameLoadBound = false;
+  let directToolStarted = false;
 
   const pageTool = document.body?.dataset?.tool || '';
-  const frame = $('[data-tool-frame]');
   const isVerified = () => !!(user && user.emailVerified);
 
   function setStatus(message) {
@@ -64,55 +63,53 @@
     warningTimer = null;
   }
 
-  function sendFrameAuthState() {
-    if (!frame || !frame.contentWindow) return;
+  function loadScriptOnce(src) {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector(`script[data-toolsbyss-loaded="${src}"]`);
+      if (existing) return resolve();
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.dataset.toolsbyssLoaded = src;
+      script.onload = resolve;
+      script.onerror = () => reject(new Error(`Could not load ${src}`));
+      document.body.appendChild(script);
+    });
+  }
+
+  async function startDirectTool() {
+    if (!pageTool || !isVerified() || directToolStarted) return;
+    const mount = $('[data-tool-mount]');
+    if (!mount) return;
+    directToolStarted = true;
     try {
-      frame.contentWindow.postMessage({
-        type: 'toolsbyss-auth-state',
-        verified: isVerified()
-      }, location.origin);
+      if (pageTool === 'pdf-editor') {
+        for (const placeholder of $$('script[data-late-src]', mount)) {
+          await loadScriptOnce(placeholder.dataset.lateSrc);
+          placeholder.remove();
+        }
+      } else {
+        await loadScriptOnce('/core/loader.js');
+      }
+      mount.dataset.toolLoaded = '1';
     } catch (error) {
-      console.warn('Could not update embedded tool session:', error);
+      console.error('ToolsBySS tool startup failed:', error);
+      const status = mount.querySelector('[data-sf-status]') || document.createElement('p');
+      status.textContent = 'टूल लोड नहीं हो पाया। पेज refresh करके दोबारा प्रयास करें।';
+      status.setAttribute('role', 'alert');
+      if (!status.parentNode) mount.appendChild(status);
+      directToolStarted = false;
     }
   }
 
   function syncToolAccess() {
     if (!pageTool) return;
-
     const lockedPanel = $('[data-tool-locked]');
     const readyPanel = $('[data-tool-ready]');
     const verified = isVerified();
-
     lockedPanel?.classList.toggle('hidden', verified);
     readyPanel?.classList.toggle('hidden', !verified);
-
-    if (!frame) return;
-
-    if (!verified) {
-      frame.classList.add('hidden');
-      if (frame.dataset.frameLoaded === '1') {
-        frame.removeAttribute('src');
-        delete frame.dataset.frameLoaded;
-      }
-      return;
-    }
-
-    frame.classList.remove('hidden');
-    if (frame.dataset.frameLoaded !== '1') {
-      const source = frame.dataset.src;
-      if (!source) {
-        setStatus('Tool could not be loaded: iframe source is missing.');
-        return;
-      }
-      if (!frameLoadBound) {
-        frame.addEventListener('load', sendFrameAuthState);
-        frameLoadBound = true;
-      }
-      frame.dataset.frameLoaded = '1';
-      frame.src = source;
-    } else {
-      sendFrameAuthState();
-    }
+    if (verified) startDirectTool();
   }
 
   function updateUserInterface() {
@@ -170,7 +167,7 @@
   function registerActivity() {
     if (!isVerified()) return;
     const now = Date.now();
-    // Iframe mousemove can fire frequently. Re-arm timers at most once per second.
+    // Re-arm idle timers at most once per second.
     if (now - lastArmAt >= 1000) armSessionTimers();
   }
 
@@ -207,6 +204,18 @@
     await sendAudit('TOOL_USED', { tool: slug });
   }
 
+
+  function showVerificationGuide(email) {
+    const guide = $('[data-verification-guide]');
+    if (!guide) return;
+    $('[data-login-form]')?.classList.add('hidden');
+    $('[data-signup-form]')?.classList.add('hidden');
+    $('[data-reset-form]')?.classList.add('hidden');
+    const target = $('[data-verification-email]', guide);
+    if (target) target.textContent = email || '';
+    guide.classList.remove('hidden');
+  }
+
   function setAuthFormMode(mode) {
     const login = $('[data-login-form]');
     const signup = $('[data-signup-form]');
@@ -214,6 +223,9 @@
     login?.classList.toggle('hidden', mode !== 'login');
     signup?.classList.toggle('hidden', mode !== 'signup');
     reset?.classList.toggle('hidden', mode !== 'reset');
+    const guide = $('[data-verification-guide]'); if (guide) guide.classList.add('hidden');
+    $$('[data-auth-mode-tab]').forEach(tab => { const active = tab.dataset.authModeTab === mode; tab.classList.toggle('is-active', active); tab.setAttribute('aria-pressed', String(active)); });
+    const shell = $('.auth-form'); if (shell) { shell.dataset.mode = mode; shell.classList.remove('auth-mode-enter'); void shell.offsetWidth; shell.classList.add('auth-mode-enter'); }
     setStatus('');
   }
 
@@ -257,7 +269,10 @@
           url: `${location.origin}/login/?verified=1`,
           handleCodeInApp: false
         });
-        setStatus('Verification link sent. Open your email, verify the address, then sign in.');
+        const email = signupForm.email.value.trim();
+        showVerificationGuide(email);
+        signupForm.classList.add('hidden');
+        setStatus('');
         await auth.signOut();
       } catch (error) {
         setStatus(error.message || 'Account creation failed. Please try again.');
@@ -327,7 +342,8 @@
 
     if (!user.emailVerified) {
       clearSessionTimers();
-      setStatus('Your email is not verified yet. Open the verification link in your email, then sign in again.');
+      showVerificationGuide(user.email || '');
+      setStatus('Your email is not verified yet. Check Inbox and Spam/Junk, then use the verification link.');
       return;
     }
 
@@ -386,23 +402,9 @@
     }
   }
 
-  function initFrameMessaging() {
-    window.addEventListener('message', event => {
-      if (event.origin !== location.origin || !frame || event.source !== frame.contentWindow) return;
-
-      if (event.data?.type === 'toolsbyss-activity') {
-        registerActivity();
-      } else if (event.data?.type === 'toolsbyss-embed-ready') {
-        sendFrameAuthState();
-      } else if (event.data?.type === 'toolsbyss-resize' && Number.isFinite(event.data.height)) {
-        frame.style.height = `${Math.max(220, Math.min(12000, event.data.height))}px`;
-      }
-    });
-  }
 
   function init() {
     initForms();
-    initFrameMessaging();
     initFirebase();
 
     ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'].forEach(eventName => {

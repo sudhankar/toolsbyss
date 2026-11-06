@@ -15,3 +15,10 @@ a.btn-primary,a.button-primary,a[class*=primary]{background:linear-gradient(135d
 button:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*=danger]):not([class*=delete]):not([data-variant=danger]){background:rgba(36,201,149,.14)!important;color:#e5fff5!important}
 button[class*=primary]:not(:disabled),button[class*=download]:not(:disabled),button[class*=generate]:not(:disabled),button[class*=process]:not(:disabled),button[class*=calculate]:not(:disabled),button[class*=export]:not(:disabled){background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important}
 a.btn:not(.btn-primary),a.button:not(.button-primary),a[class*=btn]:not([class*=primary]),a[class*=button]:not([class*=primary]){background:rgba(36,201,149,.14)!important;color:#e5fff5!important}
+
+/* Stronger direct-DOM overrides loaded after each tool's source stylesheet. */
+.sf-tool button:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*=danger]):not([class*=delete]),
+.sf-tool input[type=button]:not(:disabled),.sf-tool input[type=submit]:not(:disabled),.sf-tool .btn:not(.danger),.sf-tool .button:not(.danger),.sf-tool [role=button]:not([aria-disabled=true]){background:rgba(36,201,149,.16)!important;color:#e8fff6!important;border-color:rgba(113,243,196,.42)!important}
+.sf-tool button.primary:not(:disabled),.sf-tool button[class*=primary]:not(:disabled),.sf-tool button[class*=download]:not(:disabled),.sf-tool button[class*=generate]:not(:disabled),.sf-tool button[class*=process]:not(:disabled),.sf-tool button[class*=calculate]:not(:disabled),.sf-tool button[class*=export]:not(:disabled),.sf-tool input[type=submit]:not(:disabled),.sf-tool .btn-primary,.sf-tool .button-primary{background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important;border-color:transparent!important}
+.sf-tool .sf-new-card .sf-file-drop,.sf-tool [class*=drop-zone],.sf-tool [class*=upload-zone]{border-color:rgba(113,243,196,.48)!important}
+.sf-tool input:focus,.sf-tool select:focus,.sf-tool textarea:focus{border-color:#71f3c4!important;box-shadow:0 0 0 3px rgba(113,243,196,.12)!important;outline:none!important}

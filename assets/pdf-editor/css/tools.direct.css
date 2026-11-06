@@ -1,0 +1,505 @@
+/* =====================================================================
+   DSPDF — Tool-specific styles
+   ===================================================================== */
+
+
+
+.pdf-editor-direct-root .tool-panel{
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+
+@media (max-width: 640px) {
+  
+.pdf-editor-direct-root .tool-panel{ padding: var(--space-4); }
+
+}
+
+
+
+.pdf-editor-direct-root .privacy-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-4);
+}
+
+
+
+.pdf-editor-direct-root .tool-toolbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+
+
+.pdf-editor-direct-root .toolbar-actions{
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+
+
+.pdf-editor-direct-root .tool-actions{
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+
+@media (max-width: 640px) {
+  
+.pdf-editor-direct-root .tool-actions{
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent, var(--bg-card) 30%);
+    padding: var(--space-4) 0 var(--space-2);
+    margin: 0 calc(-1 * var(--space-4));
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    justify-content: stretch;
+  }
+
+  
+.pdf-editor-direct-root .tool-actions .btn{ flex: 1; }
+
+}
+
+
+
+.pdf-editor-direct-root .drag-handle{
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 1rem;
+  letter-spacing: -2px;
+  user-select: none;
+  padding: 0 4px;
+}
+
+
+.pdf-editor-direct-root .file-list__item[draggable="true"]:hover{ border-color: var(--accent); }
+
+
+
+.pdf-editor-direct-root .how-to{
+  padding-left: 1.4em;
+  color: var(--text-secondary);
+}
+
+
+.pdf-editor-direct-root .how-to li{ margin-bottom: var(--space-2); }
+
+
+
+/* Option groups (used across many tools) */
+
+
+.pdf-editor-direct-root .opt-group{
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+
+.pdf-editor-direct-root .opt-row{
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+
+.pdf-editor-direct-root .opt-row label{
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  min-width: 90px;
+}
+
+
+.pdf-editor-direct-root .opt-row input[type="text"], .pdf-editor-direct-root .opt-row input[type="number"], .pdf-editor-direct-root .opt-row select{
+  padding: 8px 12px;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  min-height: 40px;
+  flex: 1;
+  min-width: 0;
+}
+
+
+.pdf-editor-direct-root .opt-row input:focus, .pdf-editor-direct-root .opt-row select:focus{ outline: 2px solid var(--accent); outline-offset: 1px; }
+
+
+
+/* Thumbnail grid (delete/extract/rotate pages) */
+
+
+.pdf-editor-direct-root .thumb-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--space-3);
+}
+
+
+.pdf-editor-direct-root .thumb{
+  position: relative;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-dark);
+  cursor: pointer;
+  transition: border-color var(--transition), transform var(--transition);
+  aspect-ratio: 3 / 4;
+  display: flex; align-items: center; justify-content: center;
+}
+
+
+.pdf-editor-direct-root .thumb:hover{ border-color: var(--accent); }
+
+
+.pdf-editor-direct-root .thumb.is-selected{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+
+.pdf-editor-direct-root .thumb img, .pdf-editor-direct-root .thumb canvas{
+  width: 100%; height: 100%; object-fit: contain;
+}
+
+
+.pdf-editor-direct-root .thumb__label{
+  position: absolute;
+  bottom: 4px; left: 4px;
+  padding: 2px 6px;
+  background: rgba(10, 25, 41, 0.85);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  border-radius: 4px;
+}
+
+
+.pdf-editor-direct-root .thumb__badge{
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.75rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+
+
+
+/* Preview two-up (before/after) */
+
+
+.pdf-editor-direct-root .preview-pair{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+
+.pdf-editor-direct-root .preview-pair > div{ text-align: center; }
+
+
+.pdf-editor-direct-root .preview-pair img, .pdf-editor-direct-root .preview-pair canvas{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  max-width: 100%;
+  background: #fff;
+}
+
+
+.pdf-editor-direct-root .preview-pair h4{ font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-2); letter-spacing: 0.08em; }
+
+
+@media (max-width: 520px) {
+  
+.pdf-editor-direct-root .preview-pair{ grid-template-columns: 1fr; }
+
+}
+
+
+
+/* Skeleton / loading */
+
+
+.pdf-editor-direct-root .skeleton{
+  background: linear-gradient(90deg, var(--bg-elevated) 0%, var(--bg-card) 50%, var(--bg-elevated) 100%);
+  background-size: 200% 100%;
+  animation: sk 1.2s infinite;
+  border-radius: var(--radius-sm);
+}
+
+
+@keyframes sk { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+
+/* v4: PDF previews use the available tool-panel width instead of intrinsic half-size canvas. */
+
+
+.pdf-editor-direct-root .tool-preview{width:100%;max-width:100%;overflow:auto;min-width:0;}
+
+
+.pdf-editor-direct-root .tool-preview canvas{display:block;width:100%;height:auto;max-width:100%;margin:0 auto;background:#fff;image-rendering:auto;}
+
+
+.pdf-editor-direct-root .preview-pdf-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin-top:16px;}
+
+
+.pdf-editor-direct-root .preview-pdf-item{background:var(--bg-dark);border:1px solid var(--border);border-radius:8px;padding:8px;text-align:center;}
+
+
+.pdf-editor-direct-root .preview-pdf-item canvas{width:100%;height:auto;background:#fff;display:block;}
+
+
+.pdf-editor-direct-root .preview-pdf-item small{display:block;margin-top:6px;color:var(--text-muted);}
+
+
+/* v4: make standalone PDF preview canvases use the full available panel width. */
+
+
+.pdf-editor-direct-root #crop-preview, .pdf-editor-direct-root #text-preview, .pdf-editor-direct-root #red-canvas, .pdf-editor-direct-root #hl-canvas, .pdf-editor-direct-root #sign-page-canvas{width:100%;max-width:100%;height:auto;}
+
+
+
+/* Smooth touch drawing + explicit page selection */
+
+
+.pdf-editor-direct-root #hl-canvas, .pdf-editor-direct-root #red-canvas, .pdf-editor-direct-root #enh-preview{touch-action:none;user-select:none;-webkit-user-select:none;}
+
+
+.pdf-editor-direct-root .rotate-check-wrap{position:absolute;right:6px;top:6px;z-index:5;display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 1px 4px rgba(0,0,0,.2);cursor:pointer;}
+
+
+.pdf-editor-direct-root .rotate-check-wrap input{position:absolute;opacity:0;pointer-events:none;}
+
+
+.pdf-editor-direct-root .rotate-check-wrap span{display:none;font-weight:800;color:#2563eb;font-size:18px;line-height:1;}
+
+
+.pdf-editor-direct-root .thumb.is-selected .rotate-check-wrap{background:#dbeafe;}
+
+
+.pdf-editor-direct-root .thumb.is-selected .rotate-check-wrap span{display:block;}
+
+
+
+/* Mobile PDF preview: keep the complete page visible and scrollable without clipping */
+
+
+@media (max-width: 900px), (pointer:coarse){
+  
+.pdf-editor-direct-root #an-canvas-wrap{width:100%;max-width:100%;overflow:auto!important;-webkit-overflow-scrolling:touch;}
+
+  
+.pdf-editor-direct-root #an-canvas{display:block;width:100%!important;height:auto!important;max-width:none;}
+
+  
+.pdf-editor-direct-root #an-drag-layer, .pdf-editor-direct-root #an-draw-preview{max-width:100%;}
+
+  
+.pdf-editor-direct-root #hl-stage>div, .pdf-editor-direct-root #red-toolbar>div[style*="overflow:auto"]{max-height:65vh;overflow:auto;-webkit-overflow-scrolling:touch;}
+
+}
+
+
+
+
+/* v14 touch drawing stability: drawing canvases should receive the full pointer gesture. */
+
+
+.pdf-editor-direct-root #hl-canvas, .pdf-editor-direct-root #red-canvas, .pdf-editor-direct-root #enh-preview, .pdf-editor-direct-root #an-canvas, .pdf-editor-direct-root #an-preview, .pdf-editor-direct-root #sign-canvas, .pdf-editor-direct-root .pdf-draw-canvas{touch-action:none;overscroll-behavior:contain;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;}
+
+
+
+.pdf-editor-direct-root .tools-intro-copy{max-width:860px}
+.pdf-editor-direct-root .tools-intro-copy p{max-width:78ch;line-height:1.7;color:var(--text-muted)}
+
+
+
+/* Page Reorder: desktop drag + mobile-safe selection/move controls */
+
+
+.pdf-editor-direct-root .reorder-thumb{padding:0;width:100%;font:inherit;color:inherit;appearance:none;text-align:left;cursor:grab;touch-action:manipulation;}
+
+
+.pdf-editor-direct-root .reorder-thumb.is-selected{outline:3px solid var(--accent);outline-offset:2px;}
+
+
+.pdf-editor-direct-root .reorder-thumb.is-dragging{opacity:.55;cursor:grabbing;}
+
+
+.pdf-editor-direct-root .reorder-thumb.is-drop-target{border-color:var(--accent);transform:scale(1.02);}
+
+
+.pdf-editor-direct-root .reorder-drag-hint{position:absolute;top:6px;left:6px;z-index:4;padding:2px 6px;border-radius:5px;background:rgba(10,25,41,.8);color:#fff;font-weight:800;letter-spacing:1px;}
+
+
+.pdf-editor-direct-root .reorder-position{position:absolute;right:6px;bottom:6px;z-index:4;min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-size:.75rem;font-weight:800;}
+
+
+.pdf-editor-direct-root .reorder-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+
+
+@media(max-width:600px){.pdf-editor-direct-root .reorder-controls .btn{flex:1 1 42%;min-height:46px}
+.pdf-editor-direct-root .reorder-drag-hint{display:none}
+.pdf-editor-direct-root .reorder-thumb{cursor:pointer}
+.pdf-editor-direct-root .reorder-controls{position:sticky;bottom:8px;z-index:8;background:var(--bg-card);padding:10px;border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.2)}}
+
+
+
+/* Insert Blank Page preview */
+
+
+.pdf-editor-direct-root .blank-preview-item{position:relative;cursor:pointer;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;background:var(--bg-dark);}
+
+
+.pdf-editor-direct-root .blank-preview-item:hover{transform:translateY(-2px);}
+
+
+.pdf-editor-direct-root .blank-preview-item.is-insert-target{border:2px solid var(--primary);box-shadow:0 0 0 2px color-mix(in srgb,var(--primary) 18%,transparent);}
+
+
+.pdf-editor-direct-root .blank-insert-badge{display:block;margin:-2px -2px 6px;padding:4px 6px;border-radius:6px;background:var(--primary);color:#fff;font-size:.72rem;font-weight:700;}
+
+
+.pdf-editor-direct-root .blank-preview-after{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+
+
+.pdf-editor-direct-root .blank-page-placeholder{font-size:2rem;line-height:1;}
+
+
+@media (max-width:600px){.pdf-editor-direct-root .preview-pdf-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.pdf-editor-direct-root .blank-preview-item{padding:6px}
+.pdf-editor-direct-root .blank-insert-badge{font-size:.65rem}}
+
+
+
+.pdf-editor-direct-root .maker-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pdf-editor-direct-root .maker-block{border:1px solid var(--border);border-radius:12px;padding:12px;margin-top:12px}
+.pdf-editor-direct-root .maker-block input, .pdf-editor-direct-root .maker-block textarea{width:100%;margin:5px 0}
+.pdf-editor-direct-root .maker-grid table{width:100%;border-collapse:collapse}
+.pdf-editor-direct-root .maker-grid th, .pdf-editor-direct-root .maker-grid td{border:1px solid #ddd;padding:8px;text-align:left}
+@media(max-width:800px){.pdf-editor-direct-root .maker-grid{grid-template-columns:1fr}}
+@media print{.pdf-editor-direct-root .navbar, .pdf-editor-direct-root .footer, .pdf-editor-direct-root .tool-panel:first-child{display:none!important}}
+
+
+
+/* v59 polished utility controls */
+
+
+.pdf-editor-direct-root .fin-shell{max-width:1040px;margin:0 auto}
+.pdf-editor-direct-root .fin-card{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:18px;box-shadow:var(--shadow-md);padding:24px}
+.pdf-editor-direct-root .fin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.pdf-editor-direct-root .fin-field{background:var(--bg-elevated);border:1px solid var(--border-soft);border-radius:14px;padding:14px}
+.pdf-editor-direct-root .fin-field label{display:block;font-weight:700;margin-bottom:8px}
+.pdf-editor-direct-root .fin-input{width:100%;box-sizing:border-box;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text-primary);padding:12px 13px;font-size:1rem}
+.pdf-editor-direct-root .fin-input:focus{outline:3px solid var(--accent-soft);border-color:var(--accent)}
+.pdf-editor-direct-root .fin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.pdf-editor-direct-root .fin-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.pdf-editor-direct-root .fin-result{padding:16px;border:1px solid var(--border-soft);border-radius:14px;background:var(--bg-elevated)}
+.pdf-editor-direct-root .fin-result span{display:block;color:var(--text-muted);font-size:.9rem;margin-bottom:5px}
+.pdf-editor-direct-root .fin-result strong{font-size:1.25rem}
+.pdf-editor-direct-root .fin-note{padding:14px 16px;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:10px}
+.pdf-editor-direct-root .fin-formula{padding:14px 16px;border:1px dashed var(--border);border-radius:12px;font-family:var(--font-mono);overflow:auto}
+.pdf-editor-direct-root .maker-shell{max-width:1180px;margin:0 auto}
+.pdf-editor-direct-root .maker-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pdf-editor-direct-root .maker-form .full{grid-column:1/-1}
+.pdf-editor-direct-root .maker-form label{display:block;font-weight:700;margin-bottom:6px}
+.pdf-editor-direct-root .maker-form input, .pdf-editor-direct-root .maker-form textarea, .pdf-editor-direct-root .maker-form select{width:100%;box-sizing:border-box;border:1px solid var(--border);border-radius:10px;padding:11px;background:var(--bg-card);color:var(--text-primary)}
+.pdf-editor-direct-root .maker-preview{background:#fff!important;color:#111!important;border:1px solid #ddd!important;border-radius:12px;padding:32px;min-height:800px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.pdf-editor-direct-root .maker-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pdf-editor-direct-root .photo-picker{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.pdf-editor-direct-root .photo-picker img{width:100px;height:120px;object-fit:cover;border:1px solid #ddd;border-radius:8px}
+.pdf-editor-direct-root .dynamic-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px}
+.pdf-editor-direct-root .biodata-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.pdf-editor-direct-root .biodata-head img{width:120px;height:150px;object-fit:cover;border:1px solid #ddd;border-radius:8px}
+.pdf-editor-direct-root .biodata-table{width:100%;border-collapse:collapse;margin-top:18px}
+.pdf-editor-direct-root .biodata-table th, .pdf-editor-direct-root .biodata-table td{border:1px solid #ddd;padding:9px;vertical-align:top}
+.pdf-editor-direct-root .biodata-table th{width:30%;background:#f7f7f7;text-align:left}
+.pdf-editor-direct-root .converter-shell{max-width:1050px;margin:0 auto}
+.pdf-editor-direct-root .converter-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pdf-editor-direct-root .converter-pane{background:var(--bg-elevated);border:1px solid var(--border-soft);border-radius:16px;padding:16px}
+.pdf-editor-direct-root .converter-pane textarea{width:100%;min-height:320px;box-sizing:border-box;border:1px solid var(--border);border-radius:12px;padding:14px;font-size:1rem;line-height:1.7;resize:vertical;background:var(--bg-card);color:var(--text-primary)}
+.pdf-editor-direct-root .converter-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pdf-editor-direct-root .wm-shell{max-width:1080px;margin:0 auto}
+.pdf-editor-direct-root .wm-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:20px}
+.pdf-editor-direct-root .wm-preview{padding:14px;border:1px solid var(--border-soft);border-radius:14px;background:var(--bg-elevated);overflow:auto}
+.pdf-editor-direct-root .wm-preview canvas{display:block;max-width:100%;height:auto;margin:auto}
+.pdf-editor-direct-root .wm-nudge{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.pdf-editor-direct-root .article-body{max-width:760px;margin:0 auto}
+.pdf-editor-direct-root .article-body h2{margin-top:2.2rem}
+.pdf-editor-direct-root .article-body p, .pdf-editor-direct-root .article-body li{font-size:1.05rem;line-height:1.78}
+@media(max-width:800px){.pdf-editor-direct-root .maker-form{grid-template-columns:1fr}
+.pdf-editor-direct-root .maker-form .full{grid-column:auto}
+.pdf-editor-direct-root .maker-preview{padding:18px}
+.pdf-editor-direct-root .biodata-head{flex-direction:column}
+.pdf-editor-direct-root .wm-grid{grid-template-columns:1fr}}
+@media(max-width:720px){.pdf-editor-direct-root .fin-grid, .pdf-editor-direct-root .fin-results{grid-template-columns:1fr}
+.pdf-editor-direct-root .fin-card{padding:16px}
+.pdf-editor-direct-root .converter-grid{grid-template-columns:1fr}
+.pdf-editor-direct-root .converter-pane textarea{min-height:240px}}
+@media print{.pdf-editor-direct-root{background:#fff!important}
+.pdf-editor-direct-root .navbar, .pdf-editor-direct-root .footer, .pdf-editor-direct-root .skip-link, .pdf-editor-direct-root .maker-form, .pdf-editor-direct-root .maker-actions, .pdf-editor-direct-root .maker-tools, .pdf-editor-direct-root .section> .container>nav, .pdf-editor-direct-root .section> .container>h1, .pdf-editor-direct-root .section> .container>.lead, .pdf-editor-direct-root .section> .container>section:not(.print-area){display:none!important}
+.pdf-editor-direct-root main, .pdf-editor-direct-root .section, .pdf-editor-direct-root .section>.container{padding:0!important;margin:0!important;max-width:none!important;width:100%!important}
+.pdf-editor-direct-root .maker-grid{display:block!important}
+.pdf-editor-direct-root .maker-preview{display:block!important;box-shadow:none!important;border:0!important;border-radius:0!important;min-height:0!important;width:100%!important;padding:12mm!important}
+.pdf-editor-direct-root .maker-preview *{color:#111!important}}
+
+
+
+
+/* v62: all explanatory content inside tool pages follows the same readable container rhythm. */
+
+
+.pdf-editor-direct-root main.section > .container > section.mt-6, .pdf-editor-direct-root main.section > .container > .mt-6{ max-width: 100%; margin-left: auto; margin-right: auto; }
+
+
+.pdf-editor-direct-root main.section > section.mt-6{ width: min(1180px, calc(100% - 40px)); margin-left: auto; margin-right: auto; }
+
+
+.pdf-editor-direct-root main.section > section.mt-6 > .related-grid, .pdf-editor-direct-root main.section > section.mt-6 > .tool-card{ box-sizing: border-box; }
+
+
+
+.pdf-editor-direct-root .grammar-list{display:grid;gap:12px}
+.pdf-editor-direct-root .grammar-item{padding:14px 16px;border:1px solid var(--border-soft);border-radius:12px;background:var(--bg-elevated)}
+.pdf-editor-direct-root .grammar-item p{margin:.45rem 0 0;color:var(--text-muted)}
+
+
+
+/* v90: keep the native textarea text and caret visible; the overlay only paints error backgrounds. */
+
+
+.pdf-editor-direct-root .grammar-editor textarea{color:var(--text)!important;-webkit-text-fill-color:var(--text)!important;text-shadow:none!important;caret-color:var(--text)!important;background:transparent!important}
+
+
+.pdf-editor-direct-root .grammar-highlight{color:transparent!important;background:transparent!important}
+
+
+.pdf-editor-direct-root .grammar-overlay-text{color:transparent!important;-webkit-text-fill-color:transparent!important}
+
+
+.pdf-editor-direct-root .grammar-mark{color:transparent!important;-webkit-text-fill-color:transparent!important}
+
