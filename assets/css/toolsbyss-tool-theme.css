@@ -1,20 +1,20 @@
 
 /* ToolsBySS shared embedded-tool theme. Changes colours only; existing component dimensions/layout stay intact. */
 :root{--tbs-mint:#71f3c4;--tbs-mint-2:#24c995;--tbs-ink:#06251a;--tbs-border:rgba(113,243,196,.34);--tbs-glass:rgba(13,38,52,.94)}
-/* Keep this dynamically loaded palette inside the tool mount only. */
-.sf-tool button:not(:disabled),.sf-tool input[type=button]:not(:disabled),.sf-tool input[type=submit]:not(:disabled),.sf-tool input[type=reset]:not(:disabled),.sf-tool [role=button]{border-color:var(--tbs-border)!important;transition:filter .2s ease,box-shadow .2s ease,border-color .2s ease!important}
-.sf-tool button:not(:disabled):hover,.sf-tool input[type=button]:not(:disabled):hover,.sf-tool input[type=submit]:not(:disabled):hover,.sf-tool input[type=reset]:not(:disabled):hover,.sf-tool [role=button]:hover{filter:brightness(1.08);box-shadow:0 0 0 2px rgba(113,243,196,.12),0 8px 22px rgba(0,0,0,.18)!important}
-.sf-tool button:focus-visible,.sf-tool input:focus-visible,.sf-tool select:focus-visible,.sf-tool textarea:focus-visible,.sf-tool [role=button]:focus-visible{outline:2px solid var(--tbs-mint)!important;outline-offset:2px!important}
-.sf-tool button:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*=danger]):not([class*=delete]):not([data-variant=danger]),.sf-tool input[type=button]:not(:disabled),.sf-tool input[type=submit]:not(:disabled),.sf-tool input[type=reset]:not(:disabled),.sf-tool .btn:not(.danger),.sf-tool .button:not(.danger),.sf-tool [class*=btn-]:not([class*=danger]){background-color:rgba(36,201,149,.14)!important;color:#dffcf2!important}
-.sf-tool button.primary:not(:disabled),.sf-tool button[class*=primary]:not(:disabled),.sf-tool button[class*=download]:not(:disabled),.sf-tool button[class*=generate]:not(:disabled),.sf-tool button[class*=process]:not(:disabled),.sf-tool button[class*=calculate]:not(:disabled),.sf-tool button[class*=export]:not(:disabled),.sf-tool input[type=submit]:not(:disabled),.sf-tool .btn-primary,.sf-tool .button-primary{background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important;border-color:transparent!important;box-shadow:0 8px 22px rgba(36,201,149,.2)!important;font-weight:800!important}
-.sf-tool button:disabled,.sf-tool input:disabled{filter:saturate(.35);opacity:.56}
-.sf-tool input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=color]),.sf-tool select,.sf-tool textarea{accent-color:var(--tbs-mint)}
-.sf-tool input[type=checkbox],.sf-tool input[type=radio],.sf-tool input[type=range],.sf-tool input[type=color]{accent-color:var(--tbs-mint)}
-.sf-tool a.btn,.sf-tool a.button,.sf-tool a[class*=btn],.sf-tool a[class*=button]{border-color:var(--tbs-border)!important;color:#e8fff6!important}
-.sf-tool a.btn-primary,.sf-tool a.button-primary,.sf-tool a[class*=primary]{background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important;border-color:transparent!important}
-.sf-tool button:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*=danger]):not([class*=delete]):not([data-variant=danger]){background:rgba(36,201,149,.14)!important;color:#e5fff5!important}
-.sf-tool button[class*=primary]:not(:disabled),.sf-tool button[class*=download]:not(:disabled),.sf-tool button[class*=generate]:not(:disabled),.sf-tool button[class*=process]:not(:disabled),.sf-tool button[class*=calculate]:not(:disabled),.sf-tool button[class*=export]:not(:disabled){background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important}
-.sf-tool a.btn:not(.btn-primary),.sf-tool a.button:not(.button-primary),.sf-tool a[class*=btn]:not([class*=primary]),.sf-tool a[class*=button]:not([class*=primary]){background:rgba(36,201,149,.14)!important;color:#e5fff5!important}
+button:not(:disabled),input[type=button]:not(:disabled),input[type=submit]:not(:disabled),input[type=reset]:not(:disabled),[role=button]{border-color:var(--tbs-border)!important;transition:filter .2s ease,box-shadow .2s ease,border-color .2s ease!important}
+button:not(:disabled):hover,input[type=button]:not(:disabled):hover,input[type=submit]:not(:disabled):hover,input[type=reset]:not(:disabled):hover,[role=button]:hover{filter:brightness(1.08);box-shadow:0 0 0 2px rgba(113,243,196,.12),0 8px 22px rgba(0,0,0,.18)!important}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[role=button]:focus-visible{outline:2px solid var(--tbs-mint)!important;outline-offset:2px!important}
+button:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*=danger]):not([class*=delete]):not([data-variant=danger]),input[type=button]:not(:disabled),input[type=submit]:not(:disabled),input[type=reset]:not(:disabled),.btn:not(.danger),.button:not(.danger),[class*=btn-]:not([class*=danger]){background-color:rgba(36,201,149,.14)!important;color:#dffcf2!important}
+button.primary:not(:disabled),button[class*=primary]:not(:disabled),button[class*=download]:not(:disabled),button[class*=generate]:not(:disabled),button[class*=process]:not(:disabled),button[class*=calculate]:not(:disabled),button[class*=export]:not(:disabled),input[type=submit]:not(:disabled),.btn-primary,.button-primary{background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important;border-color:transparent!important;box-shadow:0 8px 22px rgba(36,201,149,.2)!important;font-weight:800!important}
+button:disabled,input:disabled{filter:saturate(.35);opacity:.56}
+input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=color]),select,textarea{accent-color:var(--tbs-mint)}
+input[type=checkbox],input[type=radio],input[type=range],input[type=color]{accent-color:var(--tbs-mint)}
+
+a.btn,a.button,a[class*=btn],a[class*=button]{border-color:var(--tbs-border)!important;color:#e8fff6!important}
+a.btn-primary,a.button-primary,a[class*=primary]{background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important;border-color:transparent!important}
+button:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*=danger]):not([class*=delete]):not([data-variant=danger]){background:rgba(36,201,149,.14)!important;color:#e5fff5!important}
+button[class*=primary]:not(:disabled),button[class*=download]:not(:disabled),button[class*=generate]:not(:disabled),button[class*=process]:not(:disabled),button[class*=calculate]:not(:disabled),button[class*=export]:not(:disabled){background:linear-gradient(135deg,#b8ffe5,#47dcae)!important;color:#06251a!important}
+a.btn:not(.btn-primary),a.button:not(.button-primary),a[class*=btn]:not([class*=primary]),a[class*=button]:not([class*=primary]){background:rgba(36,201,149,.14)!important;color:#e5fff5!important}
 
 /* Stronger direct-DOM overrides loaded after each tool's source stylesheet. */
 .sf-tool button:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*=danger]):not([class*=delete]),
@@ -378,151 +378,119 @@
   }
 }
 
-/* ToolsBySS unified non-financial tool palette — 2026-11-06
-   Finance Tools are the visual reference. This block changes colors only:
-   no layout, sizing, spacing, positioning, DOM hooks, or tool logic. */
+/* -------------------------------------------------------------------------
+   ToolsBySS clarity + author identity pass — 2026-11-06
+   These additions are deliberately scoped to tool pages/components.
+   They do not alter calculation or document-processing logic.
+   ------------------------------------------------------------------------- */
 
-/* Main work cards use the same deep teal surface as the Financial Tools page. */
-.sf-tool:not(.sf-finance-tool) :is(
-  .sfmini-card,.sf-new-card,.sftj-card,.sfpr-card,.sfpe-card,.sfd-card,
-  .sf-dd-panel,.sf-qr-panel,.sf-upi-panel,.sfmeta-card,.sfpc-card,.sfps-card,
-  .sfpn-card,.sfpw-card,.sfro-card,.sf-ac-panel,.sf-cm-panel,.sf-jdh-panel,
-  .sf-bf-shell,.sf-bm-shell,.sf-mb-shell,.sfcrop-card,
-  .tool-panel
-){
-  background:linear-gradient(145deg,#102f39 0%,#0b2631 100%)!important;
-  color:#f3fff9!important;
-  border-color:rgba(113,243,196,.34)!important;
-  box-shadow:0 12px 30px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.035)!important;
+/* The page hero already supplies each tool's title and description. Hide the
+   repeated title/description at the top of the embedded tool itself. Keep any
+   useful privacy badge that follows the intro. */
+.sf-tool > :first-child:has(> h2:first-child + p:last-child){display:none!important;}
+.sf-tool > :first-child > h2:first-child,
+.sf-tool > :first-child > p:first-of-type{display:none!important;}
+
+/* A centered, animated maker credit on every page that is explicitly marked
+   as a tool page. The site header/logo and its existing footer credit remain. */
+body[data-tool] main.wrap::before{
+  content:"BRAIN BEHIND THE CODE :: SUDHAKAR";
+  display:table;
+  width:max-content;
+  max-width:100%;
+  margin:20px auto 18px;
+  padding:9px 17px;
+  border:1px solid rgba(113,243,196,.48);
+  border-radius:999px;
+  background:linear-gradient(110deg,rgba(9,61,49,.96),rgba(8,34,48,.96) 52%,rgba(16,69,59,.96));
+  color:#c7ffe9;
+  background-size:220% 100%;
+  background-position:0% 50%;
+  font-family:Manrope,'DM Sans',system-ui,sans-serif;
+  font-size:clamp(.62rem,1.25vw,.88rem);
+  font-weight:900;
+  line-height:1.35;
+  letter-spacing:clamp(.045em,.22vw,.13em);
+  text-align:center;
+  text-shadow:0 0 12px rgba(113,243,196,.34);
+  box-shadow:0 0 22px rgba(36,201,149,.12),inset 0 1px rgba(255,255,255,.10);
+  animation:tbs-maker-sheen 6s ease-in-out infinite,tbs-maker-glow 4s ease-in-out infinite;
 }
+@keyframes tbs-maker-sheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes tbs-maker-glow{0%,100%{border-color:rgba(113,243,196,.38);box-shadow:0 0 16px rgba(36,201,149,.10),inset 0 1px rgba(255,255,255,.08)}50%{border-color:rgba(184,255,229,.82);box-shadow:0 0 28px rgba(36,201,149,.24),inset 0 1px rgba(255,255,255,.16)}}
+@media(max-width:480px){
+  body[data-tool] main.wrap::before{margin:14px auto 14px;padding:8px 12px;font-size:clamp(.58rem,2.55vw,.72rem);letter-spacing:.045em;}
+}
+@media(prefers-reduced-motion:reduce){body[data-tool] main.wrap::before{animation:none!important;}}
 
-/* Titles, labels and supporting copy on the dark work surfaces. */
-.sf-tool:not(.sf-finance-tool) :is(
-  .sfmini-card,.sf-new-card,.sftj-card,.sfpr-card,.sfpe-card,.sfd-card,
-  .sf-dd-panel,.sf-qr-panel,.sf-upi-panel,.sfmeta-card,.sfpc-card,.sfps-card,
-  .sfpn-card,.sfpw-card,.sfro-card,.sf-ac-panel,.sf-cm-panel,.sf-jdh-panel,
-  .sf-bf-shell,.sf-bm-shell,.sf-mb-shell,.sfcrop-card,.tool-panel
-) :is(h1,h2,h3,h4,h5,h6,p,label,legend,strong,b,small,span,li,em){
-  color:#f3fff9!important;
-  -webkit-text-fill-color:#f3fff9!important;
+/* DA arrears: restore dark ink on the intentionally pale calculator/report
+   surfaces that were being overridden by the shared white-on-dark tool rule. */
+.sf-tool.sf-da-arrears-calculator .da-settings,
+.sf-tool.sf-da-arrears-calculator .da-rate-note,
+.sf-tool.sf-da-arrears-calculator .table-wrap,
+.sf-tool.sf-da-arrears-calculator .da-table,
+.sf-tool.sf-da-arrears-calculator .summary-box,
+.sf-tool.sf-da-arrears-calculator .summary-grid,
+.sf-tool.sf-da-arrears-calculator .da-disclaimer,
+.sf-tool.sf-da-arrears-calculator .da-monthly-toggle,
+.sf-tool.sf-da-arrears-calculator .monthly-rate-settings,
+.sf-tool.sf-da-arrears-calculator .statement-toolbar,
+.sf-tool.sf-da-arrears-calculator .calc-status{
+  color:#19372d!important;
+  -webkit-text-fill-color:#19372d!important;
   text-shadow:none!important;
 }
-.sf-tool:not(.sf-finance-tool) :is(.sfmini-card,.sf-new-card,.sftj-card,.sfpr-card,.sfpe-card,.sfd-card,
-  .sf-dd-panel,.sf-qr-panel,.sf-upi-panel,.sfmeta-card,.sfpc-card,.sfps-card,.sfpn-card,.sfpw-card,
-  .sfro-card,.sf-ac-panel,.sf-cm-panel,.sf-jdh-panel,.sf-bf-shell,.sf-bm-shell,.sf-mb-shell,.sfcrop-card,.tool-panel)
- :is(p,small,.hint,.description,.field-hint,.help-text){
-  color:#bfd7cf!important;-webkit-text-fill-color:#bfd7cf!important;
+.sf-tool.sf-da-arrears-calculator .da-settings :is(label,span,strong,small,p),
+.sf-tool.sf-da-arrears-calculator .da-monthly-toggle :is(label,strong,span),
+.sf-tool.sf-da-arrears-calculator .monthly-rate-settings :is(label,span,strong,small,p),
+.sf-tool.sf-da-arrears-calculator .da-rate-note :is(span,strong),
+.sf-tool.sf-da-arrears-calculator .da-table :is(th,td),
+.sf-tool.sf-da-arrears-calculator .summary-box :is(div,span,strong,small,p),
+.sf-tool.sf-da-arrears-calculator .da-disclaimer :is(strong,span,p){
+  color:#19372d!important;
+  -webkit-text-fill-color:#19372d!important;
+  text-shadow:none!important;
 }
+.sf-tool.sf-da-arrears-calculator .da-table th{background:#edf7f2!important;}
+.sf-tool.sf-da-arrears-calculator .da-table td{background:#fff!important;}
+.sf-tool.sf-da-arrears-calculator .da-table tfoot td{background:#edf7f2!important;}
+.sf-tool.sf-da-arrears-calculator .summary-box{background:#f4fbf7!important;border-color:#c7e4d6!important;}
+.sf-tool.sf-da-arrears-calculator .summary-grid>div{background:#fff!important;border-color:#d5e8df!important;}
+.sf-tool.sf-da-arrears-calculator .da-rate-note{background:#fff!important;}
 
-/* Upload zones become dark green-tinted surfaces with a mint boundary. */
-.sf-tool:not(.sf-finance-tool) :is(.sf-file-drop,.sf-img-drop,.sf-adv-drop,.sf-photo-name-drop,.sf-pdf-merge__dropzone){
-  background:linear-gradient(135deg,rgba(36,201,149,.16),rgba(13,54,55,.78))!important;
-  color:#f3fff9!important;
-  border-color:rgba(113,243,196,.68)!important;
+/* GPF: labels, rate controls, the generated statement and its summary are
+   light-surface components, so they must use dark text. */
+.sf-tool.sf-gpf-calculator .gpf-settings,
+.sf-tool.sf-gpf-calculator .gpf-rate-panel,
+.sf-tool.sf-gpf-calculator .gpf-note,
+.sf-tool.sf-gpf-calculator .gpf-table-wrap,
+.sf-tool.sf-gpf-calculator .gpf-table,
+.sf-tool.sf-gpf-calculator .gpf-summary,
+.sf-tool.sf-gpf-calculator .statement-toolbar,
+.sf-tool.sf-gpf-calculator .calc-status{
+  color:#19372d!important;
+  -webkit-text-fill-color:#19372d!important;
+  text-shadow:none!important;
 }
-.sf-tool:not(.sf-finance-tool) :is(.sf-file-drop,.sf-img-drop,.sf-adv-drop,.sf-photo-name-drop,.sf-pdf-merge__dropzone)
- :is(strong,span,p,label){color:#edfff6!important;-webkit-text-fill-color:#edfff6!important;}
-
-/* Image/advanced controls follow the same dark panel + white field pattern. */
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-controls,.sf-adv-controls,.sf-adv-actions,.sf-img-actions){
-  color:#f3fff9!important;
-  border-color:rgba(113,243,196,.25)!important;
+.sf-tool.sf-gpf-calculator .gpf-settings :is(label,span,strong,small,p),
+.sf-tool.sf-gpf-calculator .gpf-rate-panel :is(label,span,strong,small,p,h3,h4),
+.sf-tool.sf-gpf-calculator .gpf-note :is(span,strong,small,p),
+.sf-tool.sf-gpf-calculator .gpf-table :is(th,td),
+.sf-tool.sf-gpf-calculator .gpf-summary :is(div,span,strong,small,p){
+  color:#19372d!important;
+  -webkit-text-fill-color:#19372d!important;
+  text-shadow:none!important;
 }
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-field,.sf-adv-field,.sf-img-check){
-  background:rgba(255,255,255,.045)!important;
-  color:#f3fff9!important;
-  border-color:rgba(113,243,196,.24)!important;
+.sf-tool.sf-gpf-calculator .gpf-table th{background:#edf7f2!important;}
+.sf-tool.sf-gpf-calculator .gpf-table td{background:#fff!important;}
+.sf-tool.sf-gpf-calculator .gpf-table tfoot td{background:#edf7f2!important;}
+.sf-tool.sf-gpf-calculator .gpf-summary>div{background:#fff!important;border-color:#d5e8df!important;}
+.sf-tool.sf-gpf-calculator .gpf-rate-panel{background:#fff!important;}
+.sf-tool.sf-gpf-calculator #addRate{
+  background:linear-gradient(135deg,#d5ffec,#8cebc3)!important;
+  color:#08271e!important;-webkit-text-fill-color:#08271e!important;
+  border:1px solid #8bd9b6!important;text-shadow:none!important;
+  box-shadow:0 5px 14px rgba(36,201,149,.16)!important;
 }
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-field,.sf-adv-field,.sf-img-check) :is(label,span,strong,small,p){
-  color:#eafaf2!important;-webkit-text-fill-color:#eafaf2!important;text-shadow:none!important;
-}
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-header,.sf-adv-heading,.sf-tool-intro,.sf-jdh-intro,.sf-jdh-footer-note){
-  color:#f3fff9!important;
-}
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-header,.sf-adv-heading,.sf-tool-intro,.sf-jdh-intro) :is(h1,h2,h3,h4,p,span,small){
-  color:#f3fff9!important;-webkit-text-fill-color:#f3fff9!important;
-}
-
-/* Preview canvases/cards stay light so photos, PDF pages and thumbnails remain true-to-life. */
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-preview-card,.sf-preview-tile,.sf-img-checker-card){
-  background:#fff!important;color:#17352b!important;border-color:#b8d9cb!important;
-}
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-preview-card,.sf-preview-tile,.sf-img-checker-card)
- :is(h1,h2,h3,h4,p,label,strong,b,small,span,li,div){
-  color:#17352b!important;-webkit-text-fill-color:#17352b!important;text-shadow:none!important;
-}
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-preview,.sf-adv-preview,.sf-new-stage-wrap,.sf-pdf-large-wrap,.sf-pdf-large-stage,.sf-preview-grid,.sf-new-thumbs){
-  background:#e9f0ed!important;border-color:#9cbcaf!important;color:#17352b!important;
-}
-
-/* Status and file-list panels use a subdued teal; errors remain clearly red. */
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-status,.sf-adv-status,.sf-pdf-merge__status,.sf-pdf-merge__files,.sf-dd-note,.sf-ac-note,.sf-cm-note,.sf-jdh-results,.sf-bm-guide,.sf-mb-guide){
-  background:rgba(36,201,149,.085)!important;
-  color:#e9fff5!important;
-  border-color:rgba(113,243,196,.25)!important;
-}
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-status,.sf-adv-status,.sf-pdf-merge__status,.sf-dd-note,.sf-ac-note,.sf-cm-note,.sf-jdh-results,.sf-bm-guide,.sf-mb-guide)
- :is(p,span,strong,small,li){color:#e9fff5!important;-webkit-text-fill-color:#e9fff5!important;}
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-status,.sf-adv-status).is-error,
-.sf-tool:not(.sf-finance-tool) :is(.sf-img-status,.sf-adv-status)[data-state="error"]{
-  background:rgba(169,52,69,.18)!important;border-color:rgba(255,154,168,.55)!important;color:#ffe9ed!important;
-}
-
-/* PDF toolbar and merge-file rows: dark controls, light page canvas remains untouched. */
-.sf-tool:not(.sf-finance-tool) .sf-pdf-canvas-controls{
-  background:linear-gradient(135deg,#123b3b,#0c2b32)!important;
-  border-color:rgba(113,243,196,.32)!important;
-}
-.sf-tool:not(.sf-finance-tool) .sf-pdf-canvas-controls :is(span,label,strong){
-  color:#eafaf2!important;-webkit-text-fill-color:#eafaf2!important;
-}
-.sf-tool:not(.sf-finance-tool) .sf-pdf-merge__files :is(.sf-pdf-merge__file,.sf-pdf-merge__empty){
-  background:rgba(255,255,255,.045)!important;color:#f3fff9!important;border-color:rgba(113,243,196,.25)!important;
-}
-.sf-tool:not(.sf-finance-tool) .sf-pdf-merge__files :is(strong,span,small){
-  color:#edfdf5!important;-webkit-text-fill-color:#edfdf5!important;
-}
-
-/* Choice tiles and printable/preview surfaces intentionally remain light. */
-.sf-tool:not(.sf-finance-tool) :is(.sf-new-fields label:has(input[type=checkbox]),.sf-permission-option){
-  background:rgba(255,255,255,.06)!important;color:#f3fff9!important;border-color:rgba(113,243,196,.25)!important;
-}
-.sf-tool:not(.sf-finance-tool) :is(.sf-new-fields label:has(input[type=checkbox]),.sf-permission-option) :is(span,strong,small){
-  color:#f3fff9!important;-webkit-text-fill-color:#f3fff9!important;
-}
-
-/* Shared controls: consistent Financial Tools green, mint primary, dark readable text. */
-.sf-tool:not(.sf-finance-tool) button:not(:disabled),
-.sf-tool:not(.sf-finance-tool) input[type=button]:not(:disabled),
-.sf-tool:not(.sf-finance-tool) input[type=submit]:not(:disabled),
-.sf-tool:not(.sf-finance-tool) input[type=reset]:not(:disabled),
-.sf-tool:not(.sf-finance-tool) .btn:not(:disabled),
-.sf-tool:not(.sf-finance-tool) [role=button]:not([aria-disabled=true]){
-  background:linear-gradient(135deg,#17664f,#104b3c)!important;
-  color:#fff!important;-webkit-text-fill-color:#fff!important;
-  border-color:rgba(142,255,213,.65)!important;text-shadow:none!important;
-}
-.sf-tool:not(.sf-finance-tool) button[class*=primary]:not(:disabled),
-.sf-tool:not(.sf-finance-tool) button[class*=run]:not(:disabled),
-.sf-tool:not(.sf-finance-tool) button[class*=download]:not(:disabled),
-.sf-tool:not(.sf-finance-tool) .btn-primary:not(:disabled),
-.sf-tool:not(.sf-finance-tool) input[type=submit]:not(:disabled){
-  background:linear-gradient(135deg,#c5ffe9,#63e6b8)!important;
-  color:#06251a!important;-webkit-text-fill-color:#06251a!important;
-  border-color:#9af4d1!important;text-shadow:none!important;
-}
-.sf-tool:not(.sf-finance-tool) button.secondary:not(:disabled),
-.sf-tool:not(.sf-finance-tool) button[class*=secondary]:not(:disabled),
-.sf-tool:not(.sf-finance-tool) button[class*=clear]:not(:disabled),
-.sf-tool:not(.sf-finance-tool) button[class*=reset]:not(:disabled){
-  background:linear-gradient(135deg,#23463d,#17372f)!important;
-  color:#f2fff9!important;-webkit-text-fill-color:#f2fff9!important;
-}
-.sf-tool:not(.sf-finance-tool) button:disabled,
-.sf-tool:not(.sf-finance-tool) input[type=button]:disabled,
-.sf-tool:not(.sf-finance-tool) input[type=submit]:disabled{
-  background:#28443f!important;color:#a9c2b8!important;
-  -webkit-text-fill-color:#a9c2b8!important;border-color:rgba(157,224,199,.25)!important;
-  box-shadow:none!important;filter:none!important;opacity:.62!important;
-}
+.sf-tool.sf-gpf-calculator #addRate:hover{background:linear-gradient(135deg,#e5fff4,#a4f4d2)!important;}
 
