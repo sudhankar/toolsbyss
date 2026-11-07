@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
       const firebaseAuth = firebase.auth();
-      firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+      firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
         firebaseAuth.onAuthStateChanged(currentUser => {
           if (currentUser && currentUser.emailVerified) startTool();
           else showWall();
