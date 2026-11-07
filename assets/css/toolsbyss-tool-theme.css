@@ -494,3 +494,88 @@ body[data-tool] main.wrap::before{
 }
 .sf-tool.sf-gpf-calculator #addRate:hover{background:linear-gradient(135deg,#e5fff4,#a4f4d2)!important;}
 
+
+
+/* FINAL NON-FINANCIAL BUTTON CONTRAST FIX — 2026-11-06.
+   The legacy generic button selectors above use many :not() clauses with
+   !important, giving them higher specificity than the intended .sf-tool
+   button styles. These final selectors deliberately outrank those legacy
+   rules, but exclude all finance tools so their established appearance stays
+   exactly as it is. No dimensions, event handlers, or tool logic are changed. */
+
+/* Regular actions: deep green surface + solid white text for clear contrast. */
+.sf-tool:not([data-sf-tool^="finance-"]) button:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]):not([data-variant="danger"]),
+.sf-tool:not([data-sf-tool^="finance-"]) input[type="button"]:not(:disabled),
+.sf-tool:not([data-sf-tool^="finance-"]) input[type="reset"]:not(:disabled),
+.sf-tool:not([data-sf-tool^="finance-"]) a.btn:not(.btn-primary):not(.button-primary):not([class*="primary"]):not([class*="danger"]):not([class*="delete"]):not([class*="remove"]),
+.sf-tool:not([data-sf-tool^="finance-"]) a.button:not(.btn-primary):not(.button-primary):not([class*="primary"]):not([class*="danger"]):not([class*="delete"]):not([class*="remove"]),
+.sf-tool:not([data-sf-tool^="finance-"]) .btn:not(.btn-primary):not(.button-primary):not([class*="primary"]):not([class*="danger"]):not([class*="delete"]):not([class*="remove"]),
+.sf-tool:not([data-sf-tool^="finance-"]) .button:not(.btn-primary):not(.button-primary):not([class*="primary"]):not([class*="danger"]):not([class*="delete"]):not([class*="remove"]),
+.sf-tool:not([data-sf-tool^="finance-"]) [role="button"]:not([aria-disabled="true"]):not([class*="primary"]):not([class*="danger"]):not([class*="delete"]):not([class*="remove"]){
+  background:linear-gradient(135deg,#17664f,#104b3c)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border:1px solid rgba(142,255,213,.78)!important;
+  text-shadow:0 1px 1px rgba(0,0,0,.24)!important;
+  box-shadow:0 5px 14px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.10)!important;
+  opacity:1!important;
+}
+
+/* Primary / download / generate / process / calculate actions:
+   mint background must always pair with dark ink, never white text. */
+.sf-tool:not([data-sf-tool^="finance-"]) button.primary:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]):not([data-variant="danger"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="primary"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]):not([data-variant="danger"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="download"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]):not([data-variant="danger"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="generate"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]):not([data-variant="danger"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="process"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]):not([data-variant="danger"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="calculate"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]):not([data-variant="danger"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="export"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]):not([data-variant="danger"]),
+.sf-tool:not([data-sf-tool^="finance-"]) input[type="submit"]:not(:disabled),
+.sf-tool:not([data-sf-tool^="finance-"]) .btn-primary,
+.sf-tool:not([data-sf-tool^="finance-"]) .button-primary,
+.sf-tool:not([data-sf-tool^="finance-"]) a[class*="primary"]{
+  background:linear-gradient(135deg,#c5ffe9,#63e6b8)!important;
+  color:#06251a!important;
+  -webkit-text-fill-color:#06251a!important;
+  border:1px solid #9af4d1!important;
+  text-shadow:none!important;
+  box-shadow:0 7px 18px rgba(36,201,149,.23)!important;
+}
+
+/* Secondary / reset / clear actions retain a darker secondary-green finish. */
+.sf-tool:not([data-sf-tool^="finance-"]) button.secondary:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="secondary"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="reset"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="clear"]:not(:disabled):not(.danger):not(.delete):not(.remove):not([class*="danger"]):not([class*="delete"]),
+.sf-tool:not([data-sf-tool^="finance-"]) .btn-secondary,
+.sf-tool:not([data-sf-tool^="finance-"]) .button-secondary{
+  background:linear-gradient(135deg,#23463d,#17372f)!important;
+  color:#f2fff9!important;
+  -webkit-text-fill-color:#f2fff9!important;
+  border:1px solid rgba(157,224,199,.62)!important;
+  text-shadow:none!important;
+}
+
+/* Destructive actions remain unmistakably red. */
+.sf-tool:not([data-sf-tool^="finance-"]) button.danger:not(:disabled),
+.sf-tool:not([data-sf-tool^="finance-"]) button.delete:not(:disabled),
+.sf-tool:not([data-sf-tool^="finance-"]) button.remove:not(:disabled),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="danger"]:not(:disabled),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="delete"]:not(:disabled),
+.sf-tool:not([data-sf-tool^="finance-"]) button[class*="remove"]:not(:disabled){
+  background:linear-gradient(135deg,#a93445,#7f2032)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border:1px solid #ff9aa8!important;
+  text-shadow:none!important;
+}
+
+.sf-tool:not([data-sf-tool^="finance-"]) button:not(:disabled):hover,
+.sf-tool:not([data-sf-tool^="finance-"]) input[type="button"]:not(:disabled):hover,
+.sf-tool:not([data-sf-tool^="finance-"]) input[type="submit"]:not(:disabled):hover,
+.sf-tool:not([data-sf-tool^="finance-"]) a.btn:hover,
+.sf-tool:not([data-sf-tool^="finance-"]) a.button:hover,
+.sf-tool:not([data-sf-tool^="finance-"]) .btn:hover,
+.sf-tool:not([data-sf-tool^="finance-"]) .button:hover{
+  filter:brightness(1.08)!important;
+}
