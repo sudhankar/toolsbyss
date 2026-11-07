@@ -390,7 +390,7 @@
       }
 
       auth = firebase.auth();
-      auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         .then(() => auth.onAuthStateChanged(handleAuthState))
         .catch(error => {
           console.error('Firebase persistence setup failed:', error);
